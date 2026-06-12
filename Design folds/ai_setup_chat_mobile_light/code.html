@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: var(--background-primary);
+        }
+        .chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .w-message {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+        .u-message {
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+        }
+        .typing-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: var(--accent-primary);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Progress Anchor -->
+<div class="fixed top-0 left-0 w-full h-[2px] bg-signal-green z-[100]"></div>
+<!-- Top Navigation Anchor (Manual Implementation based on System Setup context) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-transparent">
+<div class="flex items-center gap-2">
+<div class="font-headline-md text-headline-md tracking-tighter text-operator-dark">Wagora</div>
+</div>
+<button class="p-2 rounded-full border border-border-subtle bg-surface-container-lowest hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="light_mode">light_mode</span>
+</button>
+</header>
+<!-- Chat Thread Area -->
+<main class="flex-grow pt-24 pb-48 px-4 chat-container w-full">
+<div class="flex flex-col space-y-10">
+<!-- Wagora Message -->
+<div class="flex flex-col items-start max-w-[85%] group">
+<span class="font-mono-data text-[11px] font-semibold text-strategist-blue mb-2 ml-4 uppercase tracking-widest">Wagora</span>
+<div class="w-message bg-[var(--surface-card)] border border-border-subtle p-stack-lg rounded-xl shadow-sm">
+<p class="font-body-lg text-body-lg text-operator-dark leading-relaxed">
+                        Tell me what you want to build. Be as specific or as broad as you want — Wagora will ask for what it needs.
+                    </p>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end self-end max-w-[85%] group">
+<div class="u-message bg-[var(--surface-elevated)] border border-outline-variant p-stack-lg rounded-xl">
+<p class="font-body-lg text-body-lg text-operator-dark leading-relaxed">
+                        Find 50 Lagos-based e-commerce founders and pitch them our brand identity package. Budget $1,500 to $5,000.
+                    </p>
+</div>
+</div>
+<!-- Typing Indicator -->
+<div class="flex flex-col items-start">
+<div class="w-message bg-white/50 border border-border-subtle/50 px-4 py-3 rounded-xl flex items-center space-x-1 ml-0">
+<div class="typing-dot"></div>
+<div class="typing-dot opacity-60"></div>
+<div class="typing-dot opacity-30"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Focused Input Area -->
+<section class="fixed bottom-0 left-0 w-full bg-[var(--surface-card)] border-t border-border-subtle pb-8 pt-6 px-4 z-50">
+<div class="chat-container">
+<div class="relative bg-surface-container-lowest border border-border-subtle rounded-xl p-2 focus-within:ring-1 focus-within:ring-strategist-blue transition-all">
+<textarea class="w-full bg-transparent border-none focus:ring-0 font-body-md text-body-md py-2 px-3 resize-none min-h-[44px]" placeholder="Type your strategic intent..." rows="1"></textarea>
+<div class="flex justify-between items-center mt-2 px-2 pb-1">
+<div class="flex gap-2">
+<button class="p-1.5 text-ally-slate hover:text-operator-dark transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="attach_file">attach_file</span>
+</button>
+</div>
+<button class="bg-operator-dark text-white font-label-caps text-label-caps px-6 py-2.5 rounded hover:opacity-90 active:scale-95 transition-all uppercase tracking-wider">
+                        Send
+                    </button>
+</div>
+</div>
+<div class="mt-6 flex justify-center">
+<a class="font-body-md text-body-md text-ally-slate hover:text-operator-dark transition-colors flex items-center gap-2 group" href="#">
+                    Set up manually instead
+                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Subtle Operator Texture (Invisible Data Anchor) -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-[0.03]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCZR1g7JUPiftw9BRpbDej1dgSed_HF4NTVwmBNisUolaDOUCJVY_wMWX6DbcVoUyPx183Yk1OOX41Nv2PNEeFRVbwpr0Neyyn2fzyE_R6VItrgmYAE8I-o6VNXi5F0FOpO2HBLU0UkJsrhqT7YGB9XvHORvWqbUSeTPuN5yrKvUxpdF1jgruNJbT57JbZbPJPpXuLsVttLezwwDNcpOwGK5uvTnc9TYqsJ1KAM9RMy5dbTdODHFa4jVDAEtwnq45FNIfb6Bf7oFIY');">
+</div>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<title>Wagora AI - Onboarding Step 3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: var(--background-primary);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation Bar (Shared Component Style) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[var(--background-secondary)] border-b border-[var(--border-default)]">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-[var(--text-primary)] tracking-tighter font-headline-lg">Wagora AI</span>
+</div>
+<div class="flex-1 max-w-md px-12">
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-signal-green h-full w-[75%]"></div>
+</div>
+</div>
+<div class="text-[var(--text-secondary)] font-label-caps uppercase tracking-widest text-[11px] font-bold">
+            Step 3/4
+        </div>
+</header>
+<main class="pt-24 pb-32 px-margin-page max-w-6xl mx-auto">
+<!-- Headline Section -->
+<section class="mb-12">
+<h1 class="font-headline-lg text-display-xl text-operator-dark mb-stack-sm">Where Wagora reaches out.</h1>
+<p class="font-body-lg text-ally-slate max-w-2xl">Connect your accounts. Set your limits. Wagora operates within those boundaries.</p>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-grid">
+<!-- Platform Connection Grid -->
+<div class="md:col-span-8 space-y-gutter-grid">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-stack-lg">
+<!-- Email Platform Card -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card flex flex-col justify-between h-full">
+<div>
+<div class="flex items-center justify-between mb-stack-md">
+<span class="material-symbols-outlined text-operator-dark" data-icon="mail">mail</span>
+<span class="material-symbols-outlined text-signal-green" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h3 class="font-headline-md text-operator-dark mb-stack-sm">Email</h3>
+<p class="font-body-md text-ally-slate text-sm mb-stack-lg">Connected as operator@wagora.io</p>
+</div>
+<button class="w-full py-2 border border-border-subtle font-label-caps text-ally-slate hover:bg-surface-neutral transition-colors text-center">
+                            Disconnect
+                        </button>
+</div>
+<!-- LinkedIn Platform Card -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card flex flex-col justify-between h-full">
+<div>
+<div class="flex items-center justify-between mb-stack-md">
+<span class="material-symbols-outlined text-operator-dark" data-icon="share">share</span>
+</div>
+<h3 class="font-headline-md text-operator-dark mb-stack-sm">LinkedIn</h3>
+<p class="font-body-md text-ally-slate text-sm mb-stack-lg">Connect your profile to start automation.</p>
+</div>
+<button class="w-full py-2 bg-operator-dark text-on-primary font-label-caps hover:bg-slate-800 transition-colors">
+                            Connect account
+                        </button>
+</div>
+<!-- Instagram Platform Card (Locked) -->
+<div class="bg-surface-neutral border border-border-subtle border-dashed p-padding-card flex flex-col justify-between h-full opacity-80">
+<div>
+<div class="flex items-center justify-between mb-stack-md">
+<span class="material-symbols-outlined text-outline" data-icon="photo_camera">photo_camera</span>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="lock">lock</span>
+</div>
+<h3 class="font-headline-md text-outline mb-stack-sm">Instagram</h3>
+<p class="font-body-md text-outline text-sm mb-stack-lg">Social sequence integration.</p>
+</div>
+<button class="w-full py-2 bg-surface-variant text-on-surface-variant font-label-caps cursor-not-allowed text-xs">
+                            Upgrade to unlock
+                        </button>
+</div>
+</div>
+<!-- Outreach Limits Section -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card">
+<div class="flex items-center gap-2 mb-stack-lg">
+<span class="material-symbols-outlined text-operator-dark text-lg" data-icon="speed">speed</span>
+<h2 class="font-headline-md text-operator-dark">Daily outreach limits</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-gutter-grid">
+<div>
+<label class="font-label-caps text-ally-slate block mb-stack-sm">Email per day</label>
+<input class="w-full bg-surface-neutral border-border-subtle font-mono-data text-operator-dark focus:ring-1 focus:ring-strategist-blue focus:border-strategist-blue p-3" type="number" value="50"/>
+<p class="text-[10px] text-ally-slate mt-1 italic">Recommended: 40-60</p>
+</div>
+<div>
+<label class="font-label-caps text-ally-slate block mb-stack-sm">LinkedIn InMails</label>
+<input class="w-full bg-surface-neutral border-border-subtle font-mono-data text-operator-dark focus:ring-1 focus:ring-strategist-blue focus:border-strategist-blue p-3" type="number" value="20"/>
+<p class="text-[10px] text-ally-slate mt-1 italic">Recommended: 15-25</p>
+</div>
+<div>
+<label class="font-label-caps text-ally-slate block mb-stack-sm">Instagram DMs</label>
+<input class="w-full bg-surface-variant border-border-subtle font-mono-data text-on-surface-variant p-3 cursor-not-allowed" disabled="" placeholder="-" type="number"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Follow-up Intervals & Secondary Side -->
+<div class="md:col-span-4 space-y-gutter-grid">
+<div class="bg-operator-dark text-on-primary p-padding-card rounded-lg">
+<div class="flex items-center gap-2 mb-stack-lg">
+<span class="material-symbols-outlined text-signal-green" data-icon="schedule">schedule</span>
+<h2 class="font-headline-md">Follow-up intervals</h2>
+</div>
+<p class="font-body-md text-on-primary-container mb-stack-lg text-sm">Define the gap between automated outreach attempts.</p>
+<div class="space-y-stack-lg">
+<div class="flex items-center justify-between">
+<label class="font-label-caps">Attempt 1 → 2</label>
+<div class="flex items-center gap-2">
+<input class="w-16 bg-slate-800 border-slate-700 text-on-primary font-mono-data text-center p-2" type="number" value="3"/>
+<span class="font-label-caps text-xs">Days</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="font-label-caps">Attempt 2 → 3</label>
+<div class="flex items-center gap-2">
+<input class="w-16 bg-slate-800 border-slate-700 text-on-primary font-mono-data text-center p-2" type="number" value="7"/>
+<span class="font-label-caps text-xs">Days</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="font-label-caps">Attempt 3 → 4</label>
+<div class="flex items-center gap-2">
+<input class="w-16 bg-slate-800 border-slate-700 text-on-primary font-mono-data text-center p-2" type="number" value="14"/>
+<span class="font-label-caps text-xs">Days</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card">
+<img alt="Analytics Preview" class="w-full h-32 object-cover mb-stack-md grayscale hover:grayscale-0 transition-all" data-alt="A clean, high-contrast data visualization showing network growth and connectivity in a minimalist professional interface. The image features a white background with sharp blue and slate colored lines representing data pathways. Soft studio lighting highlights the precision and analytical mood of the dashboard design, maintaining a calm but authoritative technological aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp98gFeGoeI3KvJMPDa3QXX-sI9CsRcD2F5BGaqPwZuu-6shyOhj8jmXfEtdpivbvFX-JxLDyByBO9ontPf_vp1Or4RTOCs1SoN-N9hmpofvBQFWxApGNX2syqkTlIWc180uTedR0NR87--grxGNVwsh0tXTrofvI8K4Qdw0cTVYIevYkSVUYwLqa9HZFUNkIp0KBi1J0vjGj1QGt4iXACUleyOVgPc96E5TqI7zq9UN2upFaeCNlajnaGwBdXuAjzT_NUd452_Vo"/>
+<h4 class="font-headline-md text-sm text-operator-dark">Safety First</h4>
+<p class="font-body-md text-xs text-ally-slate mt-1">Wagora mimics human patterns to protect your account reputation across all platforms.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<footer class="fixed bottom-0 w-full z-50 flex justify-end items-center px-margin-page h-20 bg-[color-mix(in_srgb,var(--surface-card)_90%,transparent)] backdrop-blur-md border-t border-[var(--border-default)]">
+<div class="flex items-center gap-stack-lg">
+<button class="px-6 py-2 border border-border-subtle font-label-caps text-ally-slate hover:bg-surface-neutral transition-colors">
+                Back
+            </button>
+<button class="px-10 py-3 bg-operator-dark text-on-primary font-label-caps text-sm hover:bg-slate-800 transition-all flex items-center gap-2">
+                Continue
+                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

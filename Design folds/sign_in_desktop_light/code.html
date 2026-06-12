@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        body {
+            background-color: var(--background-primary); /* background-primary from prompt */
+        }
+        .watermark {
+            opacity: 0.03;
+            pointer-events: none;
+            user-select: none;
+        }
+        .text-clash {
+            font-family: var(--font-display); /* Fallback for Clash Display Bold */
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-gutter-grid font-body-md antialiased text-on-background">
+<!-- Wagora glyph watermark centered behind card -->
+<div class="fixed inset-0 flex items-center justify-center z-0 overflow-hidden">
+<span class="material-symbols-outlined watermark scale-[20] rotate-12" style="font-variation-settings: 'FILL' 1;">
+            dashboard
+        </span>
+</div>
+<!-- Main Container -->
+<div class="relative z-10 w-full flex flex-col items-center gap-stack-lg">
+<!-- Logo Section -->
+<div class="flex flex-col items-center gap-stack-sm">
+<div class="w-12 h-12 bg-operator-dark rounded flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="dashboard">dashboard</span>
+</div>
+</div>
+<!-- Auth Card -->
+<main class="w-full max-w-[400px] bg-surface-container-lowest border border-border-subtle rounded-xl p-8 shadow-sm">
+<header class="mb-8">
+<h1 class="text-headline-lg font-headline-lg text-clash text-primary">Welcome back.</h1>
+<p class="text-body-md font-body-md text-ally-slate mt-2">Sign in to the Operator Console.</p>
+</header>
+<form class="space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block text-label-caps font-label-caps text-on-surface-variant" for="email">EMAIL ADDRESS</label>
+<input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded text-body-md font-body-md focus:ring-1 focus:ring-strategist-blue focus:border-strategist-blue outline-none transition-all placeholder:text-outline-variant" id="email" placeholder="operator@wagora.io" type="email"/>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block text-label-caps font-label-caps text-on-surface-variant" for="password">PASSWORD</label>
+<a class="text-label-caps font-label-caps text-strategist-blue hover:underline transition-all" href="#">Forgot password?</a>
+</div>
+<input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded text-body-md font-body-md focus:ring-1 focus:ring-strategist-blue focus:border-strategist-blue outline-none transition-all placeholder:text-outline-variant" id="password" placeholder="••••••••" type="password"/>
+</div>
+<!-- CTA -->
+<button class="w-full h-12 bg-operator-dark hover:bg-[var(--accent-primary-hover)] text-white font-headline-md text-sm rounded transition-all active:scale-[0.98] flex items-center justify-center" type="submit">
+                    Sign in
+                </button>
+</form>
+<!-- Footer Section inside card -->
+<div class="mt-8 pt-6 border-t border-border-subtle text-center">
+<p class="text-body-md font-body-md text-ally-slate">
+                    Don't have an account? 
+                    <a class="text-operator-dark font-semibold hover:underline" href="#">Start free</a>
+</p>
+</div>
+</main>
+<!-- Aesthetic Footer Placeholder -->
+<footer class="mt-8">
+<div class="flex items-center gap-stack-md opacity-40">
+<span class="text-label-caps font-label-caps text-on-surface-variant">SECURE ACCESS</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">OPERATOR V1.0</span>
+</div>
+</footer>
+</div>
+<!-- Hidden visual reference for the system context -->
+<div class="hidden">
+<img data-alt="A clean, minimalist workspace scene featuring a single high-end metallic laptop on a pristine white desk. The lighting is bright and airy, representing a sophisticated light-mode environment with soft shadows. The background is a soft beige limestone wall, echoing a quiet, professional atmosphere of strategic focus and digital precision. The composition is centered and balanced, emphasizing stability and control." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOqLY4s_Pi5WyKRoQ_J_Txtyv9trxLV622dvXAoC1rRotxnNtOW9EHvyxi2WAY1pFUKs0o1tBGD89rzLq_BtxhnYXNBG361hRqomeDuijXI49J-putfE0DAWSKyNOM9KXwigXa89yitZHIGWYYn62oj_P0wD41HzaErE4e6VCkbbpjIdqFPllJNvOjWbgpQSmoznesCaFw75YE7umqqoOMlQabclptrYAzfD00p_IGVugBgTNjaNj1MRLi13-2p2tSiUQiKPLkpeo"/>
+</div>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

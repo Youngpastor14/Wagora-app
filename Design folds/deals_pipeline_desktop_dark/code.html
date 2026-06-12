@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        body {
+            background-color: var(--background-primary);
+            color: var(--background-primary);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-teal-accent/30">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[220px] border-r border-[var(--border-default)] bg-[var(--background-primary)] flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="font-[var(--font-display)] font-semibold text-lg text-[var(--text-primary)] tracking-tight">Quiet Operator</h1>
+<p class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mt-1">Autonomous AI</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--accent-primary)] font-medium bg-[var(--background-secondary)] border-r-2 border-[var(--accent-primary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Campaigns</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Conversations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Analytics</span>
+</a>
+</nav>
+<div class="pt-6 mt-6 border-t border-[var(--border-default)] space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-[220px] h-16 border-b border-[var(--border-default)] bg-[var(--background-primary)]/80 backdrop-blur-md flex justify-between items-center px-8 w-full z-40">
+<div class="flex items-center gap-2">
+<span class="font-[var(--font-display)] uppercase tracking-widest text-xs text-[var(--accent-primary)]">Wagora AI</span>
+<span class="text-zinc-700 mx-2">/</span>
+<span class="font-[var(--font-display)] uppercase tracking-widest text-xs text-[var(--text-primary)]">Deals Pipeline</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all active:scale-95">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all active:scale-95 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-1.5 h-1.5 bg-teal-500 rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-[var(--border-default)]">
+<img class="w-full h-full object-cover" data-alt="Close-up professional portrait of a tech executive in a dark studio setting. The lighting is moody and dramatic with soft highlights on the face, creating a high-end editorial look. The background is a deep, textured dark charcoal that complements the quiet operator brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP2g39TQJeQVl_0nIokvKfG2ucosxniTwGqqVqdYYJvD1qF8OR4Hf_EQFuIOIjMNMRmE9XDr36kttoG8RZ0shAYeUlBmmho3P8fyN5aJmzZxApDlZKhL_j8j2eryfQrezmYS9ZQB-8fmujRQF0qu6sFtZ6A6srkPSRJEKv-9KoBLSvBXyswrrRhLW0qnVPsvjneI_0ZG9t29-Timh5RDBlJr16IsN4Z1vcwhY1aNNlCqu8T1v224w-6WH5iqEzNaqoOtTTMFYQz7M"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pl-[220px] pt-16 min-h-screen">
+<div class="flex h-[calc(100vh-64px)] overflow-hidden">
+<!-- Center Content (Table and Metrics) -->
+<div class="flex-1 overflow-y-auto p-8 border-r border-border-subtle bg-background">
+<!-- Row 1: Metric Cards -->
+<div class="grid grid-cols-3 gap-gutter-grid mb-stack-lg">
+<div class="bg-surface-container border border-border-subtle p-padding-card">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-stack-sm">TOTAL CLOSED</p>
+<div class="flex items-end justify-between">
+<h2 class="font-display-xl text-display-xl text-on-surface">142</h2>
+<span class="text-signal-green text-xs font-mono-data mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">arrow_upward</span> 12%
+                            </span>
+</div>
+</div>
+<div class="bg-surface-container border border-border-subtle p-padding-card">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-stack-sm">TOTAL VALUE</p>
+<div class="flex items-end justify-between">
+<h2 class="font-display-xl text-display-xl text-teal-accent">$1.2M</h2>
+<span class="text-signal-green text-xs font-mono-data mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">arrow_upward</span> 8.4%
+                            </span>
+</div>
+</div>
+<div class="bg-surface-container border border-border-subtle p-padding-card">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-stack-sm">AVG DEAL VALUE</p>
+<div class="flex items-end justify-between">
+<h2 class="font-display-xl text-display-xl text-on-surface">$8.4K</h2>
+<span class="text-on-surface-variant text-xs font-mono-data mb-1">Steady</span>
+</div>
+</div>
+</div>
+<!-- Row 2: Deals Table -->
+<div class="bg-surface-container border border-border-subtle overflow-hidden">
+<div class="px-6 py-4 border-b border-border-subtle flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md">Active Pipeline</h3>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-surface">filter_list</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-surface">search</span>
+</div>
+</div>
+<table class="w-full text-left">
+<thead class="bg-surface-container-low border-b border-border-subtle">
+<tr>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant">Client</th>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant">Company</th>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant">Service</th>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant text-right">Value</th>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant">Closed via</th>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant">Date</th>
+<th class="px-6 py-3 font-label-caps text-label-caps text-on-surface-variant">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle">
+<tr class="hover:bg-[var(--background-secondary)]/50 transition-colors group cursor-pointer">
+<td class="px-6 py-4 font-body-md text-on-surface">Marcus Thorne</td>
+<td class="px-6 py-4 text-on-surface-variant">Apex Systems</td>
+<td class="px-6 py-4 text-on-surface-variant">Enterprise Audit</td>
+<td class="px-6 py-4 text-right font-mono-data text-chartreuse-accent">$12,400</td>
+<td class="px-6 py-4 text-on-surface-variant">LinkedIn AI Agent</td>
+<td class="px-6 py-4 text-on-surface-variant">Oct 12, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-teal-accent/10 text-teal-accent text-[11px] font-medium border border-teal-accent/20">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span> Live
+                                    </span>
+</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)]/50 transition-colors group cursor-pointer bg-[var(--background-secondary)]/20">
+<td class="px-6 py-4 font-body-md text-on-surface">Sarah Chen</td>
+<td class="px-6 py-4 text-on-surface-variant">Lumina Bio</td>
+<td class="px-6 py-4 text-on-surface-variant">SDR Automation</td>
+<td class="px-6 py-4 text-right font-mono-data text-chartreuse-accent">$8,200</td>
+<td class="px-6 py-4 text-on-surface-variant">Email Outreach</td>
+<td class="px-6 py-4 text-on-surface-variant">Oct 11, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-chartreuse-accent/10 text-chartreuse-accent text-[11px] font-medium border border-chartreuse-accent/20">
+<span class="w-1.5 h-1.5 rounded-full bg-chartreuse-accent"></span> Closed
+                                    </span>
+</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)]/50 transition-colors group cursor-pointer">
+<td class="px-6 py-4 font-body-md text-on-surface">Jameson Wu</td>
+<td class="px-6 py-4 text-on-surface-variant">Nebula Cloud</td>
+<td class="px-6 py-4 text-on-surface-variant">Lead Gen Engine</td>
+<td class="px-6 py-4 text-right font-mono-data text-chartreuse-accent">$15,000</td>
+<td class="px-6 py-4 text-on-surface-variant">Inbound Bot</td>
+<td class="px-6 py-4 text-on-surface-variant">Oct 10, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-caution-amber/10 text-caution-amber text-[11px] font-medium border border-caution-amber/20">
+<span class="w-1.5 h-1.5 rounded-full bg-caution-amber"></span> Negotiating
+                                    </span>
+</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)]/50 transition-colors group cursor-pointer">
+<td class="px-6 py-4 font-body-md text-on-surface">Elena Rodriguez</td>
+<td class="px-6 py-4 text-on-surface-variant">Vortex Media</td>
+<td class="px-6 py-4 text-on-surface-variant">Scale Plan</td>
+<td class="px-6 py-4 text-right font-mono-data text-chartreuse-accent">$4,500</td>
+<td class="px-6 py-4 text-on-surface-variant">AI Voice Call</td>
+<td class="px-6 py-4 text-on-surface-variant">Oct 09, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-teal-accent/10 text-teal-accent text-[11px] font-medium border border-teal-accent/20">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span> Live
+                                    </span>
+</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)]/50 transition-colors group cursor-pointer">
+<td class="px-6 py-4 font-body-md text-on-surface">David Miller</td>
+<td class="px-6 py-4 text-on-surface-variant">Miller &amp; Co</td>
+<td class="px-6 py-4 text-on-surface-variant">Consultation</td>
+<td class="px-6 py-4 text-right font-mono-data text-chartreuse-accent">$2,100</td>
+<td class="px-6 py-4 text-on-surface-variant">Direct Mail</td>
+<td class="px-6 py-4 text-on-surface-variant">Oct 08, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-on-surface-variant/10 text-on-surface-variant text-[11px] font-medium border border-border-subtle">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Paused
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Sidebar: Deal Summary -->
+<aside class="w-[380px] bg-surface-container border-l border-border-subtle flex flex-col p-8 overflow-y-auto">
+<div class="mb-8 flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-chartreuse-accent shadow-[0_0_10px_rgba(209,253,10,0.4)]"></span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Deal closed.</h2>
+</div>
+<div class="space-y-6">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">CLIENT DETAILS</p>
+<div class="space-y-1">
+<h4 class="font-body-lg text-body-lg text-on-surface">Sarah Chen</h4>
+<p class="text-on-surface-variant text-sm">CTO at Lumina Bio</p>
+<p class="text-teal-accent text-sm font-mono-data mt-2">ID: DE-90231-A</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-border-subtle">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">SERVICE</p>
+<p class="text-on-surface font-medium">SDR Automation</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">VALUE</p>
+<p class="text-chartreuse-accent font-mono-data">$8,200.00</p>
+</div>
+</div>
+<div class="pt-6 border-t border-border-subtle">
+<div class="flex items-center justify-between mb-4">
+<p class="font-label-caps text-label-caps text-on-surface-variant">AI CONVERSATION SUMMARY</p>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">auto_awesome</span>
+</div>
+<div class="bg-background/50 border border-border-subtle p-4 rounded-lg">
+<p class="text-sm text-on-surface leading-relaxed italic">
+                                "The client expressed primary friction regarding current manual lead qualification delays. After demonstrating the Wagora latency reduction, Chen validated the SDR Automation module for Q4 rollout. Agreed on a 15-seat pilot starting Oct 15."
+                            </p>
+</div>
+</div>
+<div class="pt-6">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-4">COMMITMENTS</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-teal-accent text-lg">check_circle</span>
+<span class="text-sm text-on-surface">Integration with existing HubSpot CRM</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-teal-accent text-lg">check_circle</span>
+<span class="text-sm text-on-surface">Training session for 5 team leads</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-zinc-600 text-lg">radio_button_unchecked</span>
+<span class="text-sm text-on-surface">Custom API endpoint for Lumina Bio bio-data</span>
+</li>
+</ul>
+</div>
+<button class="w-full mt-4 py-3 bg-teal-accent text-tertiary font-semibold uppercase tracking-widest text-xs hover:opacity-90 transition-opacity">
+                        View Full Transcript
+                    </button>
+</div>
+<div class="mt-auto pt-8">
+<div class="p-4 bg-teal-accent/5 border border-teal-accent/20 rounded-xl">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-teal-accent">info</span>
+<p class="font-headline-md text-sm text-teal-accent">Operator Note</p>
+</div>
+<p class="text-xs text-on-primary-container leading-relaxed">
+                            Wagora flagged this account as a "Strategic Growth" partner. Suggesting automated follow-up in 45 days.
+                        </p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Contextual FAB (Suppressed on Details/Transaction) -->
+<!-- Not rendered as this is a focused Details/Dashboard hybrid -->
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

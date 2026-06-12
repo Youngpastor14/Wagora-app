@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: var(--background-primary);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+</head>
+<body class="bg-[var(--background-primary)] text-slate-200 font-body-md overflow-hidden h-screen flex">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 h-screen w-64 border-r border-slate-800 bg-[var(--background-primary)]">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-10 h-10 bg-slate-800 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-slate-100" data-icon="shield">shield</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-slate-100 font-headline-md leading-none">Wagora</h1>
+<p class="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-label-caps">Precision OS</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-[var(--font-display)] text-sm font-medium">Dashboard</span>
+</div>
+<div class="text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-[var(--font-display)] text-sm font-medium">Campaigns</span>
+</div>
+<!-- Active Tab: Prospects -->
+<div class="bg-slate-800/50 text-slate-100 border-l-2 border-blue-500 px-6 py-3 flex items-center gap-3 active:scale-[0.99] transition-all">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-[var(--font-display)] text-sm font-semibold">Prospects</span>
+</div>
+<div class="text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-[var(--font-display)] text-sm font-medium">Conversations</span>
+</div>
+<div class="text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span class="font-[var(--font-display)] text-sm font-medium">Deals</span>
+</div>
+<div class="text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-[var(--font-display)] text-sm font-medium">Analytics</span>
+</div>
+</nav>
+<div class="px-6 mb-6">
+<button class="w-full bg-[var(--surface-elevated)] text-[var(--text-primary)] font-semibold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-[var(--surface-card)] transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+<span class="font-[var(--font-display)] text-sm">New Campaign</span>
+</button>
+</div>
+<div class="pt-6 border-t border-slate-800">
+<div class="text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-[var(--font-display)] text-sm font-medium">Support</span>
+</div>
+<div class="text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-[var(--font-display)] text-sm font-medium">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 flex-1 flex flex-col">
+<!-- TopAppBar Anchor -->
+<header class="flex justify-between items-center h-16 px-8 w-full border-b border-slate-800 bg-[var(--background-primary)]">
+<div class="flex items-center gap-8 flex-1">
+<h2 class="text-lg font-bold tracking-tighter text-slate-100 font-[var(--font-display)]">Prospects</h2>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] text-lg" data-icon="search">search</span>
+<input class="w-full bg-slate-900/50 border border-slate-800 rounded-lg py-2 pl-10 pr-4 text-sm text-slate-300 placeholder:text-slate-600 focus:outline-none focus:ring-1 focus:ring-blue-500" placeholder="Search prospects..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[var(--text-secondary)] hover:text-slate-100 transition-colors">
+<button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button>
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-[var(--text-secondary)] hover:text-slate-100 transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-slate-700">
+<img alt="Operator Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate operator in a modern, dark-themed office setting. The lighting is low-key and dramatic, highlighting sharp contours and a focused expression. The background features muted slate and deep obsidian tones, echoing a high-end command console environment. The overall mood is one of steady accountability and strategic confidence, typical of an executive precision instrument." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiiSofKscvgr59NCqJZ2andKqe3mQ7aOC3FLeC-G6pInddvXiB-WGMxRBTH-JmEtN0gVvbwdLFi-QjYn4V8tivMtcyiY_OIgHQ6AqVkp2b-d2ctMAqrwDe5zHdlzRebq53FrydFMTbo7SpLT_nmqMKu1AM3w9NFBqtLgcsedRDA9XSd0M5CGQc-Kgfst1PLPgRIJ_A4acn1j2jxA38fSettFgYFP60VoBOLDdGOM6hScLUPpSKoA20vq91WSc6AIJcodljMGC85Yg"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 flex flex-col p-8 bg-[var(--background-primary)]">
+<!-- Empty State Central Hub (Bento-inspired center) -->
+<div class="flex-1 flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
+<div class="relative mb-8">
+<!-- Geometric Background Element -->
+<div class="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full scale-150"></div>
+<div class="relative w-24 h-24 bg-slate-900 border border-slate-800 flex items-center justify-center rounded-2xl shadow-2xl">
+<span class="material-symbols-outlined text-blue-500 text-5xl" data-icon="group" style="font-variation-settings: 'FILL' 0;">group</span>
+<div class="absolute -bottom-2 -right-2 bg-slate-900 border border-slate-800 p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-slate-100 text-lg" data-icon="shield">shield</span>
+</div>
+</div>
+</div>
+<h3 class="text-2xl font-bold text-blue-600 font-headline-md mb-2">No prospects yet.</h3>
+<p class="text-[var(--text-secondary)] text-body-md font-body-md max-w-sm mb-4">Start a campaign. Wagora handles the rest.</p>
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-600 uppercase mb-10">STEADY ACCOUNTABILITY</span>
+<button class="bg-[var(--surface-elevated)] text-[var(--text-primary)] font-bold px-8 py-4 rounded-xl flex items-center gap-3 hover:bg-[var(--surface-card)] active:scale-95 transition-all shadow-xl shadow-blue-500/5">
+<span class="material-symbols-outlined" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-[var(--font-display)]">Initialize Sourcing</span>
+</button>
+</div>
+<!-- Footer Feature Cards (Asymmetric Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 border-t border-slate-900 pt-12">
+<!-- Card 1 -->
+<div class="group bg-slate-900/30 border border-slate-800/50 p-6 rounded-2xl hover:border-slate-700 hover:bg-slate-900/50 transition-all">
+<div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mb-4 text-blue-400">
+<span class="material-symbols-outlined" data-icon="gps_fixed">gps_fixed</span>
+</div>
+<h4 class="text-slate-100 font-semibold mb-2 font-headline-md">Precision Sourcing</h4>
+<p class="text-[var(--text-secondary)] text-sm leading-relaxed">Our Quiet Operator engine identifies high-signal targets based on deep firmographic signals.</p>
+</div>
+<!-- Card 2 -->
+<div class="group bg-slate-900/30 border border-slate-800/50 p-6 rounded-2xl hover:border-slate-700 hover:bg-slate-900/50 transition-all">
+<div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mb-4 text-emerald-400">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<h4 class="text-slate-100 font-semibold mb-2 font-headline-md">Verified Data</h4>
+<p class="text-[var(--text-secondary)] text-sm leading-relaxed">Multi-point validation ensures zero bounce rates and high deliverability for every campaign.</p>
+</div>
+<!-- Card 3 -->
+<div class="group bg-slate-900/30 border border-slate-800/50 p-6 rounded-2xl hover:border-slate-700 hover:bg-slate-900/50 transition-all">
+<div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mb-4 text-amber-400">
+<span class="material-symbols-outlined" data-icon="queue">queue</span>
+</div>
+<h4 class="text-slate-100 font-semibold mb-2 font-headline-md">Smart Queuing</h4>
+<p class="text-[var(--text-secondary)] text-sm leading-relaxed">Automated prioritization of leads based on engagement probability and ICP scoring.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Polish: Grain Overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay">
+<svg height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+<filter id="noise">
+<feturbulence basefrequency="0.65" numoctaves="3" stitchtiles="stitch" type="fractalNoise"></feturbulence>
+</filter>
+<rect filter="url(#noise)" height="100" width="100"></rect>
+</svg>
+</div>
+</body></html>

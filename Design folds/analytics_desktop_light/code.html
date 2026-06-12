@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap');
+        .font-geist-mono { font-family: var(--font-mono); }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-screen w-64 border-r border-slate-800 bg-slate-950 flex flex-col h-full p-4 space-y-2 z-50">
+<div class="mb-8 px-2 py-4">
+<h1 class="text-xl font-black text-white tracking-tight uppercase">Wagora AI</h1>
+<p class="font-[var(--font-display)] text-xs uppercase tracking-widest font-semibold text-[var(--text-muted)] mt-1">Operator Console</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active State Logic: Analytics Screen maps to Performance or Dashboard. Using Dashboard as primary here as per side-nav labels -->
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-slate-100 font-[var(--font-display)] text-xs uppercase tracking-widest font-semibold transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-slate-100 font-[var(--font-display)] text-xs uppercase tracking-widest font-semibold transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+                Campaigns
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-slate-100 font-[var(--font-display)] text-xs uppercase tracking-widest font-semibold transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+                AI Agents
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-slate-100 font-[var(--font-display)] text-xs uppercase tracking-widest font-semibold transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Leads
+            </a>
+<!-- Active: Performance (Analytics) -->
+<a class="flex items-center gap-3 px-3 py-2 bg-slate-800 text-white rounded-sm font-[var(--font-display)] text-xs uppercase tracking-widest font-semibold transition-all duration-200 scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Performance
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-slate-100 font-[var(--font-display)] text-xs uppercase tracking-widest font-semibold transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<button class="mt-4 w-full py-3 bg-[var(--surface-card)] text-slate-950 font-bold uppercase text-[10px] tracking-widest rounded-sm hover:bg-[var(--border-default)] transition-colors">
+            New Campaign
+        </button>
+<div class="pt-4 border-t border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-slate-100 font-[var(--font-display)] text-xs uppercase tracking-widest font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+                Docs
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-slate-100 font-[var(--font-display)] text-xs uppercase tracking-widest font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-0 ml-64 bg-[var(--surface-card)] border-b border-[var(--border-default)] z-40">
+<div class="flex justify-between items-center w-full px-6 py-3">
+<div class="flex items-center gap-8">
+<span class="font-[var(--font-display)] text-sm font-medium text-[var(--text-primary)] dark:text-slate-50">Analytics</span>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex gap-6">
+<a class="text-[var(--text-primary)] font-semibold border-b-2 border-slate-900 dark:border-slate-50 font-[var(--font-display)] text-sm" href="#">Overview</a>
+<a class="text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--background-secondary)] transition-colors font-[var(--font-display)] text-sm" href="#">Real-time</a>
+<a class="text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--background-secondary)] transition-colors font-[var(--font-display)] text-sm" href="#">Conversions</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[var(--text-secondary)] font-[var(--font-display)] text-sm cursor-pointer hover:text-[var(--text-primary)]">Support</span>
+<button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button>
+<span class="material-symbols-outlined text-[var(--text-secondary)] cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-[var(--text-secondary)] cursor-pointer" data-icon="help_outline">help_outline</span>
+<div class="h-8 w-8 rounded-full bg-[var(--border-default)] overflow-hidden border border-[var(--border-default)]">
+<img alt="User profile" data-alt="A professional headshot of a minimalist corporate avatar user for a high-end analytics platform. The avatar is presented as a clean, vector-style illustration with a neutral facial expression and modern attire. The background is a soft, muted grey, aligning with a quiet operator aesthetic that feels sophisticated, reliable, and technically focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4E0qhKc33GGyXk2Suy-07jrUpD8kQm0n5qrXXm4X_HuEpCwYiDL8evTA2WC0NabpojHwA4v8QvjxHxj_LzHZ6CRRhCCJldW-4MEo6XBdsNuaJjAbWzH4NWgH1WakPNTQmRt1EyRTxAR5RjRgteoKh_44uLV5HoQUKKnDjxnYKnu5BJ9RErt3Sc0o_-BsSAgsLXYtHQZlYDz5_rzUTUSG_KzWZdBW8FiBpUVs63fE2xJy98NPcpyLG7qx3vyQMwUAx61tUVtGl8ZA"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 pl-64 min-h-screen">
+<div class="max-w-[1200px] mx-auto px-margin-page pb-12">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-stack-lg">
+<div>
+<h2 class="font-headline-lg text-display-xl text-primary tracking-tight">Analytics</h2>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-transparent border border-border-subtle hover:bg-surface-container transition-colors rounded-lg text-body-md font-medium text-ally-slate">
+                    Last 30 Days
+                    <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Row 1: Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-gutter-grid mb-stack-lg">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-padding-card rounded-xl border border-border-subtle">
+<p class="font-label-caps text-on-tertiary-container mb-stack-sm uppercase">Prospects identified</p>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-lg font-bold text-operator-dark">1,240</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-padding-card rounded-xl border border-border-subtle">
+<p class="font-label-caps text-on-tertiary-container mb-stack-sm uppercase">Reply rate</p>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-lg font-geist-mono text-operator-dark">14.2%</span>
+<span class="text-signal-green font-geist-mono text-xs font-medium">+2.4%</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-padding-card rounded-xl border border-border-subtle">
+<p class="font-label-caps text-on-tertiary-container mb-stack-sm uppercase">Closing rate</p>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-lg font-geist-mono text-operator-dark">8.6%</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-padding-card rounded-xl border border-border-subtle">
+<p class="font-label-caps text-on-tertiary-container mb-stack-sm uppercase">Avg time to close</p>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-lg font-geist-mono text-operator-dark">12 days</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest p-padding-card rounded-xl border border-border-subtle">
+<p class="font-label-caps text-on-tertiary-container mb-stack-sm uppercase">Revenue secured</p>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-lg font-geist-mono text-operator-dark">$240k</span>
+<span class="text-signal-green font-geist-mono text-xs font-medium">+12%</span>
+</div>
+</div>
+</div>
+<!-- Row 2: Prospects and Replies -->
+<div class="grid grid-cols-1 lg:grid-cols-10 gap-gutter-grid mb-stack-lg">
+<!-- Left: Prospects Over Time (60%) -->
+<div class="lg:col-span-6 bg-surface-container-lowest p-stack-lg rounded-xl border border-border-subtle">
+<h3 class="font-label-caps text-on-tertiary-container uppercase mb-8">PROSPECTS OVER TIME</h3>
+<div class="h-64 w-full relative flex flex-col justify-end">
+<!-- Horizontal Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="border-b border-border-subtle w-full h-0"></div>
+<div class="border-b border-border-subtle w-full h-0"></div>
+<div class="border-b border-border-subtle w-full h-0"></div>
+<div class="border-b border-border-subtle w-full h-0"></div>
+<div class="border-b border-border-subtle w-full h-0"></div>
+</div>
+<!-- Line Chart Visual (SVG) -->
+<div class="relative h-48 w-full">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 600 200">
+<path d="M0,180 L60,150 L120,165 L180,120 L240,135 L300,80 L360,95 L420,40 L480,55 L540,20 L600,10" fill="none" stroke="var(--success)" stroke-width="2.5"></path>
+<path d="M0,180 L60,150 L120,165 L180,120 L240,135 L300,80 L360,95 L420,40 L480,55 L540,20 L600,10 L600,200 L0,200 Z" fill="url(#gradient-teal)" opacity="0.1"></path>
+<defs>
+<lineargradient id="gradient-teal" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:var(--success);stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:var(--success);stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<!-- Axis Labels -->
+<div class="flex justify-between mt-4 font-geist-mono text-[11px] text-on-tertiary-container">
+<span>01 OCT</span>
+<span>07 OCT</span>
+<span>14 OCT</span>
+<span>21 OCT</span>
+<span>28 OCT</span>
+</div>
+</div>
+</div>
+<!-- Right: Replies by Platform (40%) -->
+<div class="lg:col-span-4 bg-surface-container-lowest p-stack-lg rounded-xl border border-border-subtle">
+<h3 class="font-label-caps text-on-tertiary-container uppercase mb-8">REPLIES BY PLATFORM</h3>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-body-md font-geist-mono">
+<span class="text-operator-dark">Email</span>
+<span class="text-ally-slate">482</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-strategist-blue w-[85%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-body-md font-geist-mono">
+<span class="text-operator-dark">LinkedIn</span>
+<span class="text-ally-slate">312</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-strategist-blue w-[60%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-body-md font-geist-mono">
+<span class="text-operator-dark">Instagram</span>
+<span class="text-ally-slate">124</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-strategist-blue w-[25%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 3: Closing Path and Campaign Performance -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-grid">
+<!-- Left: Closing Path Breakdown -->
+<div class="bg-surface-container-lowest p-stack-lg rounded-xl border border-border-subtle flex flex-col items-center">
+<h3 class="font-label-caps text-on-tertiary-container uppercase mb-8 w-full">CLOSING PATH BREAKDOWN</h3>
+<div class="relative w-48 h-48 mb-8">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="var(--border-default)" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="var(--success)" stroke-dasharray="100" stroke-dashoffset="40" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="var(--accent-secondary)" stroke-dasharray="100" stroke-dashoffset="85" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-headline-lg font-geist-mono">100%</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-8 w-full px-4">
+<div class="text-center">
+<div class="flex items-center justify-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-signal-green"></span>
+<span class="font-label-caps text-[10px] text-ally-slate">FAST</span>
+</div>
+<p class="font-geist-mono text-body-md">60%</p>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-chartreuse-accent"></span>
+<span class="font-label-caps text-[10px] text-ally-slate">CALL</span>
+</div>
+<p class="font-geist-mono text-body-md">25%</p>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-slate-300"></span>
+<span class="font-label-caps text-[10px] text-ally-slate">NURTURED</span>
+</div>
+<p class="font-geist-mono text-body-md">15%</p>
+</div>
+</div>
+</div>
+<!-- Right: Campaign Performance -->
+<div class="bg-surface-container-lowest p-stack-lg rounded-xl border border-border-subtle">
+<h3 class="font-label-caps text-on-tertiary-container uppercase mb-8">CAMPAIGN PERFORMANCE</h3>
+<div class="space-y-4">
+<!-- Rank 1 -->
+<div class="flex items-center gap-4">
+<span class="font-geist-mono text-xs text-on-tertiary-container w-4">01</span>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-operator-dark">Q4 Enterprise Outreach</span>
+<span class="font-geist-mono">12.4%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-low rounded-full">
+<div class="h-full bg-signal-green w-[88%]"></div>
+</div>
+</div>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center gap-4">
+<span class="font-geist-mono text-xs text-on-tertiary-container w-4">02</span>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-operator-dark">SaaS Founders Direct</span>
+<span class="font-geist-mono">10.1%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-low rounded-full">
+<div class="h-full bg-signal-green w-[72%]"></div>
+</div>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="flex items-center gap-4">
+<span class="font-geist-mono text-xs text-on-tertiary-container w-4">03</span>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-operator-dark">Inbound Lead Followup</span>
+<span class="font-geist-mono">9.8%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-low rounded-full">
+<div class="h-full bg-signal-green w-[68%]"></div>
+</div>
+</div>
+</div>
+<!-- Rank 4 -->
+<div class="flex items-center gap-4">
+<span class="font-geist-mono text-xs text-on-tertiary-container w-4">04</span>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-operator-dark">Event Attendee Blast</span>
+<span class="font-geist-mono">7.2%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-low rounded-full">
+<div class="h-full bg-signal-green w-[50%]"></div>
+</div>
+</div>
+</div>
+<!-- Rank 5 -->
+<div class="flex items-center gap-4">
+<span class="font-geist-mono text-xs text-on-tertiary-container w-4">05</span>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-operator-dark">Cold LinkedIn Connect</span>
+<span class="font-geist-mono">6.5%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-low rounded-full">
+<div class="h-full bg-signal-green w-[45%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

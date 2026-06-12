@@ -1,0 +1,391 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<title>Wagora Settings - Brand Documents</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: var(--background-primary);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased">
+<!-- Sidebar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col h-screen w-64 border-r bg-[var(--background-secondary)] border-[var(--border-default)] z-50">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-operator-dark rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-[var(--text-primary)] dark:text-slate-50 font-headline-md">Wagora</h1>
+<p class="text-xs font-medium text-[var(--text-secondary)] uppercase tracking-widest">Operator Console</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1">
+<!-- Navigation Items Mapping from JSON -->
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-body-md">Campaigns</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-body-md">Conversations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-md">Analytics</span>
+</a>
+<!-- Settings is ACTIVE -->
+<a class="flex items-center gap-3 px-3 py-2 bg-[var(--border-default)]/50 text-[var(--text-primary)] font-semibold border-r-2 border-slate-900 transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-[var(--border-default)] mt-auto">
+<div class="flex items-center gap-3 p-2">
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-[var(--border-default)]" data-alt="A professional studio headshot of a senior executive in a minimalist office setting. The lighting is bright and clear, reflecting a high-end corporate environment with neutral gray and white tones. The subject is wearing a dark, tailored blazer, conveying authority and confidence in a modern, light-mode business interface context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHky-M1CI0dKSGxq_9xK4XRWdH5GDan9fPCWRUfvy8B6SHqRbKA6J1bblfDKdm8i0T6LuKn2QjMaQQnxZL4gEdptsTuBA05QQ53cJO1E-rXVyBkzDrTgaS7LcZSFJ2yNubT_w-wO4wvrD-_PeOyF2f3KQu7J-Pb7jd41s7ztJtIjgmm1W07EeGshL-a37nJKJJuJ03l63fX7fLS6AsqXFAlafeWzALO1VZVdN9hMQEF1kSzhA71ILXTrdM6DQhwRJxsS_5O98BtkY"/>
+<div class="overflow-hidden">
+<p class="text-xs font-semibold truncate">Alex Chen</p>
+<p class="text-[10px] text-[var(--text-secondary)] truncate">Strategic Lead</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 h-16 bg-[color-mix(in_srgb,var(--surface-card)_80%,transparent)] backdrop-blur-md border-b border-[var(--border-default)] z-40 flex justify-between items-center pl-72 pr-8 w-full">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-[var(--text-primary)]">Settings</h2>
+<div class="h-4 w-px bg-[var(--border-default)]"></div>
+<span class="text-sm font-medium text-[var(--text-secondary)]">Brand Documents</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<input class="w-64 pl-10 pr-4 py-2 text-sm bg-[var(--background-secondary)] border border-[var(--border-default)] rounded focus:ring-1 focus:ring-slate-400 focus:outline-none transition-all" placeholder="Search parameters..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-sm">search</span>
+</div>
+<div class="flex items-center gap-4 text-[var(--text-secondary)]">
+<button class="hover:text-[var(--text-primary)] transition-colors">
+<button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button>
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:text-[var(--text-primary)] transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-surface">
+<div class="max-w-[1400px] mx-auto p-margin-page flex flex-col gap-stack-lg">
+<div class="flex gap-gutter-grid">
+<!-- Secondary Settings Navigation -->
+<nav class="w-60 shrink-0 space-y-1">
+<h3 class="font-label-caps text-ally-slate mb-4 px-3">Administration</h3>
+<a class="block px-3 py-2 text-body-md text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded transition-colors" href="#">General Info</a>
+<a class="block px-3 py-2 text-body-md text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded transition-colors" href="#">Team Members</a>
+<a class="block px-3 py-2 text-body-md bg-slate-900 text-white font-medium rounded transition-colors" href="#">Brand Documents</a>
+<a class="block px-3 py-2 text-body-md text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded transition-colors" href="#">Billing &amp; Usage</a>
+<div class="h-8"></div>
+<h3 class="font-label-caps text-ally-slate mb-4 px-3">Platform</h3>
+<a class="block px-3 py-2 text-body-md text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded transition-colors" href="#">API Access</a>
+<a class="block px-3 py-2 text-body-md text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded transition-colors" href="#">Integrations</a>
+<a class="block px-3 py-2 text-body-md text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded transition-colors" href="#">Security</a>
+</nav>
+<!-- Documents Content Area -->
+<div class="flex-1 space-y-stack-lg">
+<!-- Header Card -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card flex justify-between items-center rounded-lg">
+<div class="space-y-1">
+<h2 class="font-headline-lg text-operator-dark">Brand Documents</h2>
+<p class="font-body-md text-ally-slate max-w-lg">Manage technical specifications, brand guidelines, and compliance assets used to train your campaign models.</p>
+</div>
+<button class="bg-operator-dark text-white px-6 py-2.5 font-semibold text-body-md flex items-center gap-2 hover:bg-slate-800 transition-all active:opacity-80">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                            Add Document
+                        </button>
+</div>
+<!-- Drag & Drop Zone -->
+<div class="bg-surface-neutral border border-dashed border-[var(--border-default)] p-8 rounded-xl text-center group hover:border-strategist-blue transition-colors cursor-pointer">
+<div class="flex flex-col items-center gap-3">
+<div class="w-12 h-12 bg-[var(--surface-card)] rounded-full border border-[var(--border-default)] flex items-center justify-center text-[var(--text-muted)] group-hover:text-strategist-blue transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'opsz' 40;">cloud_upload</span>
+</div>
+<div class="space-y-1">
+<p class="font-headline-md text-operator-dark">Click to upload or drag and drop</p>
+<p class="font-body-md text-ally-slate">PDF, DOCX, or TXT (Max. 20MB)</p>
+</div>
+</div>
+</div>
+<!-- Documents Table Container -->
+<div class="bg-[var(--surface-card)] border border-border-subtle rounded-lg overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[var(--background-secondary)] border-b border-border-subtle">
+<th class="px-6 py-4 font-label-caps text-ally-slate">File Name</th>
+<th class="px-6 py-4 font-label-caps text-ally-slate">Type</th>
+<th class="px-6 py-4 font-label-caps text-ally-slate">Date Added</th>
+<th class="px-6 py-4 font-label-caps text-ally-slate">Status</th>
+<th class="px-6 py-4 font-label-caps text-ally-slate text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle">
+<!-- Row 1: Active -->
+<tr class="hover:bg-[var(--background-secondary)]/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-strategist-blue">description</span>
+<span class="font-body-md font-semibold text-operator-dark">Q3_Brand_Style_Guide.pdf</span>
+</div>
+</td>
+<td class="px-6 py-4 font-mono-data text-ally-slate">PDF</td>
+<td class="px-6 py-4 font-body-md text-ally-slate">Oct 12, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-signal-green">
+<span class="w-2 h-2 rounded-full bg-current"></span>
+<span class="font-body-md font-medium">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-[var(--text-muted)] hover:text-operator-dark">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Processing -->
+<tr class="hover:bg-[var(--background-secondary)]/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-caution-amber">history_edu</span>
+<span class="font-body-md font-semibold text-operator-dark">Campaign_Manifesto_v2.docx</span>
+</div>
+</td>
+<td class="px-6 py-4 font-mono-data text-ally-slate">DOCX</td>
+<td class="px-6 py-4 font-body-md text-ally-slate">Oct 14, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-caution-amber">
+<span class="w-2 h-2 rounded-full bg-current"></span>
+<span class="font-body-md font-medium">Processing</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-[var(--text-muted)] hover:text-operator-dark">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Error -->
+<tr class="hover:bg-[var(--background-secondary)]/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-critical-red">report</span>
+<span class="font-body-md font-semibold text-operator-dark">Technical_Specs_Draft.txt</span>
+</div>
+</td>
+<td class="px-6 py-4 font-mono-data text-ally-slate">TXT</td>
+<td class="px-6 py-4 font-body-md text-ally-slate">Oct 14, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-critical-red">
+<span class="w-2 h-2 rounded-full bg-current"></span>
+<span class="font-body-md font-medium">Error</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-[var(--text-muted)] hover:text-operator-dark">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Active -->
+<tr class="hover:bg-[var(--background-secondary)]/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-strategist-blue">description</span>
+<span class="font-body-md font-semibold text-operator-dark">Compliance_Checklist_2024.pdf</span>
+</div>
+</td>
+<td class="px-6 py-4 font-mono-data text-ally-slate">PDF</td>
+<td class="px-6 py-4 font-body-md text-ally-slate">Sep 28, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-signal-green">
+<span class="w-2 h-2 rounded-full bg-current"></span>
+<span class="font-body-md font-medium">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-[var(--text-muted)] hover:text-operator-dark">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-4 bg-[var(--background-secondary)] flex justify-between items-center border-t border-border-subtle">
+<p class="text-body-md text-ally-slate">Showing 4 of 12 documents</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-[var(--border-default)] rounded text-body-md hover:bg-[var(--surface-card)] transition-colors disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 border border-[var(--border-default)] rounded text-body-md hover:bg-[var(--surface-card)] transition-colors">Next</button>
+</div>
+</div>
+</div>
+<!-- Usage Info Footer -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-grid">
+<div class="bg-[var(--surface-card)] p-padding-card border border-border-subtle rounded-lg space-y-unit">
+<p class="font-label-caps text-ally-slate uppercase">Storage Used</p>
+<div class="flex items-end gap-2">
+<span class="font-display-xl text-operator-dark">1.2</span>
+<span class="font-headline-md text-ally-slate pb-1">GB</span>
+</div>
+<div class="w-full bg-[var(--surface-elevated)] h-1.5 rounded-full overflow-hidden">
+<div class="bg-strategist-blue h-full w-[24%]"></div>
+</div>
+<p class="text-body-md text-[var(--text-secondary)]">24% of 5GB available</p>
+</div>
+<div class="bg-[var(--surface-card)] p-padding-card border border-border-subtle rounded-lg space-y-unit">
+<p class="font-label-caps text-ally-slate uppercase">Active Training Assets</p>
+<div class="flex items-end gap-2">
+<span class="font-display-xl text-operator-dark">9</span>
+<span class="font-headline-md text-ally-slate pb-1">Files</span>
+</div>
+<p class="text-body-md text-[var(--text-secondary)]">Optimizing 4 campaigns</p>
+</div>
+<div class="bg-[var(--surface-card)] p-padding-card border border-border-subtle rounded-lg space-y-unit">
+<p class="font-label-caps text-ally-slate uppercase">System Health</p>
+<div class="flex items-end gap-2">
+<span class="font-display-xl text-signal-green">98%</span>
+</div>
+<p class="text-body-md text-[var(--text-secondary)]">All data nodes operational</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

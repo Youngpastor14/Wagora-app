@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: var(--background-primary);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden">
+<!-- SideNavBar (Shell Visibility: Relevant to Dashboard) -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-[var(--surface-card)] border-r border-[var(--border-default)] z-50 flex flex-col py-4 space-y-2 font-[var(--font-display)] text-sm tracking-tight">
+<div class="px-6 mb-8">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 bg-operator-dark rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm" data-icon="dashboard">dashboard</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-[var(--text-primary)]">Wagora</h1>
+<p class="text-[10px] text-[var(--text-secondary)] uppercase tracking-widest font-bold">Precision OS</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<!-- Dashboard Active State -->
+<a class="flex items-center px-3 py-2 bg-[var(--surface-elevated)] text-[var(--text-primary)] font-semibold border-r-2 border-slate-900 hover:bg-[var(--background-secondary)] transition-all scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--background-secondary)] transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="campaign">campaign</span>
+<span>Campaigns</span>
+</a>
+<a class="flex items-center px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--background-secondary)] transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="group">group</span>
+<span>Prospects</span>
+</a>
+<a class="flex items-center px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--background-secondary)] transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="forum">forum</span>
+<span>Conversations</span>
+</a>
+<a class="flex items-center px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--background-secondary)] transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="handshake">handshake</span>
+<span>Deals</span>
+</a>
+<a class="flex items-center px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--background-secondary)] transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+</nav>
+<div class="px-3 mb-6">
+<button class="w-full py-2 bg-operator-dark text-white text-xs font-bold rounded hover:opacity-90 transition-opacity">
+                New Campaign
+            </button>
+</div>
+<div class="px-3 pt-4 border-t border-[var(--border-subtle)] space-y-1">
+<a class="flex items-center px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="ml-64 flex flex-col h-screen">
+<!-- TopAppBar -->
+<header class="h-16 px-6 w-full bg-[var(--surface-card)] border-b border-[var(--border-default)] flex justify-between items-center z-40">
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-sm">search</span>
+<input class="w-full bg-[var(--background-secondary)] border-none rounded-lg pl-10 pr-4 py-1.5 text-sm focus:ring-1 focus:ring-strategist-blue placeholder-slate-400" placeholder="Search operations..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors rounded">
+<button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button>
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors rounded">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-[var(--border-default)] overflow-hidden border border-[var(--border-default)]">
+<img alt="Operator profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive with a clean, sharp look. The lighting is crisp and modern, matching a high-end light-mode SaaS aesthetic. The background is a soft, out-of-focus office environment in shades of white and pale blue, conveying authority and a quiet, steady confidence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoI0MVoyLS9BuE1B-ZGwohlYQhq2HeBMzBhbfcoXdb42y_e8hPCL20qN5noAFdvnD35bm9g9srvdZEf1pXbB0fbDCLhdW7ohFcy1NrfYukbLXAjjJyLQ9RXIavFxeQHsHRs5mIriKqAfMjlOoPA08D3WlJWBDgeeTdipb6HV2HVzq-wt9y-Aptd1tilqMyfkxIuR34nXUrfZSlmuz-KpZwQjuKYto1gr2gpjZ7XUkulvdVDw3qOF9a_J1HCg0bvhlc611z4vjqexE"/>
+</div>
+</div>
+</header>
+<!-- Canvas / Dashboard Content -->
+<main class="flex-1 flex flex-col items-center justify-center p-margin-page bg-background relative overflow-hidden">
+<!-- Subtle Background Pattern (Geometric OS Feel) -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+<svg height="100%" width="100%">
+<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="black" stroke-width="1"></path>
+</pattern>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<!-- Empty State Container -->
+<div class="max-w-md w-full text-center z-10">
+<!-- Geometric Icon / Abstract Representation -->
+<div class="mb-stack-lg flex justify-center">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<!-- Abstract "Quiet Operator" Geometric Shape -->
+<div class="absolute inset-0 border-[1.5px] border-[var(--border-default)] rounded-xl transform rotate-45"></div>
+<div class="absolute inset-0 border-[1.5px] border-[var(--border-default)] rounded-xl transform -rotate-12"></div>
+<div class="w-16 h-16 bg-[var(--surface-card)] border border-border-subtle rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-4xl text-slate-300" data-icon="campaign" style="font-variation-settings: 'FILL' 0;">campaign</span>
+</div>
+</div>
+</div>
+<!-- Messaging -->
+<div class="space-y-stack-sm mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-[var(--text-primary)] tracking-tight">No campaigns running.</h2>
+<p class="font-body-md text-body-md text-ally-slate max-w-xs mx-auto">
+                        Create a campaign and Wagora gets to work. Your precision operating system is ready for instructions.
+                    </p>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="px-6 py-2.5 bg-operator-dark text-white font-semibold text-sm rounded shadow-sm hover:bg-[var(--accent-primary-hover)] transition-all flex items-center">
+<span class="material-symbols-outlined mr-2 text-lg" data-icon="add">add</span>
+                        New campaign
+                    </button>
+<button class="px-6 py-2.5 bg-[var(--surface-card)] border border-border-subtle text-operator-dark font-semibold text-sm rounded hover:bg-[var(--background-secondary)] transition-all">
+                        View guide
+                    </button>
+</div>
+<!-- Knowledgeable Ally Hint -->
+<div class="mt-16 p-4 bg-[var(--surface-card)] border border-[var(--border-subtle)] rounded-lg inline-flex items-start text-left space-x-3 max-w-xs">
+<span class="material-symbols-outlined text-strategist-blue" data-icon="lightbulb">lightbulb</span>
+<div>
+<p class="font-label-caps text-label-caps text-[var(--text-secondary)] mb-1">PRO TIP</p>
+<p class="text-xs text-ally-slate leading-relaxed">
+                            Campaigns perform best when ICP scores are calibrated above 8.5. Start by defining your ideal profile.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Dashboard Analytics Preview (Blurred/Ghosted to imply content) -->
+<div class="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[80%] opacity-20 blur-[2px] pointer-events-none select-none">
+<div class="grid grid-cols-3 gap-gutter-grid">
+<div class="h-40 bg-[var(--surface-card)] border border-[var(--border-default)] rounded-xl p-4">
+<div class="w-1/2 h-4 bg-[var(--surface-elevated)] rounded mb-4"></div>
+<div class="w-3/4 h-2 bg-[var(--background-secondary)] rounded mb-2"></div>
+<div class="w-2/3 h-2 bg-[var(--background-secondary)] rounded"></div>
+</div>
+<div class="h-40 bg-[var(--surface-card)] border border-[var(--border-default)] rounded-xl p-4">
+<div class="w-1/2 h-4 bg-[var(--surface-elevated)] rounded mb-4"></div>
+<div class="w-3/4 h-2 bg-[var(--background-secondary)] rounded mb-2"></div>
+<div class="w-2/3 h-2 bg-[var(--background-secondary)] rounded"></div>
+</div>
+<div class="h-40 bg-[var(--surface-card)] border border-[var(--border-default)] rounded-xl p-4">
+<div class="w-1/2 h-4 bg-[var(--surface-elevated)] rounded mb-4"></div>
+<div class="w-3/4 h-2 bg-[var(--background-secondary)] rounded mb-2"></div>
+<div class="w-2/3 h-2 bg-[var(--background-secondary)] rounded"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

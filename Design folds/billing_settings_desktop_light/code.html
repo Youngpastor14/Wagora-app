@@ -1,0 +1,425 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .founder-badge {
+            background-color: var(--accent-secondary); /* Chartreuse */
+            color: var(--text-primary);
+        }
+        /* Custom Table Reset */
+        table { border-collapse: separate; border-spacing: 0; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- Global Layout Shell -->
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col h-screen w-64 border-r bg-[var(--background-secondary)] border-[var(--border-default)] z-50">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-operator-dark rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-[var(--text-primary)]">Wagora</h1>
+<p class="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-semibold">Operator Console</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="font-medium">Campaigns</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-medium">Conversations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-[var(--border-default)]/50 text-[var(--text-primary)] font-semibold border-r-2 border-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-[var(--border-default)]">
+<div class="flex items-center gap-3 px-2">
+<img alt="Profile" class="w-8 h-8 rounded-full border border-[var(--border-default)]" data-alt="A professional portrait of a tech executive in a brightly lit, minimalist office environment. The lighting is high-key and soft, emphasizing a clean and authoritative atmosphere. The color palette is composed of soft whites, cool greys, and deep slate tones, maintaining a modern and sophisticated UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMCVAVyg3wCMT9tR8MASks70fQpWN11TWnrZ7cc1pzKgf1EPQO7uY8WciG1xUNb5I3u8yzzCfRm-EeN9CDbJJH8r1PuE4ZPUF8xPlKCWkP5mLDM8Km_5ISTkSnOLuep01-aCZhkGFVW2QeGRSaiVoB4irI1AzIGLFcUTg_mF99gRdWBuc6Ic2cQDeKB4ABNaNipAvQqJix08BsBHpIHXwTPxjwRDk-5j-QQZOqG87JHbDYFuGRTQMc_1fcdai8sJHaYA7cdmAdWc"/>
+<div class="overflow-hidden">
+<p class="text-xs font-bold text-[var(--text-primary)] truncate">Alex Chen</p>
+<p class="text-[10px] text-[var(--text-secondary)] truncate">Pro Plan</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 flex flex-col">
+<!-- TopAppBar (Shared Component) -->
+<header class="flex justify-between items-center h-16 border-b border-[var(--border-default)] bg-[color-mix(in_srgb,var(--surface-card)_80%,transparent)] backdrop-blur-md px-8 sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Settings</h2>
+<span class="text-slate-300">/</span>
+<span class="text-[var(--text-secondary)] font-medium">Billing &amp; Subscription</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-sm">search</span>
+<input class="bg-[var(--surface-elevated)] border-none rounded-lg pl-10 pr-4 py-1.5 text-sm focus:ring-1 focus:ring-slate-400 w-64" placeholder="Search settings..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-[var(--text-secondary)]">
+<span class="material-symbols-outlined cursor-pointer hover:text-[var(--text-primary)]">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-[var(--text-primary)]">help_outline</span>
+</div>
+</div>
+</header>
+<!-- Page Content with Secondary Nav -->
+<div class="flex-1 flex">
+<!-- Secondary Settings Nav -->
+<nav class="w-64 border-r border-[var(--border-default)] p-6 space-y-1">
+<p class="text-[10px] font-bold uppercase tracking-wider text-[var(--text-muted)] mb-4 px-3">General</p>
+<a class="block px-3 py-2 text-sm text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded-lg transition-colors" href="#">Workspace Profile</a>
+<a class="block px-3 py-2 text-sm text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded-lg transition-colors" href="#">Team Members</a>
+<a class="block px-3 py-2 text-sm font-semibold text-[var(--text-primary)] bg-[var(--surface-elevated)] rounded-lg transition-colors" href="#">Billing &amp; Plans</a>
+<a class="block px-3 py-2 text-sm text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded-lg transition-colors" href="#">Integrations</a>
+<p class="text-[10px] font-bold uppercase tracking-wider text-[var(--text-muted)] mt-8 mb-4 px-3">Security</p>
+<a class="block px-3 py-2 text-sm text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded-lg transition-colors" href="#">Authentication</a>
+<a class="block px-3 py-2 text-sm text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] rounded-lg transition-colors" href="#">API Access</a>
+</nav>
+<!-- Billing View Canvas -->
+<section class="flex-1 p-8 overflow-y-auto max-w-6xl mx-auto w-full">
+<!-- Current Plan Hero Card -->
+<div class="bg-[var(--surface-card)] border border-[var(--border-default)] rounded-xl p-8 mb-8 shadow-sm">
+<div class="flex justify-between items-start mb-10">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<h3 class="font-headline-lg text-headline-lg text-operator-dark">Current Plan</h3>
+<span class="founder-badge px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-widest">Founder access</span>
+</div>
+<p class="text-body-md text-[var(--text-secondary)] max-w-md">Your workspace is currently on a legacy Founder tier with unlimited historical data retention.</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] mb-1">Next Billing Date</p>
+<p class="font-headline-md text-headline-md text-operator-dark">Nov 12, 2024</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Progress Bar 1 -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold text-[var(--text-primary)]">Prospects</span>
+<span class="text-xs font-mono-data text-[var(--text-secondary)]">8,420 / 10,000</span>
+</div>
+<div class="h-2 w-full bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="h-full bg-strategist-blue w-[84%] transition-all"></div>
+</div>
+<p class="text-[11px] text-[var(--text-muted)] italic">Resets in 14 days</p>
+</div>
+<!-- Progress Bar 2 -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold text-[var(--text-primary)]">Conversations</span>
+<span class="text-xs font-mono-data text-[var(--text-secondary)]">241 / 500</span>
+</div>
+<div class="h-2 w-full bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="h-full bg-signal-green w-[48%] transition-all"></div>
+</div>
+<p class="text-[11px] text-[var(--text-muted)] italic">52% capacity remaining</p>
+</div>
+</div>
+</div>
+<!-- Plan Comparison Grid -->
+<div class="mb-12">
+<h4 class="text-sm font-bold uppercase tracking-widest text-[var(--text-muted)] mb-6">Upgrade Options</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Free Card -->
+<div class="bg-surface-neutral border border-[var(--border-default)] rounded-xl p-6 flex flex-col hover:border-[var(--border-default)] transition-colors">
+<h5 class="font-headline-md text-headline-md text-[var(--text-primary)] mb-1">Free</h5>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-2xl font-bold font-display-xl">$0</span>
+<span class="text-xs text-[var(--text-secondary)]">/mo</span>
+</div>
+<ul class="space-y-4 mb-8 flex-1">
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-signal-green text-sm">check_circle</span>
+                                        500 Prospects
+                                    </li>
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-signal-green text-sm">check_circle</span>
+                                        Basic Analytics
+                                    </li>
+</ul>
+<button class="w-full py-2.5 rounded-lg border border-[var(--border-default)] text-sm font-semibold text-[var(--text-primary)] hover:bg-[var(--surface-card)] transition-colors">Current Tier</button>
+</div>
+<!-- Starter Card -->
+<div class="bg-[var(--surface-card)] border border-[var(--border-default)] rounded-xl p-6 flex flex-col hover:border-[var(--border-default)] transition-colors">
+<h5 class="font-headline-md text-headline-md text-[var(--text-primary)] mb-1">Starter</h5>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-2xl font-bold font-display-xl">$49</span>
+<span class="text-xs text-[var(--text-secondary)]">/mo</span>
+</div>
+<ul class="space-y-4 mb-8 flex-1">
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-signal-green text-sm">check_circle</span>
+                                        2,500 Prospects
+                                    </li>
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-signal-green text-sm">check_circle</span>
+                                        Unlimited Conversations
+                                    </li>
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-signal-green text-sm">check_circle</span>
+                                        CRM Sync
+                                    </li>
+</ul>
+<button class="w-full py-2.5 rounded-lg border border-[var(--border-default)] text-sm font-semibold text-[var(--text-primary)] hover:bg-[var(--background-secondary)] transition-colors">Upgrade</button>
+</div>
+<!-- Growth Card -->
+<div class="bg-[var(--surface-card)] border-2 border-operator-dark rounded-xl p-6 flex flex-col relative shadow-lg">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-operator-dark text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Recommended</div>
+<h5 class="font-headline-md text-headline-md text-[var(--text-primary)] mb-1">Growth</h5>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-2xl font-bold font-display-xl">$149</span>
+<span class="text-xs text-[var(--text-secondary)]">/mo</span>
+</div>
+<ul class="space-y-4 mb-8 flex-1">
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-signal-green text-sm">check_circle</span>
+                                        10,000 Prospects
+                                    </li>
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-signal-green text-sm">check_circle</span>
+                                        Dedicated Support
+                                    </li>
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-signal-green text-sm">check_circle</span>
+                                        Advanced Lead Scoring
+                                    </li>
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-signal-green text-sm">check_circle</span>
+                                        White Labeling
+                                    </li>
+</ul>
+<button class="w-full py-2.5 rounded-lg bg-operator-dark text-sm font-semibold text-white hover:opacity-90 transition-opacity">Select Plan</button>
+</div>
+</div>
+</div>
+<!-- Billing History Table -->
+<div class="mb-12">
+<div class="flex justify-between items-end mb-6">
+<h4 class="text-sm font-bold uppercase tracking-widest text-[var(--text-muted)]">Billing History</h4>
+<button class="text-xs font-semibold text-strategist-blue hover:underline">Download all as CSV</button>
+</div>
+<div class="overflow-hidden border border-[var(--border-default)] rounded-xl bg-[var(--surface-card)] shadow-sm">
+<table class="w-full text-left">
+<thead class="bg-[var(--background-secondary)] border-b border-[var(--border-default)]">
+<tr>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-[var(--text-secondary)]">Date</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-[var(--text-secondary)]">Description</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-[var(--text-secondary)]">Amount</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-[var(--text-secondary)]">Status</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-[var(--text-secondary)] text-right">Invoice</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr class="hover:bg-[var(--background-secondary)] transition-colors">
+<td class="px-6 py-4 text-sm font-mono-data text-slate-600">Oct 12, 2023</td>
+<td class="px-6 py-4 text-sm font-medium text-[var(--text-primary)]">Founder Subscription — Monthly</td>
+<td class="px-6 py-4 text-sm font-mono-data text-[var(--text-primary)]">$0.00</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-2 text-[11px] font-semibold text-signal-green">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green"></span>
+                                                Paid
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="text-[var(--text-muted)] hover:text-operator-dark transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">download</span>
+</a>
+</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)] transition-colors">
+<td class="px-6 py-4 text-sm font-mono-data text-slate-600">Sep 12, 2023</td>
+<td class="px-6 py-4 text-sm font-medium text-[var(--text-primary)]">Founder Subscription — Monthly</td>
+<td class="px-6 py-4 text-sm font-mono-data text-[var(--text-primary)]">$0.00</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-2 text-[11px] font-semibold text-signal-green">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green"></span>
+                                                Paid
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="text-[var(--text-muted)] hover:text-operator-dark transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">download</span>
+</a>
+</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)] transition-colors">
+<td class="px-6 py-4 text-sm font-mono-data text-slate-600">Aug 12, 2023</td>
+<td class="px-6 py-4 text-sm font-medium text-[var(--text-primary)]">Trial Period Confirmation</td>
+<td class="px-6 py-4 text-sm font-mono-data text-[var(--text-primary)]">$0.00</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-2 text-[11px] font-semibold text-[var(--text-secondary)]">
+<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-muted)]"></span>
+                                                Legacy
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="text-[var(--text-muted)] hover:text-operator-dark transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">download</span>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Payment Method Section -->
+<div class="bg-surface-container-low border border-[var(--border-default)] rounded-xl p-6 flex justify-between items-center">
+<div class="flex items-center gap-6">
+<div class="w-12 h-8 bg-[var(--surface-card)] border border-[var(--border-default)] rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[var(--text-muted)]">credit_card</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[var(--text-primary)]">Visa ending in 4242</p>
+<p class="text-xs text-[var(--text-secondary)]">Expires 04/26</p>
+</div>
+</div>
+<button class="text-sm font-semibold text-[var(--text-primary)] hover:underline">Update Method</button>
+</div>
+</section>
+</div>
+</main>
+</div>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

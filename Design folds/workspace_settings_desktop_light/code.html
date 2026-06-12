@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background antialiased">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col h-screen w-64 border-r bg-[var(--background-secondary)] border-[var(--border-default)] z-50">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-operator-dark rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-[var(--text-primary)]">Wagora</h1>
+<p class="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-semibold leading-none">Operator Console</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] transition-colors font-[var(--font-body)] text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] transition-colors font-[var(--font-body)] text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+                Campaigns
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] transition-colors font-[var(--font-body)] text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+                Conversations
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--surface-elevated)] transition-colors font-[var(--font-body)] text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 bg-[var(--border-default)]/50 text-[var(--text-primary)] font-semibold border-r-2 border-slate-900 font-[var(--font-body)] text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="p-4 border-t border-[var(--border-default)]">
+<div class="flex items-center gap-3 p-2">
+<div class="w-8 h-8 rounded-full bg-[var(--border-default)] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a workspace administrator in a clean, minimalist studio environment. The lighting is soft and even, highlighting a steady and confident expression. The color palette is dominated by neutral slate tones and bright whites, reflecting a high-end corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj_ATlAowGAfJXQb9gHxQ4uMgwNZIkGEytdmS-YVfZ70lqFOhH0GNVqRJ6d3VTMF264I6apa4obJDpTTnmfJPq54OlkXmuVyXtxjdz9_q_RlJWXLygDMF2QEjWRSRtnaCyNnyjIj3J0CKb2b7l7tZd1GRed8R4fxIxE79GcXnLnoiGiEOQnKJ7t2VksU0HQt0hrtUnXdsYUCiuZL7oZDJTqV5a_accm46mpx_j_2kbzCvPsH-6HoYWFQ4z2QbPg-M-PYVIy3WMkF8"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold text-[var(--text-primary)] truncate">Alex Rivera</p>
+<p class="text-xs text-[var(--text-secondary)] truncate">Admin Access</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Shell -->
+<div class="pl-64 min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="flex justify-between items-center pl-8 pr-8 w-full sticky top-0 h-16 bg-[color-mix(in_srgb,var(--surface-card)_80%,transparent)] backdrop-blur-md border-b border-[var(--border-default)] z-40">
+<div class="flex items-center gap-4">
+<nav class="flex items-center gap-6">
+<a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-body-md text-sm font-medium" href="#">Profile</a>
+<a class="text-[var(--text-primary)] transition-colors font-body-md text-sm font-bold border-b-2 border-slate-900 py-5" href="#">Workspace</a>
+<a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-body-md text-sm font-medium" href="#">Integrations</a>
+<a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-body-md text-sm font-medium" href="#">Team</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-sm" data-icon="search">search</span>
+<input class="pl-9 pr-4 py-1.5 bg-[var(--surface-elevated)] border-none rounded-lg text-sm w-64 focus:ring-1 focus:ring-slate-400 focus:bg-[var(--surface-card)] transition-all" placeholder="Search settings..." type="text"/>
+</div>
+<button class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+<button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button>
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Content Area -->
+<main class="p-10 max-w-6xl mx-auto flex gap-12">
+<!-- Secondary Settings Navigation -->
+<aside class="w-48 flex-shrink-0">
+<h3 class="text-label-caps font-label-caps text-[var(--text-muted)] uppercase tracking-widest mb-6">Workspace Settings</h3>
+<nav class="space-y-4">
+<a class="block text-body-md font-semibold text-strategist-blue border-l-2 border-strategist-blue pl-4" href="#">General</a>
+<a class="block text-body-md text-ally-slate hover:text-[var(--text-primary)] pl-4 border-l-2 border-transparent transition-colors" href="#">Security</a>
+<a class="block text-body-md text-ally-slate hover:text-[var(--text-primary)] pl-4 border-l-2 border-transparent transition-colors" href="#">Billing</a>
+<a class="block text-body-md text-ally-slate hover:text-[var(--text-primary)] pl-4 border-l-2 border-transparent transition-colors" href="#">Usage Limits</a>
+<a class="block text-body-md text-ally-slate hover:text-[var(--text-primary)] pl-4 border-l-2 border-transparent transition-colors" href="#">Domains</a>
+</nav>
+</aside>
+<!-- Settings Form Canvas -->
+<div class="flex-1 space-y-8">
+<!-- Header -->
+<div class="mb-10">
+<h2 class="font-headline-lg text-headline-lg text-operator-dark mb-2">Workspace Configuration</h2>
+<p class="font-body-md text-ally-slate">Manage your core workspace identity, regional preferences, and default operational language.</p>
+</div>
+<!-- Workspace Card -->
+<section class="bg-[var(--surface-card)] border border-border-subtle p-padding-card rounded-xl">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-headline-md text-headline-md text-operator-dark">Basic Information</h3>
+<p class="text-body-md text-ally-slate mt-1">This information will be visible to all members of the workspace.</p>
+</div>
+<span class="px-3 py-1 bg-signal-green/10 text-signal-green text-xs font-bold rounded-full flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-signal-green rounded-full"></span>
+                            ACTIVE
+                        </span>
+</div>
+<form class="grid grid-cols-2 gap-x-gutter-grid gap-y-stack-lg">
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-[var(--text-secondary)] uppercase tracking-wider">Workspace Name</label>
+<input class="w-full border border-border-subtle rounded px-4 py-2.5 text-body-md focus:ring-1 focus:ring-strategist-blue focus:border-strategist-blue outline-none transition-all" type="text" value="Wagora Global"/>
+<p class="text-[11px] text-ally-slate">Used in internal reporting and campaign identifiers.</p>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-[var(--text-secondary)] uppercase tracking-wider">Industry</label>
+<select class="w-full border border-border-subtle rounded px-4 py-2.5 text-body-md focus:ring-1 focus:ring-strategist-blue outline-none">
+<option>Software &amp; Technology</option>
+<option>Financial Services</option>
+<option>Healthcare</option>
+<option>Marketing Services</option>
+</select>
+<p class="text-[11px] text-ally-slate">Helps tailor the ICP scoring engine to your sector.</p>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-[var(--text-secondary)] uppercase tracking-wider">Timezone</label>
+<select class="w-full border border-border-subtle rounded px-4 py-2.5 text-body-md focus:ring-1 focus:ring-strategist-blue outline-none">
+<option>(GMT-05:00) Eastern Time</option>
+<option>(GMT-08:00) Pacific Time</option>
+<option>(GMT+00:00) London</option>
+<option>(GMT+01:00) Paris</option>
+</select>
+<p class="text-[11px] text-ally-slate">Determines schedule for automated conversation triggers.</p>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-[var(--text-secondary)] uppercase tracking-wider">Default Language</label>
+<select class="w-full border border-border-subtle rounded px-4 py-2.5 text-body-md focus:ring-1 focus:ring-strategist-blue outline-none">
+<option>English (United States)</option>
+<option>Spanish (Castilian)</option>
+<option>French (Standard)</option>
+<option>German (Modern)</option>
+</select>
+<p class="text-[11px] text-ally-slate">Primary language for internal dashboard and system emails.</p>
+</div>
+<div class="col-span-2 pt-6 flex justify-end gap-3">
+<button class="px-6 py-2 border border-border-subtle text-operator-dark font-semibold rounded hover:bg-[var(--background-secondary)] transition-colors" type="button">Discard</button>
+<button class="px-6 py-2 bg-operator-dark text-white font-semibold rounded hover:opacity-90 transition-opacity" type="submit">Save Changes</button>
+</div>
+</form>
+</section>
+<!-- Danger Zone -->
+<section class="bg-error-container/20 border border-error/10 p-padding-card rounded-xl">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="mt-1">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-error">Danger Zone</h3>
+<p class="text-body-md text-on-error-container mt-1 max-w-md">Deleting the workspace is a permanent action. All campaign history, conversation data, and team configurations will be purged from the console immediately.</p>
+</div>
+</div>
+<button class="px-6 py-2 border border-error text-error font-semibold rounded hover:bg-error hover:text-white transition-all">Delete Workspace</button>
+</div>
+</section>
+<!-- Informational Ally Footer -->
+<div class="bg-surface-container-low p-6 rounded-lg border border-border-subtle flex gap-4">
+<span class="material-symbols-outlined text-strategist-blue" data-icon="info">info</span>
+<div class="space-y-1">
+<p class="text-body-md font-semibold text-operator-dark">Quick Tip: Managing Identity</p>
+<p class="text-body-md text-ally-slate">Changes to the workspace name will reflect in all exported CSV reports and shared dashboard views. We recommend keeping this name aligned with your legal entity or primary brand for accounting clarity.</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

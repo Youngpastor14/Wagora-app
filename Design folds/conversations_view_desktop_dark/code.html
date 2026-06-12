@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: var(--background-primary); /* Zinc-950 context */
+      color: var(--background-primary);
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 10px; }
+  </style>
+</head>
+<body class="overflow-hidden font-body-md text-body-md">
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-0 h-full w-[220px] border-r border-[var(--border-default)] bg-[var(--background-primary)] flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="font-[var(--font-display)] font-semibold text-lg text-[var(--text-primary)] tracking-tight">Quiet Operator</h1>
+<p class="text-[10px] uppercase tracking-widest text-[var(--accent-primary)] font-bold">Autonomous AI</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Campaigns</span>
+</a>
+<!-- Active Tab: Conversations -->
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--accent-primary)] font-medium bg-[var(--background-secondary)] border-r-2 border-[var(--accent-primary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="forum" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Conversations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Analytics</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 pt-4 border-t border-[var(--border-default)]">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--background-secondary)] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-[var(--font-body)] text-sm tracking-tight">Support</span>
+</a>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 right-0 left-[220px] h-16 border-b border-[var(--border-default)] bg-[var(--background-primary)]/80 backdrop-blur-md flex justify-between items-center px-8 z-40">
+<div class="flex items-center gap-2">
+<span class="font-[var(--font-display)] uppercase tracking-widest text-xs text-[var(--text-muted)]">View /</span>
+<span class="font-[var(--font-display)] uppercase tracking-widest text-xs text-[var(--accent-primary)]">Live Conversations</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-[var(--text-muted)]">
+<button class="hover:text-[var(--text-primary)] transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="hover:text-[var(--text-primary)] transition-all active:scale-95 relative">
+<button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button>
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-teal-500 rounded-full"></span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-[var(--border-default)] bg-[var(--surface-elevated)]">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a senior software architect in a minimalist studio setting. The lighting is low-key with dramatic side-lighting that emphasizes facial structure against a deep charcoal background. The aesthetic is clean, sophisticated, and dark-mode compatible, featuring a monochromatic color palette with high contrast and sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiqrFhWlHQUqgSI_3Igm6d_FSFwocxJQ2hWGfTtEfmEYMUqcNjMlCQGJzssaAK_ESL1ElMzqLHySLdqPMGsXUOCK-NSxAHMByJEDSfzrX3_T5HUbzrkkQ3AoYAoT6AyVS2yUIAZ6cjvKTuyr29cq0BV4mbEyizQdNVc21MxEgou-gyTSpEBz6LmWkknXGpVtIvmERpJosTvdbGWHFpVfY1EZAaTc6XyFUECewYB_ppQinBRExdJKvEgpbD4SPLxE-uMqOLodVBqjE"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-[220px] mt-16 h-[calc(100vh-64px)] flex bg-[var(--background-primary)]">
+<!-- Left Panel: Conversation List -->
+<section class="w-[380px] border-r border-[var(--border-default)] flex flex-col bg-[var(--background-primary)]/50">
+<div class="p-6 border-b border-[var(--border-default)] flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-[var(--text-primary)]">Inbox</h2>
+<span class="px-2 py-0.5 rounded bg-[var(--background-secondary)] border border-[var(--border-default)] text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">3 Active</span>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<!-- Conversation Item: Selected -->
+<div class="p-4 border-b border-[var(--border-default)] bg-[var(--background-secondary)] border-l-2 border-l-teal-500 cursor-pointer transition-colors duration-200">
+<div class="flex gap-4">
+<div class="h-10 w-10 shrink-0 rounded-full bg-teal-900/30 border border-[var(--accent-primary)]/30 flex items-center justify-center text-[var(--accent-primary)] font-bold text-sm">
+              JS
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-semibold text-[var(--text-primary)] truncate">Jonathan Sterling</h3>
+<span class="text-[10px] text-[var(--text-muted)] uppercase font-mono-data">2m ago</span>
+</div>
+<p class="text-[var(--text-muted)] text-xs truncate leading-relaxed">I'm interested in the Q3 scalability plan. Can we talk about pricing?</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-critical-red"></span>
+<span class="text-[10px] text-[var(--text-muted)] uppercase tracking-tighter">Needs Attention</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Conversation Item -->
+<div class="p-4 border-b border-[var(--border-default)] hover:bg-[var(--background-secondary)]/50 cursor-pointer transition-colors duration-200">
+<div class="flex gap-4">
+<div class="h-10 w-10 shrink-0 rounded-full bg-[var(--surface-elevated)] border border-[var(--border-default)] flex items-center justify-center text-[var(--text-muted)] font-bold text-sm">
+              MR
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-semibold text-[var(--text-primary)] truncate">Marcus Rivera</h3>
+<span class="text-[10px] text-[var(--text-muted)] uppercase font-mono-data">1h ago</span>
+</div>
+<p class="text-[var(--text-muted)] text-xs truncate leading-relaxed">Thanks for the documentation. Our CTO is reviewing it now.</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green"></span>
+<span class="text-[10px] text-[var(--text-muted)] uppercase tracking-tighter">Live</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Conversation Item -->
+<div class="p-4 border-b border-[var(--border-default)] hover:bg-[var(--background-secondary)]/50 cursor-pointer transition-colors duration-200">
+<div class="flex gap-4">
+<div class="h-10 w-10 shrink-0 rounded-full bg-[var(--surface-elevated)] border border-[var(--border-default)] flex items-center justify-center text-[var(--text-muted)] font-bold text-sm">
+              EL
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-semibold text-[var(--text-primary)] truncate">Elena Lysenko</h3>
+<span class="text-[10px] text-[var(--text-muted)] uppercase font-mono-data">4h ago</span>
+</div>
+<p class="text-[var(--text-muted)] text-xs truncate leading-relaxed">Let's schedule the demo for next Thursday at 2 PM PST.</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-muted)]"></span>
+<span class="text-[10px] text-[var(--text-muted)] uppercase tracking-tighter">Paused</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Message Thread -->
+<section class="flex-1 flex flex-col bg-[var(--background-primary)]">
+<!-- Flagged Conversation Banner -->
+<div class="bg-critical-red/10 border-b border-critical-red/20 px-8 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-critical-red text-lg" data-icon="report">report</span>
+<p class="text-critical-red text-sm font-medium tracking-tight">Wagora flagged this conversation: Prospect requested direct pricing which falls outside autonomous guardrails.</p>
+</div>
+<button class="text-critical-red text-[10px] uppercase font-bold tracking-widest hover:underline">Intervene</button>
+</div>
+<!-- Thread Header -->
+<div class="px-8 py-4 border-b border-[var(--border-default)] flex items-center justify-between bg-[var(--background-primary)]/50">
+<div class="flex items-center gap-4">
+<div class="h-8 w-8 rounded-full bg-teal-900/30 border border-[var(--accent-primary)]/30 flex items-center justify-center text-[var(--accent-primary)] text-xs font-bold">JS</div>
+<div>
+<h2 class="text-sm font-semibold text-[var(--text-primary)]">Jonathan Sterling</h2>
+<p class="text-[10px] text-[var(--text-muted)] uppercase">Managing Director at Sterling Growth</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 border border-[var(--border-default)] text-[10px] uppercase font-bold text-[var(--text-muted)] hover:bg-[var(--background-secondary)] transition-colors">Archive</button>
+<button class="px-3 py-1.5 border border-[var(--border-default)] text-[10px] uppercase font-bold text-[var(--text-muted)] hover:bg-[var(--background-secondary)] transition-colors">Transfer</button>
+</div>
+</div>
+<!-- Message Area -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8 custom-scrollbar">
+<!-- Date Marker -->
+<div class="flex justify-center">
+<span class="text-[10px] font-mono-data text-zinc-600 uppercase tracking-widest bg-[var(--background-primary)] px-4">Today, Oct 24</span>
+</div>
+<!-- Inbound Message (Prospect) -->
+<div class="flex flex-col items-start max-w-[80%]">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] font-bold text-[var(--text-muted)] uppercase">Jonathan Sterling</span>
+<span class="text-[10px] font-mono-data text-zinc-600">10:42 AM</span>
+</div>
+<div class="bg-[var(--surface-elevated)] border border-[var(--border-default)] p-4 rounded-xl rounded-tl-none text-[var(--text-primary)] leading-relaxed shadow-sm">
+            Hello Wagora team, we've been looking at the enterprise deck you sent over. The AI-driven outreach looks solid, but we need to understand how the cost scales once we hit 50,000 active contacts.
+          </div>
+</div>
+<!-- Outbound Message (Wagora AI) -->
+<div class="flex flex-col items-end ml-auto max-w-[80%]">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] font-mono-data text-zinc-600">10:43 AM</span>
+<span class="text-[10px] font-bold text-[var(--accent-primary)] uppercase">Wagora AI</span>
+</div>
+<div class="bg-[var(--background-secondary)] border border-[var(--border-default)] p-4 rounded-xl rounded-tr-none text-[var(--text-secondary)] leading-relaxed shadow-sm">
+            Hi Jonathan, that's a great question. At the 50,000 contact tier, Wagora moves into our 'Scale' bracket which includes dedicated processing nodes to ensure sub-second response times for your prospects. I can send over the technical breakdown for that tier if you'd like?
+          </div>
+</div>
+<!-- Inbound Message (Prospect) -->
+<div class="flex flex-col items-start max-w-[80%]">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] font-bold text-[var(--text-muted)] uppercase">Jonathan Sterling</span>
+<span class="text-[10px] font-mono-data text-zinc-600">10:45 AM</span>
+</div>
+<div class="bg-[var(--surface-elevated)] border border-[var(--border-default)] p-4 rounded-xl rounded-tl-none text-[var(--text-primary)] leading-relaxed shadow-sm">
+            I'm interested in the Q3 scalability plan. Can we talk about pricing? Specifically the per-seat versus per-contact model.
+          </div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-6 border-t border-[var(--border-default)] bg-[var(--background-primary)]/50">
+<div class="max-w-4xl mx-auto">
+<div class="relative mb-3">
+<textarea class="w-full bg-[var(--background-secondary)] border border-[var(--border-default)] rounded-lg p-4 text-[var(--text-primary)] placeholder-zinc-600 focus:ring-1 focus:ring-teal-500 focus:border-[var(--accent-primary)] resize-none transition-all" placeholder="Intervene and reply as yourself..." rows="3"></textarea>
+<div class="absolute bottom-3 right-3 flex items-center gap-4">
+<button class="text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="attach_file">attach_file</span>
+</button>
+<button class="bg-teal-500 hover:bg-teal-400 text-zinc-950 px-5 py-2 rounded font-bold text-xs uppercase tracking-wider transition-all active:scale-95 flex items-center gap-2">
+                Send
+                <span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-center px-1">
+<p class="text-[10px] text-[var(--text-muted)] italic">Wagora is currently paused on this thread. Your reply will send as a human operator.</p>
+<a class="text-[10px] uppercase font-bold text-teal-600 hover:text-[var(--accent-primary)] transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]" data-icon="info">info</span>
+              Operator Instructions
+            </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

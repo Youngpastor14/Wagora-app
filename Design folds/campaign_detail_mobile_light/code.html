@@ -1,0 +1,330 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<title>Wagora AI - Campaign Detail</title>
+<!-- Fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-primary);
+            color: var(--text-primary);
+        }
+        .pipeline-segment {
+            height: 6px;
+            border-radius: 2px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface">
+<!-- TopAppBar -->
+<header class="bg-[var(--background-secondary)] flex items-center justify-between px-4 py-3 w-full docked full-width top-0 sticky z-50 border-b border-[var(--border-default)] flat no shadows">
+<div class="flex items-center gap-3">
+<button class="active:opacity-70 transition-opacity p-1">
+<span class="material-symbols-outlined text-[var(--text-primary)] dark:text-slate-50">arrow_back</span>
+</button>
+<h1 class="font-[var(--font-display)] font-semibold text-lg tracking-tight text-[var(--text-primary)] dark:text-slate-50">Campaign Detail</h1>
+</div>
+<button class="active:opacity-70 transition-opacity p-1">
+<span class="material-symbols-outlined text-[var(--text-primary)] dark:text-slate-50">more_vert</span>
+</button>
+</header>
+<main class="pb-24">
+<!-- Pipeline Bar Section -->
+<section class="px-4 py-6 bg-[var(--surface-card)] border-b border-border-subtle">
+<div class="grid grid-cols-6 gap-1 mb-2">
+<div class="flex flex-col items-center">
+<span class="font-mono-data text-mono-data text-ally-slate mb-1">2.4k</span>
+<div class="w-full pipeline-segment bg-signal-green opacity-20"></div>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-mono-data text-mono-data text-ally-slate mb-1">1.8k</span>
+<div class="w-full pipeline-segment bg-signal-green opacity-40"></div>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-mono-data text-mono-data text-ally-slate mb-1">842</span>
+<div class="w-full pipeline-segment bg-signal-green opacity-60"></div>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-mono-data text-mono-data text-ally-slate mb-1">156</span>
+<div class="w-full pipeline-segment bg-signal-green opacity-80"></div>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-mono-data text-mono-data text-ally-slate mb-1">42</span>
+<div class="w-full pipeline-segment bg-signal-green opacity-90"></div>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-mono-data text-mono-data text-ally-slate mb-1">12</span>
+<div class="w-full pipeline-segment bg-signal-green"></div>
+</div>
+</div>
+<div class="grid grid-cols-6 gap-1">
+<span class="text-[8px] font-label-caps text-center uppercase tracking-tighter text-on-surface-variant">Scraped</span>
+<span class="text-[8px] font-label-caps text-center uppercase tracking-tighter text-on-surface-variant">Qualified</span>
+<span class="text-[8px] font-label-caps text-center uppercase tracking-tighter text-on-surface-variant">Contacted</span>
+<span class="text-[8px] font-label-caps text-center uppercase tracking-tighter text-on-surface-variant">Replied</span>
+<span class="text-[8px] font-label-caps text-center uppercase tracking-tighter text-on-surface-variant">Closing</span>
+<span class="text-[8px] font-label-caps text-center uppercase tracking-tighter text-on-surface-variant">Closed</span>
+</div>
+</section>
+<!-- Metric Cards Grid -->
+<section class="px-4 py-6 grid grid-cols-2 gap-4">
+<div class="bg-[var(--surface-card)] p-4 border border-border-subtle rounded-lg shadow-sm">
+<p class="font-label-caps text-label-caps text-ally-slate mb-2">Prospects</p>
+<h3 class="font-display-xl text-[24px] text-operator-dark">1,284</h3>
+</div>
+<div class="bg-[var(--surface-card)] p-4 border border-border-subtle rounded-lg shadow-sm">
+<p class="font-label-caps text-label-caps text-ally-slate mb-2">Replied</p>
+<h3 class="font-display-xl text-[24px] text-strategist-blue">18.8%</h3>
+</div>
+<div class="bg-[var(--surface-card)] p-4 border border-border-subtle rounded-lg shadow-sm">
+<p class="font-label-caps text-label-caps text-ally-slate mb-2">Closed</p>
+<h3 class="font-display-xl text-[24px] text-operator-dark">9</h3>
+</div>
+<div class="bg-[var(--surface-card)] p-4 border border-border-subtle rounded-lg shadow-sm">
+<p class="font-label-caps text-label-caps text-ally-slate mb-2">Avg Response</p>
+<h3 class="font-display-xl text-[24px] text-operator-dark">4h</h3>
+</div>
+</section>
+<!-- Recent Conversations Card -->
+<section class="px-4 mb-6">
+<div class="bg-[var(--surface-card)] border border-border-subtle rounded-xl overflow-hidden shadow-sm">
+<div class="px-4 py-3 border-b border-border-subtle flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-operator-dark">Recent Activity</h2>
+<span class="material-symbols-outlined text-ally-slate text-sm">open_in_new</span>
+</div>
+<div class="divide-y divide-border-subtle">
+<!-- Item 1 -->
+<div class="p-4 flex gap-3 active:bg-surface-neutral transition-colors">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-on-primary-fixed shrink-0">JD</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="font-body-md font-semibold text-operator-dark truncate">Jane Doe • Acme Corp</p>
+<span class="text-[10px] font-label-caps bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full">Wagora Responding</span>
+</div>
+<p class="font-body-md text-on-surface-variant truncate mt-0.5">"The proposal looks interesting. Can we jump on..."</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-4 flex gap-3 active:bg-surface-neutral transition-colors">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center font-bold text-on-tertiary-fixed shrink-0">MK</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="font-body-md font-semibold text-operator-dark truncate">Mark King • Zenith AI</p>
+<span class="text-[10px] font-label-caps bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded-full">Needs Attention</span>
+</div>
+<p class="font-body-md text-on-surface-variant truncate mt-0.5">"I'm not the right person for this, please speak to..."</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-4 flex gap-3 active:bg-surface-neutral transition-colors">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-on-secondary-fixed shrink-0">SL</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="font-body-md font-semibold text-operator-dark truncate">Sarah Lee • Velocity</p>
+<span class="text-[10px] font-label-caps bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full">Wagora Responding</span>
+</div>
+<p class="font-body-md text-on-surface-variant truncate mt-0.5">"Thanks for reaching out! I'd love to learn more."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Campaign Settings Card -->
+<section class="px-4 mb-6">
+<div class="bg-[var(--surface-card)] border border-border-subtle rounded-xl p-4 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-operator-dark">Campaign Parameters</h2>
+<div class="flex gap-2">
+<div class="w-8 h-8 rounded bg-surface-neutral border border-border-subtle flex items-center justify-center">
+<span class="material-symbols-outlined text-operator-dark text-lg">mail</span>
+</div>
+<div class="w-8 h-8 rounded bg-surface-neutral border border-border-subtle flex items-center justify-center">
+<span class="material-symbols-outlined text-operator-dark text-lg">share</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<p class="font-label-caps text-[10px] uppercase text-ally-slate mb-1">Target Persona (ICP)</p>
+<p class="font-body-md text-on-surface">Series A+ Fintech Founders in North America, focus on CTOs and Product Leads.</p>
+</div>
+<div class="pt-4 border-t border-border-subtle grid grid-cols-2 gap-4">
+<div>
+<p class="font-label-caps text-[10px] uppercase text-ally-slate mb-1">Daily Limit</p>
+<p class="font-mono-data text-operator-dark">150 Outreach / day</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] uppercase text-ally-slate mb-1">Sentiment Scan</p>
+<p class="font-mono-data text-signal-green">Active</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Context Image (Bento style) -->
+<section class="px-4 mb-6">
+<div class="rounded-xl overflow-hidden h-40 relative group">
+<img alt="Campaign Visual" class="w-full h-full object-cover grayscale opacity-80" data-alt="A sophisticated close-up photograph of professional office architectural details with soft, atmospheric lighting. The image captures clean lines and high-quality textures in a modern workspace environment, using a light-mode aesthetic dominated by whites, slates, and subtle blue highlights. The mood is calm, professional, and strategically confident, reflecting the Quiet Operator brand identity of Wagora AI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNNB1nYBFlqqOuYHiXcUd0ojofHpOBe7czjfVv_Tgr4seXYDKfoikM9w_TB-R6PaVDSurSydDpd2bn-ZHuRzYjotUNy1P1NQ6EzV-riTzoH16nRdrkTmocAAwAyhXlW1oYAmyuMkyWF_XH9rbV4eq0PSRS6IUnI_ouWBqwuME9JxR5-YHSGGSA5Aj3-wa33bJDDNALbXflHb4Yjq2HE8T4I0Y0cJY2kCX8NTBHqAK6YePFDF6D970o6WfrjNadATvlRqTKvUAXJxM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
+<p class="text-white font-headline-md">Lead Intelligence</p>
+<p class="text-white/80 text-xs">AI scanning 1,200+ data points for ICP alignment.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 bg-[var(--surface-card)] pb-safe z-50 border-t border-[var(--border-default)] flat no shadows">
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-[var(--text-secondary)] pt-2 pb-1 hover:text-slate-600 dark:hover:text-slate-300 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-primary)] dark:text-slate-50 border-t-2 border-slate-900 dark:border-slate-50 pt-2 pb-1 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase mt-1">Campaigns</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-[var(--text-secondary)] pt-2 pb-1 hover:text-slate-600 dark:hover:text-slate-300 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase mt-1">Inbox</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-[var(--text-secondary)] pt-2 pb-1 hover:text-slate-600 dark:hover:text-slate-300 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase mt-1">Settings</span>
+</a>
+</nav>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body { background-color: var(--background-primary); color: var(--background-primary); }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 h-14 bg-slate-950 text-slate-50 border-b border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-50 cursor-pointer" data-icon="menu">menu</span>
+<h1 class="text-lg font-bold tracking-tighter text-slate-50">Conversations</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-slate-50 cursor-pointer" data-icon="search">search</span>
+</div>
+</header>
+<main class="pt-14 pb-16 min-h-screen">
+<!-- Search Bar -->
+<section class="px-4 py-3">
+<div class="relative w-full h-9 bg-operator-dark border border-border-subtle rounded flex items-center px-3">
+<span class="material-symbols-outlined text-ally-slate text-sm mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none text-body-md w-full focus:ring-0 placeholder-ally-slate p-0" placeholder="Search conversations..." type="text"/>
+</div>
+</section>
+<!-- Filter Tabs -->
+<section class="flex overflow-x-auto px-4 pb-4 gap-4 no-scrollbar whitespace-nowrap border-b border-border-subtle">
+<button class="font-label-caps text-on-primary border-b-2 border-strategist-blue pb-2">All</button>
+<button class="font-label-caps text-ally-slate pb-2">Needs attention</button>
+<button class="font-label-caps text-ally-slate pb-2">In progress</button>
+<button class="font-label-caps text-ally-slate pb-2">Closing</button>
+<button class="font-label-caps text-ally-slate pb-2">Closed</button>
+</section>
+<!-- Conversations List -->
+<section class="flex flex-col">
+<!-- Conversation Item 1 -->
+<div class="flex items-center px-4 h-20 border-b border-border-subtle relative hover:bg-primary-container transition-colors cursor-pointer">
+<div class="absolute left-1 w-1.5 h-1.5 rounded-full bg-strategist-blue"></div>
+<div class="flex-shrink-0 w-9 h-9 rounded-full bg-secondary text-on-secondary flex items-center justify-center mr-3 ml-2">
+<span class="font-bold text-xs">SK</span>
+</div>
+<div class="flex-grow flex flex-col min-w-0 pr-12">
+<div class="flex items-center gap-1">
+<span class="font-mono-data text-body-md text-slate-50 truncate">Satoshi Nakamoto</span>
+<span class="text-[13px] text-ally-slate truncate">• Block One Inc.</span>
+</div>
+<p class="text-[13px] text-ally-slate line-clamp-2 leading-snug">
+            The mechanism for consensus is finalized. We should proceed with the network deployment schedule as discussed.
+          </p>
+</div>
+<div class="absolute top-4 right-4 flex flex-col items-end gap-1">
+<span class="text-[11px] font-mono-data text-ally-slate">10:42 AM</span>
+<div class="flex items-center gap-1 mt-6">
+<div class="w-1.5 h-1.5 rounded-full bg-signal-green"></div>
+<span class="text-[10px] uppercase tracking-wider font-semibold text-signal-green">Live</span>
+</div>
+</div>
+</div>
+<!-- Conversation Item 2 -->
+<div class="flex items-center px-4 h-20 border-b border-border-subtle relative hover:bg-primary-container transition-colors cursor-pointer">
+<div class="flex-shrink-0 w-9 h-9 rounded-full bg-secondary text-on-secondary flex items-center justify-center mr-3 ml-2">
+<span class="font-bold text-xs">EJ</span>
+</div>
+<div class="flex-grow flex flex-col min-w-0 pr-12">
+<div class="flex items-center gap-1">
+<span class="font-mono-data text-body-md text-slate-50 truncate">Elena Jenkins</span>
+<span class="text-[13px] text-ally-slate truncate">• Stratos Global</span>
+</div>
+<p class="text-[13px] text-ally-slate line-clamp-2 leading-snug">
+            Wagora flagged a potential risk in the contract terms for the Q3 expansion. Please review the updated clause.
+          </p>
+</div>
+<div class="absolute top-4 right-4 flex flex-col items-end gap-1">
+<span class="text-[11px] font-mono-data text-ally-slate">Yesterday</span>
+<div class="flex items-center gap-1 mt-6">
+<div class="w-1.5 h-1.5 rounded-full bg-critical-red"></div>
+<span class="text-[10px] uppercase tracking-wider font-semibold text-critical-red">Flagged</span>
+</div>
+</div>
+</div>
+<!-- Conversation Item 3 -->
+<div class="flex items-center px-4 h-20 border-b border-border-subtle relative hover:bg-primary-container transition-colors cursor-pointer">
+<div class="absolute left-1 w-1.5 h-1.5 rounded-full bg-strategist-blue"></div>
+<div class="flex-shrink-0 w-9 h-9 rounded-full bg-secondary text-on-secondary flex items-center justify-center mr-3 ml-2">
+<span class="font-bold text-xs">MA</span>
+</div>
+<div class="flex-grow flex flex-col min-w-0 pr-12">
+<div class="flex items-center gap-1">
+<span class="font-mono-data text-body-md text-slate-50 truncate">Marcus Aurelius</span>
+<span class="text-[13px] text-ally-slate truncate">• Stoic Ventures</span>
+</div>
+<p class="text-[13px] text-ally-slate line-clamp-2 leading-snug">
+            Wagora is responding to the inquiry regarding the new governance model proposed last Friday.
+          </p>
+</div>
+<div class="absolute top-4 right-4 flex flex-col items-end gap-1">
+<span class="text-[11px] font-mono-data text-ally-slate">Oct 24</span>
+<div class="flex items-center gap-1 mt-6 bg-strategist-blue/10 px-1.5 py-0.5 rounded-sm">
+<span class="text-[10px] uppercase tracking-wider font-semibold text-strategist-blue">Responding</span>
+</div>
+</div>
+</div>
+<!-- Conversation Item 4 -->
+<div class="flex items-center px-4 h-20 border-b border-border-subtle relative hover:bg-primary-container transition-colors cursor-pointer">
+<div class="flex-shrink-0 w-9 h-9 rounded-full bg-secondary text-on-secondary flex items-center justify-center mr-3 ml-2">
+<span class="font-bold text-xs">LH</span>
+</div>
+<div class="flex-grow flex flex-col min-w-0 pr-12">
+<div class="flex items-center gap-1">
+<span class="font-mono-data text-body-md text-slate-50 truncate">Linda Huang</span>
+<span class="text-[13px] text-ally-slate truncate">• Meridian Tech</span>
+</div>
+<p class="text-[13px] text-ally-slate line-clamp-2 leading-snug">
+            The feedback loop for the customer support module has been integrated. We are seeing a 15% increase in efficiency.
+          </p>
+</div>
+<div class="absolute top-4 right-4 flex flex-col items-end gap-1">
+<span class="text-[11px] font-mono-data text-ally-slate">Oct 22</span>
+<div class="flex items-center gap-1 mt-6">
+<div class="w-1.5 h-1.5 rounded-full bg-caution-amber"></div>
+<span class="text-[10px] uppercase tracking-wider font-semibold text-caution-amber">Needs attention</span>
+</div>
+</div>
+</div>
+<!-- Conversation Item 5 -->
+<div class="flex items-center px-4 h-20 border-b border-border-subtle relative hover:bg-primary-container transition-colors cursor-pointer">
+<div class="flex-shrink-0 w-9 h-9 rounded-full bg-secondary text-on-secondary flex items-center justify-center mr-3 ml-2">
+<span class="font-bold text-xs">DR</span>
+</div>
+<div class="flex-grow flex flex-col min-w-0 pr-12">
+<div class="flex items-center gap-1">
+<span class="font-mono-data text-body-md text-slate-50 truncate">David Rossi</span>
+<span class="text-[13px] text-ally-slate truncate">• Quantix Lab</span>
+</div>
+<p class="text-[13px] text-ally-slate line-clamp-2 leading-snug">
+            We have archived the previous dialogue. If you need to re-open the case, please let us know by EOD.
+          </p>
+</div>
+<div class="absolute top-4 right-4 flex flex-col items-end gap-1">
+<span class="text-[11px] font-mono-data text-ally-slate">Oct 20</span>
+<div class="flex items-center gap-1 mt-6">
+<div class="w-1.5 h-1.5 rounded-full bg-ally-slate"></div>
+<span class="text-[10px] uppercase tracking-wider font-semibold text-ally-slate">Closed</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-16 bg-slate-950 px-2 border-t border-slate-800">
+<div class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 transition-transform hover:text-slate-50">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider">Inbox</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[var(--text-primary)] dark:text-slate-50 font-bold scale-95">
+<span class="material-symbols-outlined" data-icon="bar_chart" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider">Analytics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 transition-transform hover:text-slate-50">
+<span class="material-symbols-outlined" data-icon="ads_click">ads_click</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider">Campaigns</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 transition-transform hover:text-slate-50">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider">Settings</span>
+</div>
+</nav>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

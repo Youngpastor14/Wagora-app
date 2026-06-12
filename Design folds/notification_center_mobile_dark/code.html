@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen">
+<header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border-subtle px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-highest transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Notifications</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface">done_all</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface">settings</span>
+</button>
+</div>
+</header>
+<main class="max-w-xl mx-auto px-4 py-6 space-y-6">
+<section class="space-y-3">
+<div class="flex items-center justify-between px-2">
+<h2 class="font-label-caps text-label-caps text-ally-slate uppercase tracking-widest">Active Deal Alerts</h2>
+<span class="bg-strategist-blue/10 text-strategist-blue px-2 py-0.5 rounded-full text-[10px] font-bold">3 NEW</span>
+</div>
+<div class="space-y-2">
+<div class="group bg-surface-container p-4 border border-border-subtle rounded-xl flex gap-4 items-start transition-all hover:border-teal-signal/50">
+<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-teal-signal/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-teal-signal" style="font-variation-settings: 'FILL' 1;">handshake</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<p class="font-body-md font-semibold text-on-surface">New High-Signal Deal Identified</p>
+<span class="text-[10px] text-ally-slate font-mono-data">2m ago</span>
+</div>
+<p class="text-body-md text-ally-slate leading-relaxed">Wagora AI flagged a strategic match for Campaign "Alpha Growth" in the Midwest region. ICP Score: 9.4/10.</p>
+<div class="pt-2 flex gap-2">
+<button class="px-3 py-1.5 bg-teal-signal text-operator-dark text-xs font-bold rounded-lg transition-transform active:scale-95">View Deal</button>
+<button class="px-3 py-1.5 border border-border-subtle text-on-surface text-xs font-semibold rounded-lg hover:bg-surface-container-highest transition-colors">Dismiss</button>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container p-4 border border-border-subtle rounded-xl flex gap-4 items-start transition-all">
+<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-teal-signal/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-teal-signal" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<p class="font-body-md font-semibold text-on-surface">Pricing Threshold Met</p>
+<span class="text-[10px] text-ally-slate font-mono-data">1h ago</span>
+</div>
+<p class="text-body-md text-ally-slate leading-relaxed">Standard acquisition cost dropped below $42.00. Optimal entry window now active.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-3">
+<h2 class="font-label-caps text-label-caps text-ally-slate px-2 uppercase tracking-widest">Communications</h2>
+<div class="space-y-2">
+<div class="group bg-surface-container p-4 border border-border-subtle rounded-xl flex gap-4 items-start relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-chartreuse rounded-l-xl"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden border border-border-subtle bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a corporate strategist with a neutral expression, set against a dark, minimalist studio background. The lighting is low-key and dramatic, highlighting sharp facial features while maintaining a sophisticated, high-end aesthetic. The color palette is composed of deep slates and cold blues, reflecting an atmosphere of strategic confidence and quiet authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR2dQSRLxiVJol9KFmtLgqtKMe_rwOe-n8X393Agx-0o_NtQvWBMLOZsg_wEr_NcesFXBXtFXWI1BpWGTLpp-RTtBVedWT1loI21PpANsZCDRTwV0AWdGfIgt8lvKMNG7mtbG1_veJCaStb1djC5nxJQft-R_ne0YneqVK3Tk-0VkMqScTpc5V6OGfuJq7cLXXB__kEaR0f5mGPjM_qgu5kvi-QLcyCpDRGx_eLBHvWo-4ubJr6bXs4c09vxE3kxKztPEJ7xJywU0"/>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<p class="font-body-md font-semibold text-on-surface">Reply from Marcus Chen</p>
+<span class="text-[10px] text-ally-slate font-mono-data">4h ago</span>
+</div>
+<p class="text-body-md text-ally-slate italic">"The strategy looks solid for Q4. I've flagged the analytics for the team to review by EOD."</p>
+<div class="pt-1">
+<span class="text-xs font-semibold text-chartreuse flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">chat_bubble</span> Quick Reply
+                            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-3">
+<h2 class="font-label-caps text-label-caps text-ally-slate px-2 uppercase tracking-widest">System Flags</h2>
+<div class="grid grid-cols-1 gap-2">
+<div class="bg-surface-container p-4 border border-border-subtle rounded-xl flex gap-4 items-center">
+<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-chartreuse/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-chartreuse" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md font-semibold text-on-surface">Weekly Analytics Ready</p>
+<p class="text-xs text-ally-slate">Strategist Console report for Week 32 is now available.</p>
+</div>
+<span class="material-symbols-outlined text-ally-slate">chevron_right</span>
+</div>
+<div class="bg-surface-container p-4 border border-border-subtle rounded-xl flex gap-4 items-center opacity-60">
+<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-ally-slate">security</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md font-semibold text-on-surface">Security Protocol Updated</p>
+<p class="text-xs text-ally-slate">Wagora AI core systems successfully updated to v2.4.1</p>
+</div>
+<span class="text-[10px] text-ally-slate font-mono-data">1d ago</span>
+</div>
+</div>
+</section>
+<div class="py-12 flex flex-col items-center justify-center opacity-30 text-center">
+<span class="material-symbols-outlined text-4xl mb-2">inventory_2</span>
+<p class="font-label-caps text-xs">END OF RECENT ACTIVITY</p>
+</div>
+</main>
+<div class="fixed bottom-8 right-6">
+<button class="w-14 h-14 bg-teal-signal text-operator-dark rounded-full shadow-2xl flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

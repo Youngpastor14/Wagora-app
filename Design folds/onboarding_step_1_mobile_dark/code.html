@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-primary); /* Slate 950 */
+        }
+        .font-clash { font-family: var(--font-display); }
+        .font-satoshi { font-family: var(--font-body); }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-slate-950 text-slate-200 min-h-screen flex flex-col items-center">
+<!-- Top App Bar (Shared Component Reference) -->
+<header class="bg-slate-950 border-b border-slate-800 flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[var(--accent-primary)]" data-icon="arrow_back">arrow_back</span>
+<span class="font-[var(--font-display)] font-semibold text-xl tracking-tight text-[var(--accent-primary)]">Wagora AI</span>
+</div>
+<div class="h-1.5 w-32 bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full w-1/4 bg-teal-500 rounded-full"></div>
+</div>
+</header>
+<main class="w-full max-w-md px-6 pt-24 pb-32 flex flex-col gap-stack-lg">
+<!-- Headline Section -->
+<section>
+<h1 class="font-clash text-2xl font-bold text-slate-100 leading-tight">Your brand.</h1>
+<p class="font-body-md text-[var(--text-muted)] mt-2">Help Wagora understand the core of your business to generate accurate copy.</p>
+</section>
+<!-- Form Fields -->
+<div class="flex flex-col gap-stack-md">
+<!-- Brand Name -->
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-[var(--text-muted)] uppercase">Brand name</label>
+<input class="bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:ring-1 focus:ring-teal-500 focus:border-[var(--accent-primary)] outline-none transition-all placeholder:text-slate-600" placeholder="e.g. Wagora Design" type="text"/>
+</div>
+<!-- Industry -->
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-[var(--text-muted)] uppercase">Industry</label>
+<div class="relative">
+<select class="w-full appearance-none bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:ring-1 focus:ring-teal-500 focus:border-[var(--accent-primary)] outline-none transition-all cursor-pointer">
+<option disabled="" selected="" value="">Select an industry</option>
+<option value="tech">Technology &amp; SaaS</option>
+<option value="health">Health &amp; Wellness</option>
+<option value="ecommerce">E-commerce</option>
+<option value="realestate">Real Estate</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- What you sell -->
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-[var(--text-muted)] uppercase">What you sell</label>
+<textarea class="bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:ring-1 focus:ring-teal-500 focus:border-[var(--accent-primary)] outline-none transition-all placeholder:text-slate-600 resize-none" placeholder="Describe your product or service in detail..." rows="3"></textarea>
+<p class="text-[11px] text-[var(--text-secondary)] mt-1">Provide specific features or benefits for better results.</p>
+</div>
+</div>
+<!-- Brand Voice Section -->
+<section class="flex flex-col gap-stack-md">
+<label class="font-label-caps text-[var(--text-muted)] uppercase">Brand voice</label>
+<div class="grid grid-cols-2 gap-3">
+<!-- Radio Card 1 -->
+<div class="relative group cursor-pointer border border-[var(--accent-primary)]/30 bg-teal-500/5 rounded-xl p-4 flex flex-col items-center text-center gap-2 transition-all hover:bg-teal-500/10">
+<span class="material-symbols-outlined text-[var(--accent-primary)] text-2xl" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-satoshi text-sm font-semibold text-[var(--accent-primary)]">Professional</span>
+</div>
+<!-- Radio Card 2 -->
+<div class="relative group cursor-pointer border border-slate-800 bg-slate-900/50 rounded-xl p-4 flex flex-col items-center text-center gap-2 transition-all hover:border-slate-700">
+<span class="material-symbols-outlined text-[var(--text-secondary)] text-2xl" data-icon="mood">mood</span>
+<span class="font-satoshi text-sm font-semibold text-[var(--text-muted)]">Friendly</span>
+</div>
+<!-- Radio Card 3 -->
+<div class="relative group cursor-pointer border border-slate-800 bg-slate-900/50 rounded-xl p-4 flex flex-col items-center text-center gap-2 transition-all hover:border-slate-700">
+<span class="material-symbols-outlined text-[var(--text-secondary)] text-2xl" data-icon="bolt">bolt</span>
+<span class="font-satoshi text-sm font-semibold text-[var(--text-muted)]">Bold</span>
+</div>
+<!-- Radio Card 4 -->
+<div class="relative group cursor-pointer border border-slate-800 bg-slate-900/50 rounded-xl p-4 flex flex-col items-center text-center gap-2 transition-all hover:border-slate-700">
+<span class="material-symbols-outlined text-[var(--text-secondary)] text-2xl" data-icon="history_edu">history_edu</span>
+<span class="font-satoshi text-sm font-semibold text-[var(--text-muted)]">Sophisticated</span>
+</div>
+</div>
+</section>
+<!-- Document Upload -->
+<section class="flex flex-col gap-stack-md">
+<label class="font-label-caps text-[var(--text-muted)] uppercase">Brand Guidelines (Optional)</label>
+<div class="border-2 border-dashed border-slate-800 bg-slate-900/30 rounded-xl p-8 flex flex-col items-center justify-center gap-3 transition-colors hover:border-slate-700 hover:bg-slate-900/50 cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-[var(--text-muted)]" data-icon="upload_file">upload_file</span>
+</div>
+<div class="text-center">
+<p class="font-satoshi text-sm font-medium text-slate-200">Click to upload or drag &amp; drop</p>
+<p class="text-[11px] text-[var(--text-secondary)]">PDF, DOCX or TXT up to 10MB</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Component Reference) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-slate-950 border-t border-slate-800 px-6 py-5 flex justify-between items-center mb-safe">
+<button class="flex items-center gap-2 text-[var(--text-secondary)] font-satoshi text-sm font-medium px-4 py-2 hover:bg-slate-900 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_left">chevron_left</span>
+            Back
+        </button>
+<button class="flex items-center gap-2 bg-teal-500 text-slate-950 font-satoshi text-sm font-bold px-8 py-3 rounded-lg hover:bg-teal-400 active:scale-95 transition-all shadow-[0_0_20px_-5px_rgba(20,184,166,0.3)]">
+            Continue
+            <span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</nav>
+<!-- Decorative Subtle Background Element -->
+<div class="fixed top-0 right-0 -z-10 w-[500px] h-[500px] bg-teal-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-slate-800/10 blur-[100px] rounded-full pointer-events-none"></div>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

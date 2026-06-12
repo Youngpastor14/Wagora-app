@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-primary);
+        }
+
+        .clash-display {
+            font-family: var(--font-display);
+            font-weight: 700;
+        }
+
+        .satoshi {
+            font-family: var(--font-body);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-neutral text-on-background min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center px-4 h-16 bg-[var(--surface-card)] border-b border-[var(--border-default)] ">
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-3">
+<button class="active:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-[var(--text-primary)] dark:text-slate-50">arrow_back</span>
+</button>
+<h1 class="font-[var(--font-display)] font-semibold text-lg tracking-tight text-[var(--text-primary)] dark:text-slate-50">Settings</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-[var(--border-default)] overflow-hidden">
+<img alt="Profile" data-alt="A professional headshot of a corporate strategist against a soft-focus studio background. The lighting is crisp and high-key, maintaining a minimalist and modern aesthetic suitable for a high-end dashboard. The color palette is dominated by neutral greys and whites, echoing a quiet operator visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP_QQmgc9bpBvULWyf7sg3KPqVQEGfJAlHFHijlVL2WnhS2X0tctGJpYQbkQdaXm3rmpyVyVFC2xSlm6xZgw91JiaX7D3oFepZ9XilXq2ql_pOrblVVFkHX_Prx-unjM3hf9dgsq-Yk3uQ1VPvxv8xwG5xndmCNHk2xLkpjuWR8P0eEHYE4jMGL6iG4d36T0t6kvRfbgHLWEGT88DBfyCXpAUFp-YmXRzMbfMH_ae0EE1GFTHvCrDosNro1znNKLRM6B-0uVsMKFg"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-4 max-w-md mx-auto">
+<!-- Brand Documents Header -->
+<div class="flex items-center justify-between mb-8">
+<h2 class="clash-display text-[24px] text-operator-dark">Brand Documents</h2>
+<button class="bg-operator-dark text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                Add Document
+            </button>
+</div>
+<!-- Dashboard Content -->
+<div class="space-y-6">
+<!-- Upload Zone -->
+<div class="bg-[var(--surface-card)] border-2 border-dashed border-border-subtle rounded-xl p-8 flex flex-col items-center justify-center text-center transition-colors hover:border-strategist-blue group">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center mb-4 group-hover:bg-tertiary-fixed transition-colors">
+<span class="material-symbols-outlined text-ally-slate group-hover:text-strategist-blue">upload_file</span>
+</div>
+<p class="satoshi font-semibold text-operator-dark text-sm mb-1">Click or drag to upload</p>
+<p class="satoshi text-ally-slate text-[12px]">PDF, DOCX up to 10MB</p>
+</div>
+<!-- Documents List Card -->
+<div class="bg-[var(--surface-card)] rounded-xl border border-border-subtle overflow-hidden">
+<div class="p-4 border-b border-border-subtle bg-surface-neutral">
+<p class="satoshi font-bold text-[12px] uppercase tracking-wider text-ally-slate">Uploaded Files</p>
+</div>
+<div class="divide-y divide-border-subtle">
+<!-- File Item 1 -->
+<div class="p-4 flex items-center justify-between hover:bg-surface-neutral transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-red-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-critical-red">description</span>
+</div>
+<div>
+<p class="satoshi font-bold text-operator-dark text-sm">Brand_Guidelines_v2.pdf</p>
+<p class="satoshi text-[12px] text-ally-slate">Uploaded Oct 12, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-2 py-0.5 rounded-full bg-emerald-50 text-signal-green satoshi font-bold text-[10px] uppercase flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-signal-green"></span>
+                                Active
+                            </span>
+<button class="text-ally-slate hover:text-critical-red active:opacity-50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete_outline</span>
+</button>
+</div>
+</div>
+<!-- File Item 2 -->
+<div class="p-4 flex items-center justify-between hover:bg-surface-neutral transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-blue-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-strategist-blue">article</span>
+</div>
+<div>
+<p class="satoshi font-bold text-operator-dark text-sm">Market_Research_Q3.docx</p>
+<p class="satoshi text-[12px] text-ally-slate">Uploaded Oct 14, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-2 py-0.5 rounded-full bg-amber-50 text-caution-amber satoshi font-bold text-[10px] uppercase flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-caution-amber animate-pulse"></span>
+                                Processing
+                            </span>
+<button class="text-ally-slate hover:text-critical-red active:opacity-50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete_outline</span>
+</button>
+</div>
+</div>
+<!-- File Item 3 -->
+<div class="p-4 flex items-center justify-between hover:bg-surface-neutral transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-[var(--background-secondary)] flex items-center justify-center">
+<span class="material-symbols-outlined text-operator-dark">picture_as_pdf</span>
+</div>
+<div>
+<p class="satoshi font-bold text-operator-dark text-sm">Tone_of_Voice.pdf</p>
+<p class="satoshi text-[12px] text-ally-slate">Uploaded Oct 15, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-2 py-0.5 rounded-full bg-emerald-50 text-signal-green satoshi font-bold text-[10px] uppercase flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-signal-green"></span>
+                                Active
+                            </span>
+<button class="text-ally-slate hover:text-critical-red active:opacity-50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete_outline</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Context (Helpful Ally) -->
+<div class="flex items-start gap-3 p-4 bg-tertiary-fixed/30 rounded-lg border border-tertiary-fixed">
+<span class="material-symbols-outlined text-strategist-blue text-[20px]">info</span>
+<p class="satoshi text-body-md text-operator-dark leading-snug">
+<span class="font-bold">Pro-tip:</span> Uploading consistent brand documentation helps the AI maintain your specific tone across all active campaigns.
+                </p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-16 px-6 bg-[color-mix(in_srgb,var(--surface-card)_80%,transparent)] /80 backdrop-blur-md border-t border-[var(--border-default)] ">
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 hover:text-slate-600 dark:hover:text-slate-300 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 hover:text-slate-600 dark:hover:text-slate-300 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase">Campaigns</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 hover:text-slate-600 dark:hover:text-slate-300 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase">Analyst</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-primary)] dark:text-slate-50 font-bold active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase">Settings</span>
+</a>
+</nav>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

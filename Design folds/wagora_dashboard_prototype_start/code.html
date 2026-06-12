@@ -1,0 +1,476 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<title>Wagora AI | Operator Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        body { @apply bg-background text-on-background font-body-md; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .border-subtle { border: 1px solid var(--border-default); }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 bg-[var(--background-secondary)] h-screen w-64 border-r border-[var(--border-default)] z-50">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-bold tracking-tighter text-[var(--text-primary)] dark:text-slate-100 font-display-xl">Wagora AI</h1>
+<p class="font-[var(--font-display)] text-sm font-medium tracking-tight text-[var(--text-secondary)]">Operator Console</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-primary)] font-bold bg-[var(--border-default)]/50 dark:bg-slate-800/50 border-r-2 border-slate-900 dark:border-[var(--border-subtle)] font-[var(--font-display)] text-sm font-medium tracking-tight transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] font-[var(--font-display)] text-sm font-medium tracking-tight transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+                Campaigns
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] font-[var(--font-display)] text-sm font-medium tracking-tight transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">group</span>
+                Prospects
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] font-[var(--font-display)] text-sm font-medium tracking-tight transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] font-[var(--font-display)] text-sm font-medium tracking-tight transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">database</span>
+                Knowledge Base
+            </a>
+</nav>
+<div class="mt-auto pt-4 space-y-1 border-t border-[var(--border-default)] ">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] font-[var(--font-display)] text-sm font-medium tracking-tight transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] font-[var(--font-display)] text-sm font-medium tracking-tight transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</div>
+</aside>
+<div class="flex-1 ml-64 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-8 py-3 ml-0 bg-[color-mix(in_srgb,var(--surface-card)_80%,transparent)] /80 backdrop-blur-md w-full border-b border-[var(--border-default)] ">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-lg">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-strategist-blue" placeholder="Search operations..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">notifications</button>
+<button class="material-symbols-outlined text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">history</button>
+<button class="material-symbols-outlined text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">account_circle</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="p-8 max-w-[1600px] mx-auto w-full">
+<!-- Header Section -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-operator-dark">Dashboard</h2>
+<p class="text-ally-slate font-body-md mt-1">Strategic overview of active market engagements.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-[var(--surface-card)] border-subtle text-operator-dark rounded font-body-md flex items-center gap-2 hover:bg-[var(--background-secondary)] transition-colors">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                        Last 30 Days
+                    </button>
+<button class="px-4 py-2 bg-operator-dark text-white rounded font-body-md flex items-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        New Campaign
+                    </button>
+</div>
+</div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 mb-10">
+<div class="bg-[var(--surface-card)] p-5 border-subtle rounded-lg">
+<p class="text-label-caps font-label-caps text-ally-slate uppercase">Active Campaigns</p>
+<p class="mt-2 font-display-xl text-[32px] text-operator-dark">12</p>
+<div class="mt-2 flex items-center text-signal-green text-xs font-medium">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span>
+                        +2 from last month
+                    </div>
+</div>
+<div class="bg-[var(--surface-card)] p-5 border-subtle rounded-lg">
+<p class="text-label-caps font-label-caps text-ally-slate uppercase">Prospects Contacted</p>
+<p class="mt-2 font-display-xl text-[32px] text-operator-dark">2,482</p>
+<div class="mt-2 flex items-center text-signal-green text-xs font-medium">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span>
+                        14% increase
+                    </div>
+</div>
+<div class="bg-[var(--surface-card)] p-5 border-subtle rounded-lg">
+<p class="text-label-caps font-label-caps text-ally-slate uppercase">Replies Received</p>
+<p class="mt-2 font-display-xl text-[32px] text-operator-dark">156</p>
+<div class="mt-2 flex items-center text-signal-green text-xs font-medium">
+<span class="material-symbols-outlined text-[14px] mr-1">check_circle</span>
+                        6.3% response rate
+                    </div>
+</div>
+<div class="bg-[var(--surface-card)] p-5 border-subtle rounded-lg">
+<p class="text-label-caps font-label-caps text-ally-slate uppercase">In Closing</p>
+<p class="mt-2 font-display-xl text-[32px] text-operator-dark">24</p>
+<div class="mt-2 flex items-center text-caution-amber text-xs font-medium">
+<span class="material-symbols-outlined text-[14px] mr-1">schedule</span>
+                        Avg. 12 days in stage
+                    </div>
+</div>
+<div class="bg-[var(--surface-card)] p-5 border-subtle rounded-lg">
+<p class="text-label-caps font-label-caps text-ally-slate uppercase">Deals Closed</p>
+<p class="mt-2 font-display-xl text-[32px] text-operator-dark">08</p>
+<div class="mt-2 flex items-center text-signal-green text-xs font-medium">
+<span class="material-symbols-outlined text-[14px] mr-1">verified</span>
+                        $142k Total Value
+                    </div>
+</div>
+<div class="bg-[var(--surface-card)] p-5 border-subtle rounded-lg">
+<p class="text-label-caps font-label-caps text-ally-slate uppercase">Calls Booked</p>
+<p class="mt-2 font-display-xl text-[32px] text-operator-dark">42</p>
+<div class="mt-2 flex items-center text-signal-green text-xs font-medium">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span>
+                        Next call in 2h
+                    </div>
+</div>
+</div>
+<!-- Pipeline Visual -->
+<div class="mb-10">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-md text-headline-md text-operator-dark">Pipeline Distribution</h3>
+<p class="font-body-md text-ally-slate">Stage health: <span class="text-signal-green font-semibold">Steady</span></p>
+</div>
+<div class="flex h-12 w-full rounded-lg overflow-hidden border-subtle">
+<div class="h-full bg-slate-900 flex items-center justify-center text-[10px] text-white font-bold" style="width: 40%">PROSPECTING (40%)</div>
+<div class="h-full bg-slate-700 flex items-center justify-center text-[10px] text-white font-bold" style="width: 25%">OUTREACH (25%)</div>
+<div class="h-full bg-slate-500 flex items-center justify-center text-[10px] text-white font-bold" style="width: 20%">NEGOTIATION (20%)</div>
+<div class="h-full bg-strategist-blue flex items-center justify-center text-[10px] text-white font-bold" style="width: 15%">CLOSING (15%)</div>
+</div>
+<div class="flex justify-between mt-3 px-1">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-slate-900"></div>
+<span class="text-xs text-ally-slate font-medium">412 Leads</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-slate-700"></div>
+<span class="text-xs text-ally-slate font-medium">256 Active</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-slate-500"></div>
+<span class="text-xs text-ally-slate font-medium">188 Replies</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-strategist-blue"></div>
+<span class="text-xs text-ally-slate font-medium">12 Closing</span>
+</div>
+</div>
+</div>
+<!-- Split View Content -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Active Campaigns Table -->
+<div class="lg:col-span-2 bg-[var(--surface-card)] border-subtle rounded-lg overflow-hidden">
+<div class="p-6 border-b border-[var(--border-subtle)] flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-operator-dark">Active Campaigns</h3>
+<button class="text-strategist-blue text-sm font-semibold hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-[var(--background-secondary)]/50">
+<tr>
+<th class="px-6 py-4 font-label-caps text-label-caps text-ally-slate">Campaign Name</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-ally-slate">ICP Score</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-ally-slate">Status</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-ally-slate">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr class="hover:bg-[var(--background-secondary)]/30 transition-colors">
+<td class="px-6 py-5">
+<p class="font-body-md font-semibold text-operator-dark">Q4 Enterprise SaaS</p>
+<p class="text-xs text-ally-slate">Started Oct 12, 2023</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="font-display-xl text-lg text-strategist-blue font-bold">8.4</span>
+<span class="text-[10px] text-ally-slate">/10</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[rgba(0,200,150,0.1)] text-signal-green text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green"></span>
+                                            Live
+                                        </span>
+</td>
+<td class="px-6 py-5">
+<button class="material-symbols-outlined text-[var(--text-muted)] hover:text-operator-dark">more_horiz</button>
+</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)]/30 transition-colors">
+<td class="px-6 py-5">
+<p class="font-body-md font-semibold text-operator-dark">FinTech Outreach v2</p>
+<p class="text-xs text-ally-slate">Started Nov 01, 2023</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="font-display-xl text-lg text-strategist-blue font-bold">9.1</span>
+<span class="text-[10px] text-ally-slate">/10</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[rgba(0,200,150,0.1)] text-signal-green text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green"></span>
+                                            Live
+                                        </span>
+</td>
+<td class="px-6 py-5">
+<button class="material-symbols-outlined text-[var(--text-muted)] hover:text-operator-dark">more_horiz</button>
+</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)]/30 transition-colors">
+<td class="px-6 py-5">
+<p class="font-body-md font-semibold text-operator-dark">Growth Marketing Agencies</p>
+<p class="text-xs text-ally-slate">Started Nov 05, 2023</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="font-display-xl text-lg text-strategist-blue font-bold">7.2</span>
+<span class="text-[10px] text-ally-slate">/10</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 text-caution-amber text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-caution-amber"></span>
+                                            Paused
+                                        </span>
+</td>
+<td class="px-6 py-5">
+<button class="material-symbols-outlined text-[var(--text-muted)] hover:text-operator-dark">more_horiz</button>
+</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)]/30 transition-colors">
+<td class="px-6 py-5">
+<p class="font-body-md font-semibold text-operator-dark">Series A Founders Focus</p>
+<p class="text-xs text-ally-slate">Started Nov 10, 2023</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="font-display-xl text-lg text-strategist-blue font-bold">8.8</span>
+<span class="text-[10px] text-ally-slate">/10</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 text-critical-red text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-critical-red"></span>
+                                            Needs attention
+                                        </span>
+</td>
+<td class="px-6 py-5">
+<button class="material-symbols-outlined text-[var(--text-muted)] hover:text-operator-dark">more_horiz</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Activity Feed -->
+<div class="bg-[var(--surface-card)] border-subtle rounded-lg flex flex-col">
+<div class="p-6 border-b border-[var(--border-subtle)] flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-operator-dark">Activity Feed</h3>
+<span class="material-symbols-outlined text-[var(--text-muted)]">filter_list</span>
+</div>
+<div class="p-6 space-y-6 flex-1 overflow-y-auto max-h-[500px]">
+<div class="flex gap-4 relative">
+<div class="absolute left-4 top-8 bottom-0 w-px bg-[var(--surface-elevated)]"></div>
+<div class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0 z-10">
+<span class="material-symbols-outlined text-white text-[16px]">mail</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-operator-dark">Reply received: John Doe</p>
+<p class="text-xs text-ally-slate mt-1">Wagora flagged a conversation as "High Intent" from the Enterprise SaaS campaign.</p>
+<p class="text-[10px] text-[var(--text-muted)] mt-2 font-mono-data">2 MINS AGO</p>
+</div>
+</div>
+<div class="flex gap-4 relative">
+<div class="absolute left-4 top-8 bottom-0 w-px bg-[var(--surface-elevated)]"></div>
+<div class="w-8 h-8 rounded-full bg-strategist-blue flex items-center justify-center flex-shrink-0 z-10">
+<span class="material-symbols-outlined text-white text-[16px]">calendar_month</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-operator-dark">Call Booked: Sarah Chen</p>
+<p class="text-xs text-ally-slate mt-1">CTO at TechFlow scheduled a discovery call for Thursday at 10:00 AM.</p>
+<p class="text-[10px] text-[var(--text-muted)] mt-2 font-mono-data">45 MINS AGO</p>
+</div>
+</div>
+<div class="flex gap-4 relative">
+<div class="absolute left-4 top-8 bottom-0 w-px bg-[var(--surface-elevated)]"></div>
+<div class="w-8 h-8 rounded-full bg-signal-green flex items-center justify-center flex-shrink-0 z-10">
+<span class="material-symbols-outlined text-white text-[16px]">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-operator-dark">Deal Closed: Acme Corp</p>
+<p class="text-xs text-ally-slate mt-1">Campaign "FinTech Outreach" secured a $12,500 annual contract.</p>
+<p class="text-[10px] text-[var(--text-muted)] mt-2 font-mono-data">3 HOURS AGO</p>
+</div>
+</div>
+<div class="flex gap-4 relative">
+<div class="w-8 h-8 rounded-full bg-[var(--border-default)] flex items-center justify-center flex-shrink-0 z-10">
+<span class="material-symbols-outlined text-slate-600 text-[16px]">rocket</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-operator-dark">New Campaign Launched</p>
+<p class="text-xs text-ally-slate mt-1">"Series A Founders Focus" is now active with 500 initial leads.</p>
+<p class="text-[10px] text-[var(--text-muted)] mt-2 font-mono-data">5 HOURS AGO</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-[var(--border-subtle)]">
+<button class="w-full py-2 text-sm text-ally-slate hover:text-operator-dark transition-colors font-medium">Clear history</button>
+</div>
+</div>
+</div>
+<!-- Global Footer Context -->
+<div class="mt-12 p-6 bg-slate-900 rounded-lg flex items-center justify-between text-white overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="font-headline-md text-headline-md">Monthly Strategic Target</h4>
+<p class="font-body-md text-[var(--text-muted)] mt-1">You are at 84% of your monthly revenue goal.</p>
+</div>
+<div class="flex items-center gap-6 relative z-10">
+<div class="text-right">
+<p class="text-label-caps font-label-caps opacity-60">CURRENT PROGRESS</p>
+<p class="font-display-xl text-2xl">$142,000 / $170,000</p>
+</div>
+<div class="h-12 w-12 rounded-full border-4 border-strategist-blue border-r-slate-700 rotate-45 flex items-center justify-center">
+<span class="text-[10px] font-bold -rotate-45">84%</span>
+</div>
+</div>
+<!-- Abstract background pattern -->
+<div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-strategist-blue/20 to-transparent"></div>
+</div>
+</main>
+</div>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

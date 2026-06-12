@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: var(--background-primary);
+            color: var(--background-primary);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface antialiased">
+<!-- Top AppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[var(--surface-card)] flex justify-between items-center px-4 h-16 border-b border-[var(--border-default)] ">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[var(--text-primary)] dark:text-slate-50" data-icon="analytics">analytics</span>
+<h1 class="text-lg font-bold tracking-tighter text-[var(--text-primary)] dark:text-slate-50">SalesAI</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-8 w-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="h-full w-full object-cover" data-alt="A professional close-up portrait of a corporate executive in a dark environment with moody, high-contrast lighting. The background is a blurred office with subtle blue and grey tones. The style is minimalist and high-end, focusing on a clean, professional aesthetic that matches a dark mode dashboard environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3uWN-ufIOBTG8ot4_Zf2w_bRmoO_x3VIIXCf5qvIwk__VpVA4L4CR72un5dceiqz4OB12GT62zxRtkckDdbzd3zYGwAthp2lgxBkHdkAqEfhAAOmgqlshTDtQlKQ5EzrW6OzDd1Ivre3TDIdzb0nC0VR8DippQhV6I5fRh_CNoLRsglJFlF1wQ4ClwGqTmQgvW0YmqxKw56WvYHdJdX70xB4DDYiIsGY8KKY6gdfKFFPaVPHzt_61ZhFqE8F9skbKpUugwSFXbI8"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24 px-4 max-w-md mx-auto space-y-6">
+<!-- Dashboard Header -->
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-lg text-headline-lg tracking-tight">Dashboard</h2>
+<p class="text-on-surface-variant font-body-md">Precision sales operations overview.</p>
+</div>
+<!-- Row 1: Metric Cards Grid (2x3) -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Active Campaigns -->
+<div class="bg-surface-container border border-border-subtle p-padding-card rounded-lg flex flex-col justify-between">
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">Active Campaigns</span>
+<span class="text-headline-md font-mono-data mt-2">12</span>
+</div>
+<!-- Prospects Contacted -->
+<div class="bg-surface-container border border-border-subtle p-padding-card rounded-lg flex flex-col justify-between">
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">Prospects</span>
+<span class="text-headline-md font-mono-data mt-2">1,429</span>
+</div>
+<!-- Replies Received -->
+<div class="bg-surface-container border border-border-subtle p-padding-card rounded-lg flex flex-col justify-between">
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">Replies</span>
+<span class="text-headline-md font-mono-data mt-2">384</span>
+</div>
+<!-- In Closing -->
+<div class="bg-surface-container border border-border-subtle p-padding-card rounded-lg flex flex-col justify-between">
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">In Closing</span>
+<span class="text-headline-md font-mono-data mt-2">28</span>
+</div>
+<!-- Deals Closed -->
+<div class="bg-surface-container border border-border-subtle p-padding-card rounded-lg flex flex-col justify-between">
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">Closed</span>
+<span class="text-headline-md font-mono-data mt-2">94</span>
+</div>
+<!-- Calls Booked -->
+<div class="bg-surface-container border border-border-subtle p-padding-card rounded-lg flex flex-col justify-between">
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">Calls Booked</span>
+<span class="text-headline-md font-mono-data mt-2">212</span>
+</div>
+</div>
+<!-- Row 2: Pipeline Overview -->
+<div class="bg-surface-container border border-border-subtle p-padding-card rounded-lg space-y-4">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md">Pipeline Overview</h3>
+<span class="text-label-caps font-label-caps text-strategist-blue">TOTAL: 2,147</span>
+</div>
+<div class="space-y-4 pt-2">
+<div class="flex w-full h-8 rounded-full overflow-hidden bg-slate-800">
+<div class="h-full bg-teal-900 w-[30%] flex items-center justify-center border-r border-background/20"><span class="text-[10px] font-bold">422</span></div>
+<div class="h-full bg-teal-700 w-[25%] flex items-center justify-center border-r border-background/20"><span class="text-[10px] font-bold">310</span></div>
+<div class="h-full bg-teal-500 w-[20%] flex items-center justify-center border-r border-background/20"><span class="text-[10px] font-bold">184</span></div>
+<div class="h-full bg-teal-400 w-[15%] flex items-center justify-center border-r border-background/20"><span class="text-[10px] font-bold">92</span></div>
+<div class="h-full bg-teal-300 w-[10%] flex items-center justify-center"><span class="text-[10px] font-bold text-[var(--text-primary)]">28</span></div>
+</div>
+<div class="grid grid-cols-5 text-[10px] font-label-caps text-on-surface-variant uppercase text-center tracking-tighter">
+<div>Scraped</div>
+<div>Qual.</div>
+<div>Engaged</div>
+<div>Opp.</div>
+<div>Closed</div>
+</div>
+</div>
+</div>
+<!-- Row 3: Active Campaigns List -->
+<div class="bg-surface-container border border-border-subtle rounded-lg overflow-hidden">
+<div class="px-padding-card py-4 border-b border-border-subtle flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md">Active Campaigns</h3>
+<button class="text-label-caps text-strategist-blue">VIEW ALL</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-bright border-b border-border-subtle text-on-surface-variant font-label-caps text-[10px] uppercase">
+<tr>
+<th class="px-4 py-3">Campaign</th>
+<th class="px-4 py-3">Status</th>
+<th class="px-4 py-3 text-right">Vol.</th>
+<th class="px-4 py-3 text-right">Rate</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle font-body-md text-sm">
+<tr>
+<td class="px-4 py-4 font-medium">Enterprise Outreach</td>
+<td class="px-4 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-signal-green/10 text-signal-green text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green"></span> Live
+                                </span>
+</td>
+<td class="px-4 py-4 text-right font-mono-data">840</td>
+<td class="px-4 py-4 text-right font-mono-data text-signal-green">14.2%</td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-medium">SaaS Founders Q4</td>
+<td class="px-4 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-signal-green/10 text-signal-green text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green"></span> Live
+                                </span>
+</td>
+<td class="px-4 py-4 text-right font-mono-data">1,120</td>
+<td class="px-4 py-4 text-right font-mono-data text-signal-green">9.8%</td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-medium">Inbound Followup</td>
+<td class="px-4 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-caution-amber/10 text-caution-amber text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-caution-amber"></span> Paused
+                                </span>
+</td>
+<td class="px-4 py-4 text-right font-mono-data">450</td>
+<td class="px-4 py-4 text-right font-mono-data">4.1%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Row 4: Activity Feed -->
+<div class="bg-surface-container border border-border-subtle p-padding-card rounded-lg space-y-4">
+<h3 class="font-headline-md text-headline-md">Recent Activity</h3>
+<div class="space-y-4">
+<div class="flex gap-4 items-start">
+<div class="w-2 h-2 mt-1.5 rounded-full bg-[var(--accent-secondary)] shrink-0"></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium">Deal Closed: Acme Corp</span>
+<span class="text-xs text-on-surface-variant">2 hours ago • $12,400 MRR</span>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-2 h-2 mt-1.5 rounded-full bg-teal-400 shrink-0"></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium">Call Booked: Sarah Jenkins</span>
+<span class="text-xs text-on-surface-variant">4 hours ago • Enterprise Lead</span>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-2 h-2 mt-1.5 rounded-full bg-[var(--text-secondary)] shrink-0"></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium">System: Campaign Optimized</span>
+<span class="text-xs text-on-surface-variant">6 hours ago • AI suggestion applied</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe bg-[var(--surface-card)] border-t border-[var(--border-default)] ">
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center justify-center text-[var(--text-primary)] dark:text-slate-50 font-bold border-t-2 border-slate-900 dark:border-slate-50 pt-2 transition-colors duration-200 h-16 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider">Dashboard</span>
+</a>
+<!-- Campaigns -->
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 pt-2 transition-colors duration-200 hover:text-slate-600 dark:hover:text-slate-300 h-16 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="campaign">campaign</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider">Campaigns</span>
+</a>
+<!-- Conversations -->
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 pt-2 transition-colors duration-200 hover:text-slate-600 dark:hover:text-slate-300 h-16 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="forum">forum</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider">Conversations</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 pt-2 transition-colors duration-200 hover:text-slate-600 dark:hover:text-slate-300 h-16 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider">Settings</span>
+</a>
+</nav>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

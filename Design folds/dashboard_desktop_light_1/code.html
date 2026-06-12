@@ -1,0 +1,492 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+
+        body {
+            font-family: var(--font-body);
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-clash { font-family: var(--font-display); }
+        .font-geist { font-family: var(--font-mono); }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+</head>
+<body class="bg-surface-neutral text-operator-dark">
+<!-- SideNavBar (Mandatory Shell Component) -->
+<aside class="fixed left-0 top-0 h-full w-[220px] border-r border-[var(--border-default)] bg-[var(--background-secondary)] flex flex-col py-6 px-3 z-50">
+<div class="mb-10 px-3">
+<span class="text-xl font-bold tracking-tighter text-[var(--text-primary)] font-clash">Wagora</span>
+<p class="font-[var(--font-display)] text-[11px] font-medium tracking-tight text-[var(--text-secondary)] uppercase">Operator Console</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-primary)] font-semibold bg-[var(--surface-elevated)] rounded-md transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-[var(--font-display)] text-[13px] font-medium tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="campaign">campaign</span>
+<span class="font-[var(--font-display)] text-[13px] font-medium tracking-tight">Campaigns</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+<span class="font-[var(--font-display)] text-[13px] font-medium tracking-tight">Prospects</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="forum">forum</span>
+<span class="font-[var(--font-display)] text-[13px] font-medium tracking-tight">Conversations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="handshake">handshake</span>
+<span class="font-[var(--font-display)] text-[13px] font-medium tracking-tight">Deals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="leaderboard">leaderboard</span>
+<span class="font-[var(--font-display)] text-[13px] font-medium tracking-tight">Analytics</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 pt-6 border-t border-[var(--border-default)]">
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-[var(--font-display)] text-[13px] font-medium tracking-tight">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[var(--text-secondary)] dark:text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span class="font-[var(--font-display)] text-[13px] font-medium tracking-tight">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar (Mandatory Shell Component) -->
+<header class="fixed top-0 right-0 w-[calc(100%-220px)] h-14 bg-[color-mix(in_srgb,var(--surface-card)_90%,transparent)] /90 backdrop-blur-sm border-b border-[var(--border-default)] z-40">
+<div class="flex items-center justify-between h-full px-8">
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold text-[var(--text-primary)] font-clash">Dashboard</span>
+<span class="text-xs bg-surface-container px-2 py-0.5 rounded text-ally-slate font-medium">v2.4.0</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-[var(--text-secondary)]">
+<button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button>
+<span class="material-symbols-outlined cursor-pointer active:scale-95 transition-transform" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer active:scale-95 transition-transform" data-icon="contrast">contrast</span>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-border-subtle bg-[var(--border-default)]">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a focused male executive in his 30s, wearing a charcoal grey suit and white shirt. The background is a blurred high-end minimalist office with cool blue and grey lighting. The image style is sharp, modern, and perfectly aligned with a sophisticated light-mode UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ0hcOtZOg16VSGFimHlnNb0hC6nv9sa2Rmkfr7hd0FTSx_lNDFhtsSW48YlmDt7m8w54mkJw95qOUwwnKIGqrjJfmWPRFNVU7M8E0R7dHp9as7cil8l8AgW1_zjNhNwK_U26cqjf-fSekMOrxm_QUu5msIyTZHZzjvGYeD2gAJ0PxjsYA_QxeMarzTQ7l8AfYQMVMcPpG3a_iBPfQ1ppVijp8A-eFErJP-y0vzTtShAC1PD61wGfy4vJUwDg0Sknit7uh50Minf0"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[220px] pt-14 p-8 min-h-screen">
+<!-- Header Actions -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="font-clash text-headline-lg text-operator-dark">Global Overview</h1>
+<p class="font-body-md text-ally-slate mt-1">Real-time performance across all active lead channels.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-surface-neutral border border-border-subtle text-operator-dark px-4 py-2 text-sm font-medium hover:bg-[var(--surface-elevated)] transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="forum">forum</span>
+                    View conversations
+                </button>
+<button class="bg-operator-dark text-white px-4 py-2 text-sm font-medium hover:bg-slate-800 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    New campaign
+                </button>
+</div>
+</div>
+<!-- Row 1: Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-gutter-grid mb-8">
+<!-- Active Campaigns -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card">
+<p class="text-label-caps text-ally-slate uppercase mb-4">Active campaigns</p>
+<p class="font-geist text-[32px] font-bold text-operator-dark">12</p>
+<div class="mt-2 flex items-center gap-1 text-[11px] text-signal-green">
+<span class="material-symbols-outlined text-xs" data-icon="arrow_upward">arrow_upward</span>
+<span>2 new this week</span>
+</div>
+</div>
+<!-- Prospects Contacted -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card">
+<p class="text-label-caps text-ally-slate uppercase mb-4">Prospects contacted</p>
+<p class="font-geist text-[32px] font-bold text-operator-dark">1,284</p>
+<div class="mt-2 flex items-center gap-1 text-[11px] text-ally-slate">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+<span>+12.4% vs last mo.</span>
+</div>
+</div>
+<!-- Replies Received -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card">
+<p class="text-label-caps text-ally-slate uppercase mb-4">Replies received</p>
+<p class="font-geist text-[32px] font-bold text-operator-dark">242</p>
+<div class="mt-2 flex items-center gap-1 text-[11px] text-signal-green">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+<span>18.8% reply rate</span>
+</div>
+</div>
+<!-- In Closing -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card">
+<p class="text-label-caps text-ally-slate uppercase mb-4">In closing</p>
+<p class="font-geist text-[32px] font-bold text-operator-dark">18</p>
+<div class="mt-2 flex items-center gap-1 text-[11px] text-caution-amber">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+<span>4 pending follow-up</span>
+</div>
+</div>
+<!-- Deals Closed -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card">
+<p class="text-label-caps text-ally-slate uppercase mb-4">Deals closed</p>
+<p class="font-geist text-[32px] font-bold text-operator-dark">9</p>
+<div class="mt-2 flex items-center gap-1 text-[11px] text-strategist-blue">
+<span class="material-symbols-outlined text-xs" data-icon="workspace_premium">workspace_premium</span>
+<span>Target: 15</span>
+</div>
+</div>
+<!-- Calls Booked -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card">
+<p class="text-label-caps text-ally-slate uppercase mb-4">Calls booked</p>
+<p class="font-geist text-[32px] font-bold text-operator-dark">44</p>
+<div class="mt-2 flex items-center gap-1 text-[11px] text-signal-green">
+<span class="material-symbols-outlined text-xs" data-icon="add_call">add_call</span>
+<span>8 booked today</span>
+</div>
+</div>
+</div>
+<!-- Row 2: Pipeline Overview Card -->
+<div class="bg-[var(--surface-card)] border border-border-subtle p-padding-card mb-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-clash text-headline-md text-operator-dark">Revenue Pipeline Overview</h3>
+<div class="text-xs font-mono text-ally-slate bg-surface-neutral border border-border-subtle px-2 py-1">LAST UPDATED: 14:02 UTC</div>
+</div>
+<div class="w-full flex h-8 rounded-sm overflow-hidden mb-6">
+<div class="h-full bg-[var(--border-default)] border-r border-white/20 transition-all hover:opacity-90" style="width: 25%" title="Scraped: 450"></div>
+<div class="h-full bg-[var(--text-muted)] border-r border-white/20 transition-all hover:opacity-90" style="width: 20%" title="Qualified: 320"></div>
+<div class="h-full bg-[var(--text-secondary)] border-r border-white/20 transition-all hover:opacity-90" style="width: 20%" title="Contacted: 300"></div>
+<div class="h-full bg-strategist-blue border-r border-white/20 transition-all hover:opacity-90" style="width: 15%" title="Replied: 242"></div>
+<div class="h-full bg-operator-dark border-r border-white/20 transition-all hover:opacity-90" style="width: 12%" title="Closing: 18"></div>
+<div class="h-full bg-signal-green transition-all hover:opacity-90" style="width: 8%" title="Closed: 9"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-[var(--border-default)]"></div>
+<div>
+<p class="text-[10px] font-bold text-ally-slate uppercase">Scraped</p>
+<p class="text-sm font-geist font-bold">450</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-[var(--text-muted)]"></div>
+<div>
+<p class="text-[10px] font-bold text-ally-slate uppercase">Qualified</p>
+<p class="text-sm font-geist font-bold">320</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-[var(--text-secondary)]"></div>
+<div>
+<p class="text-[10px] font-bold text-ally-slate uppercase">Contacted</p>
+<p class="text-sm font-geist font-bold">300</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-strategist-blue"></div>
+<div>
+<p class="text-[10px] font-bold text-ally-slate uppercase">Replied</p>
+<p class="text-sm font-geist font-bold">242</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-operator-dark"></div>
+<div>
+<p class="text-[10px] font-bold text-ally-slate uppercase">Closing</p>
+<p class="text-sm font-geist font-bold">18</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-signal-green"></div>
+<div>
+<p class="text-[10px] font-bold text-ally-slate uppercase">Closed</p>
+<p class="text-sm font-geist font-bold">9</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 3: 60/40 Split -->
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-gutter-grid">
+<!-- Active Campaigns Table (60%) -->
+<div class="lg:col-span-3 bg-[var(--surface-card)] border border-border-subtle overflow-hidden">
+<div class="p-padding-card flex justify-between items-center border-b border-border-subtle">
+<h3 class="font-clash text-headline-md text-operator-dark">Performance by Campaign</h3>
+<button class="text-xs font-semibold text-strategist-blue hover:underline">View all reports</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-neutral">
+<tr>
+<th class="px-6 py-3 text-label-caps text-ally-slate uppercase">Campaign</th>
+<th class="px-6 py-3 text-label-caps text-ally-slate uppercase">Prospects</th>
+<th class="px-6 py-3 text-label-caps text-ally-slate uppercase">Reply rate</th>
+<th class="px-6 py-3 text-label-caps text-ally-slate uppercase">Status</th>
+<th class="px-6 py-3 text-label-caps text-ally-slate uppercase">Last active</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle">
+<tr class="hover:bg-[var(--background-secondary)] transition-colors">
+<td class="px-6 py-4 font-medium text-operator-dark">Enterprise Outreach Q4</td>
+<td class="px-6 py-4 font-geist text-sm">482</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="bg-signal-green h-full" style="width: 24%"></div>
+</div>
+<span class="text-xs font-geist">24.2%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-[11px] font-bold text-signal-green bg-[rgba(0,200,150,0.1)] px-2 py-0.5 rounded-full inline-flex">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green"></span>
+                                        LIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-xs text-ally-slate">2m ago</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)] transition-colors">
+<td class="px-6 py-4 font-medium text-operator-dark">Mid-Market SaaS</td>
+<td class="px-6 py-4 font-geist text-sm">822</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="bg-strategist-blue h-full" style="width: 14%"></div>
+</div>
+<span class="text-xs font-geist">14.1%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-[11px] font-bold text-signal-green bg-[rgba(0,200,150,0.1)] px-2 py-0.5 rounded-full inline-flex">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green"></span>
+                                        LIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-xs text-ally-slate">14m ago</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)] transition-colors">
+<td class="px-6 py-4 font-medium text-operator-dark">APAC Expansion</td>
+<td class="px-6 py-4 font-geist text-sm">114</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="bg-caution-amber h-full" style="width: 8%"></div>
+</div>
+<span class="text-xs font-geist">8.4%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-[11px] font-bold text-ally-slate bg-[var(--surface-elevated)] px-2 py-0.5 rounded-full inline-flex">
+<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-muted)]"></span>
+                                        PAUSED
+                                    </span>
+</td>
+<td class="px-6 py-4 text-xs text-ally-slate">2d ago</td>
+</tr>
+<tr class="hover:bg-[var(--background-secondary)] transition-colors">
+<td class="px-6 py-4 font-medium text-operator-dark">Startup Accelerator</td>
+<td class="px-6 py-4 font-geist text-sm">294</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="bg-signal-green h-full" style="width: 32%"></div>
+</div>
+<span class="text-xs font-geist">31.9%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-[11px] font-bold text-signal-green bg-[rgba(0,200,150,0.1)] px-2 py-0.5 rounded-full inline-flex">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green"></span>
+                                        LIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-xs text-ally-slate">1h ago</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Activity Feed (40%) -->
+<div class="lg:col-span-2 bg-[var(--surface-card)] border border-border-subtle p-padding-card">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-clash text-headline-md text-operator-dark">Recent Activity</h3>
+<span class="material-symbols-outlined text-ally-slate text-xl" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="relative pt-1">
+<div class="w-2.5 h-2.5 rounded-full bg-[var(--accent-secondary)] border-2 border-white ring-1 ring-[var(--border-subtle)] shadow-sm"></div>
+<div class="absolute top-6 bottom-[-24px] left-[4.5px] w-[1px] bg-[var(--surface-elevated)]"></div>
+</div>
+<div>
+<p class="text-sm text-operator-dark font-medium">Deal closed with <span class="font-bold">Stellar Tech Corp</span></p>
+<p class="text-[11px] text-ally-slate mt-0.5">Value: $12,400 ARR • Closed by Alex</p>
+<span class="text-[10px] text-ally-slate font-geist mt-1 inline-block uppercase">Today, 11:24 AM</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="relative pt-1">
+<div class="w-2.5 h-2.5 rounded-full bg-[var(--accent-primary)] border-2 border-white ring-1 ring-[var(--border-subtle)] shadow-sm"></div>
+<div class="absolute top-6 bottom-[-24px] left-[4.5px] w-[1px] bg-[var(--surface-elevated)]"></div>
+</div>
+<div>
+<p class="text-sm text-operator-dark font-medium">New reply from <span class="font-bold">Jordan Miller</span></p>
+<p class="text-[11px] text-ally-slate mt-0.5">Subject: Re: Partnership Inquiry • Sentiment: Positive</p>
+<span class="text-[10px] text-ally-slate font-geist mt-1 inline-block uppercase">Today, 10:45 AM</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="relative pt-1">
+<div class="w-2.5 h-2.5 rounded-full bg-[var(--accent-primary)] border-2 border-white ring-1 ring-[var(--border-subtle)] shadow-sm"></div>
+<div class="absolute top-6 bottom-[-24px] left-[4.5px] w-[1px] bg-[var(--surface-elevated)]"></div>
+</div>
+<div>
+<p class="text-sm text-operator-dark font-medium">New reply from <span class="font-bold">Sarah Chen</span></p>
+<p class="text-[11px] text-ally-slate mt-0.5">Enterprise Outreach Q4 • Sentiment: Neutral</p>
+<span class="text-[10px] text-ally-slate font-geist mt-1 inline-block uppercase">Today, 09:12 AM</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="relative pt-1">
+<div class="w-2.5 h-2.5 rounded-full bg-[var(--accent-secondary)] border-2 border-white ring-1 ring-[var(--border-subtle)] shadow-sm"></div>
+</div>
+<div>
+<p class="text-sm text-operator-dark font-medium">Call booked: <span class="font-bold">FutureScale AI</span></p>
+<p class="text-[11px] text-ally-slate mt-0.5">Demo scheduled for Oct 24th with CTO</p>
+<span class="text-[10px] text-ally-slate font-geist mt-1 inline-block uppercase">Yesterday, 4:55 PM</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-2 text-xs font-bold text-ally-slate border border-[var(--border-subtle)] hover:bg-[var(--background-secondary)] transition-colors uppercase tracking-wider">
+                    Load previous activity
+                </button>
+</div>
+</div>
+</main>
+</body></html>

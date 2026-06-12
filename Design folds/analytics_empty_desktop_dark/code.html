@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+</head>
+<body class="bg-[var(--background-primary)] text-slate-200 font-body-md overflow-hidden">
+<!-- Sidebar Navigation Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 bg-[var(--background-primary)] w-64 border-r border-slate-800">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-8 h-8 bg-strategist-blue rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">precision_manufacturing</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-slate-100 font-display-xl">Wagora</h1>
+<p class="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-label-caps">Precision OS</p>
+</div>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-4 py-3 transition-all font-[var(--font-display)] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-4 py-3 transition-all font-[var(--font-display)] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span>Campaigns</span>
+</a>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-4 py-3 transition-all font-[var(--font-display)] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Prospects</span>
+</a>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-4 py-3 transition-all font-[var(--font-display)] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span>Conversations</span>
+</a>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-4 py-3 transition-all font-[var(--font-display)] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span>Deals</span>
+</a>
+<!-- Active State for Analytics -->
+<a class="flex items-center gap-3 bg-slate-800/50 text-slate-100 border-l-2 border-strategist-blue px-4 py-3 font-[var(--font-display)] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+</nav>
+<div class="mt-auto px-2 pt-6 border-t border-slate-800 space-y-1">
+<button class="w-full mb-4 bg-[var(--surface-elevated)] text-operator-dark py-2 px-4 rounded text-xs font-bold font-label-caps hover:bg-[var(--surface-card)] transition-colors">
+                NEW CAMPAIGN
+            </button>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-4 py-3 transition-all font-[var(--font-display)] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-4 py-3 transition-all font-[var(--font-display)] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- Header -->
+<header class="h-16 px-8 flex justify-between items-center border-b border-slate-800">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-bold tracking-tighter text-slate-100 font-headline-md">Analytics</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-slate-900 border border-slate-800 px-3 py-1.5 rounded gap-2 text-xs font-mono-data text-[var(--text-muted)] cursor-default">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+<span>Oct 12, 2023 - Nov 11, 2023</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-[var(--text-secondary)] hover:text-slate-200 transition-colors">
+<button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button>
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-[var(--text-secondary)] hover:text-slate-200 transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Analytics Content Area -->
+<section class="flex-1 flex flex-col items-center justify-center p-gutter-grid">
+<!-- Empty State Container -->
+<div class="max-w-md w-full text-center space-y-stack-lg">
+<!-- Geometric Icon Card -->
+<div class="relative group mx-auto mb-8">
+<div class="absolute -inset-1 bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative flex items-center justify-center w-24 h-24 mx-auto bg-slate-900 border border-slate-800 rounded-xl">
+<span class="material-symbols-outlined text-4xl text-strategist-blue" data-icon="bar_chart" style="font-variation-settings: 'wght' 200;">bar_chart</span>
+</div>
+</div>
+<!-- Textual Information -->
+<div class="space-y-stack-md">
+<h3 class="text-headline-lg font-headline-lg text-slate-100 tracking-tight">No data yet.</h3>
+<p class="text-body-md font-body-md text-[var(--text-secondary)] leading-relaxed px-8">
+                        Analytics populate after your first campaign has run for 48 hours. Wagora requires this window to verify signal integrity.
+                    </p>
+</div>
+<!-- Status Indicator -->
+<div class="flex flex-col items-center gap-stack-md pt-4">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-900/50 border border-slate-800/50 rounded-full">
+<div class="w-2 h-2 bg-caution-amber rounded-full animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.5)]"></div>
+<span class="text-[10px] font-bold tracking-[0.1em] text-caution-amber font-label-caps uppercase">Awaiting Signal</span>
+</div>
+<!-- Quiet Operator Button -->
+<button class="mt-4 text-xs text-[var(--text-secondary)] border-b border-slate-800 pb-1 hover:text-slate-200 hover:border-slate-500 transition-all font-medium">
+                        View Documentation
+                    </button>
+</div>
+</div>
+<!-- Decorative Dashboard Skeleton (Faded) -->
+<div class="absolute bottom-0 left-64 right-0 px-12 py-8 opacity-[0.03] pointer-events-none grid grid-cols-4 gap-6 select-none">
+<div class="h-32 border border-slate-700 rounded-lg"></div>
+<div class="h-32 border border-slate-700 rounded-lg"></div>
+<div class="h-32 border border-slate-700 rounded-lg"></div>
+<div class="h-32 border border-slate-700 rounded-lg"></div>
+<div class="col-span-3 h-64 border border-slate-700 rounded-lg"></div>
+<div class="col-span-1 h-64 border border-slate-700 rounded-lg"></div>
+</div>
+</section>
+<!-- Footer / Notification Toast (Minimal) -->
+<footer class="p-6 flex justify-end">
+<div class="flex items-center gap-3 bg-slate-900 border border-slate-800 py-3 px-5 rounded shadow-2xl">
+<span class="material-symbols-outlined text-strategist-blue text-sm" data-icon="info">info</span>
+<span class="text-xs text-slate-300 font-body-md">Wagora is monitoring for active signals.</span>
+</div>
+</footer>
+</main>
+<!-- Contextual FAB (Suppressed based on rules for Analytics/Details screen) -->
+</body></html>

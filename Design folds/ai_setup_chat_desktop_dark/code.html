@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      font-family: var(--font-body);
+      background-color: var(--background-primary);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: var(--text-secondary);
+      border-radius: 10px;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+</head>
+<body class="bg-background text-on-background flex items-center justify-center min-h-screen p-4 md:p-8">
+<!-- Main Chat Container (Quiet Operator Precision Shell) -->
+<main class="relative w-full max-w-[680px] h-[870px] bg-surface flex flex-col overflow-hidden shadow-2xl rounded-lg border border-border-subtle">
+<!-- Progress Indicator (Mandatory 2px Teal Line) -->
+<div class="absolute top-0 left-0 w-full h-[2px] bg-border-subtle z-50">
+<div class="h-full bg-primary w-[35%] transition-all duration-700"></div>
+</div>
+<!-- Header / Context Anchor -->
+<header class="flex items-center justify-between px-6 py-4 border-b border-border-subtle bg-surface-bright/50 backdrop-blur-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 flex items-center justify-center bg-primary rounded-sm">
+<span class="material-symbols-outlined text-operator-dark text-lg" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+</div>
+<div>
+<h1 class="font-headline-md text-body-md text-on-surface tracking-tight leading-none">Wagora AI</h1>
+<p class="text-[10px] font-label-caps text-on-surface-variant mt-1">Autonomous Setup Phase 02</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-signal-green shadow-[0_0_8px_rgba(16,185,129,0.4)]"></div>
+<span class="text-[10px] font-mono-data text-on-surface-variant uppercase tracking-widest">Active Operator</span>
+</div>
+</header>
+<!-- Message Canvas -->
+<div class="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar bg-operator-dark/20">
+<!-- Timestamp / System Marker -->
+<div class="flex justify-center">
+<span class="text-[10px] font-mono-data text-on-tertiary-container uppercase tracking-widest bg-primary-container px-3 py-1 rounded-full">Secure Session Initialized</span>
+</div>
+<!-- Wagora Message (Left Aligned, Flat Left Edge) -->
+<div class="flex flex-col items-start max-w-[85%] group">
+<div class="bg-surface-container text-on-surface p-4 rounded-xl rounded-tl-none border border-border-subtle shadow-sm">
+<p class="font-body-md leading-relaxed">
+            Welcome, Operator. I am Wagora. I will assist in calibrating your sales automation protocols. To begin, could you define your primary ICP (Ideal Customer Profile) for the upcoming quarter?
+          </p>
+</div>
+<span class="text-[10px] font-mono-data text-on-surface-variant mt-2 ml-1 opacity-0 group-hover:opacity-100 transition-opacity">09:41 AM — CALIBRATION_BOT</span>
+</div>
+<!-- User Message (Right Aligned, Flat Right Edge) -->
+<div class="flex flex-col items-end max-w-[85%] ml-auto group">
+<div class="bg-primary-container text-on-primary-fixed p-4 rounded-xl rounded-tr-none border border-primary/20 shadow-lg">
+<p class="font-body-md leading-relaxed">
+            Focus on Series A-B fintech startups based in North America. Specifically looking for Heads of Growth or VP Sales.
+          </p>
+</div>
+<span class="text-[10px] font-mono-data text-on-surface-variant mt-2 mr-1 opacity-0 group-hover:opacity-100 transition-opacity">09:42 AM — COMMAND_USER</span>
+</div>
+<!-- Wagora Message -->
+<div class="flex flex-col items-start max-w-[85%] group">
+<div class="bg-surface-container text-on-surface p-4 rounded-xl rounded-tl-none border border-border-subtle shadow-sm">
+<div class="flex items-start gap-4">
+<div class="flex-1">
+<p class="font-body-md leading-relaxed">
+                Understood. Narrowing parameters. I've identified 1,420 potential entities within that segment.
+              </p>
+<!-- Data Insight Card (Bento Style within Chat) -->
+<div class="mt-4 grid grid-cols-2 gap-2">
+<div class="bg-operator-dark/40 p-3 border border-border-subtle rounded-lg">
+<p class="text-[10px] font-label-caps text-on-surface-variant">ICP STRENGTH</p>
+<p class="text-xl font-headline-md text-primary">8.4<span class="text-xs text-on-surface-variant">/10</span></p>
+</div>
+<div class="bg-operator-dark/40 p-3 border border-border-subtle rounded-lg">
+<p class="text-[10px] font-label-caps text-on-surface-variant">TOTAL TARGETS</p>
+<p class="text-xl font-headline-md text-on-surface">1,420</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<span class="text-[10px] font-mono-data text-on-surface-variant mt-2 ml-1 opacity-0 group-hover:opacity-100 transition-opacity">09:43 AM — ANALYTICS_CORE</span>
+</div>
+<!-- Wagora Typing / Prompt -->
+<div class="flex flex-col items-start max-w-[85%] group">
+<div class="bg-surface-container text-on-surface p-4 rounded-xl rounded-tl-none border border-border-subtle shadow-sm italic text-on-surface-variant">
+<p class="font-body-md">Should I generate the initial messaging sequences for these segments, or would you like to refine the headcount filters first?</p>
+</div>
+</div>
+</div>
+<!-- Input Control Hub -->
+<footer class="p-6 bg-surface border-t border-border-subtle">
+<div class="relative flex items-end gap-3 bg-operator-dark border border-border-subtle rounded-xl p-2 focus-within:ring-1 focus-within:ring-primary/50 transition-all">
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body-md resize-none py-3 px-2 max-h-32 custom-scrollbar placeholder:text-on-surface-variant" placeholder="Command Wagora..." rows="1"></textarea>
+<div class="flex items-center gap-2 pb-1 pr-1">
+<button class="p-2 text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">attach_file</span>
+</button>
+<button class="bg-primary text-operator-dark font-label-caps px-4 py-2 rounded-lg flex items-center gap-2 active:scale-95 transition-transform hover:bg-primary/90">
+<span class="text-[11px] font-bold">SEND</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between px-1">
+<p class="text-[10px] font-mono-data text-on-tertiary-container">ESC TO CANCEL • CTRL+ENTER TO SEND</p>
+<div class="flex gap-4">
+<button class="text-[10px] font-label-caps text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+            LOGS
+          </button>
+<button class="text-[10px] font-label-caps text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">settings_input_component</span>
+            CONFIG
+          </button>
+</div>
+</div>
+</footer>
+</main>
+<!-- Background Texture Decoration (Subtle) -->
+<div class="fixed inset-0 -z-10 pointer-events-none opacity-20">
+<div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(var(--accent-primary) 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
+</div>
+<!-- Detailed AI Graphic for Context (Hidden on small screens) -->
+<div class="fixed right-10 bottom-10 hidden xl:block w-64 opacity-40">
+<div class="p-4 border border-border-subtle bg-surface-container rounded-lg">
+<div class="flex justify-between items-center mb-3">
+<span class="text-[10px] font-mono-data text-on-surface-variant uppercase">Operator Visualizer</span>
+<span class="material-symbols-outlined text-primary text-sm">monitoring</span>
+</div>
+<img class="w-full h-32 object-cover rounded grayscale hover:grayscale-0 transition-all duration-700" data-alt="A high-contrast digital abstract visualization representing deep learning neural networks. The image features a network of glowing teal lines and nodes against a pitch-black background, creating a sense of sophisticated AI processing. The lighting is focused and dramatic, emphasizing the precision and complexity of the digital architecture. This minimalist scientific aesthetic reinforces the brand identity of a high-end command console." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXpJvm2lz1qyFVp7QyLB-E3TXNKWqXW2mDnJP7ylt8UpLUE1qondY0dSKTxznBnCQm4URD8p4bxIB6dUW3_Th37xcMyql_2h-VyvwWSCJANOqMPatygJMvgKLcp-gpO47nTJ4LOnmgPU33KuhNEKgQY4EW8uqbTyfNdzI0k7te4Oxy9bsIOKkMyopGBCqK4HpmhA4Vq863VllX8ZyBFW2k3hGW0MTX6rmXeZ28xsyaR-Q23NjnJxldpcrsNGofRJMkKJNiI2N4YVQ"/>
+<div class="mt-3 space-y-1">
+<div class="h-1 bg-primary w-full rounded-full"></div>
+<div class="h-1 bg-border-subtle w-3/4 rounded-full"></div>
+<div class="h-1 bg-border-subtle w-1/2 rounded-full"></div>
+</div>
+</div>
+</div>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+</head>
+<body class="bg-background font-body-md text-on-background selection:bg-strategist-blue/30 overflow-hidden">
+<!-- Background Canvas (Strategist Console Behind Overlay) -->
+<div class="flex h-screen w-full">
+<!-- SideNavBar Anchor -->
+<aside class="hidden md:flex flex-col h-full p-4 space-y-2 bg-slate-900 text-slate-50 h-screen w-64 border-r border-slate-800 transition-all duration-200 ease-in-out">
+<div class="flex items-center px-2 mb-8 mt-2">
+<div class="w-8 h-8 rounded bg-strategist-blue flex items-center justify-center mr-3">
+<span class="material-symbols-outlined text-white text-sm" data-icon="terminal">terminal</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-slate-50 leading-none">Wagora AI</h1>
+<p class="text-[10px] text-[var(--text-muted)] font-medium tracking-widest mt-1">STRATEGIST CONSOLE</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center px-3 py-2 bg-slate-800 text-slate-50 rounded-md font-[var(--font-display)] text-sm font-medium transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="dashboard">dashboard</span>
+          Dashboard
+        </a>
+<a class="flex items-center px-3 py-2 text-[var(--text-muted)] hover:bg-slate-800 hover:text-slate-50 transition-all duration-200 ease-in-out font-[var(--font-display)] text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="handshake">handshake</span>
+          Deals
+        </a>
+<a class="flex items-center px-3 py-2 text-[var(--text-muted)] hover:bg-slate-800 hover:text-slate-50 transition-all duration-200 ease-in-out font-[var(--font-display)] text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="call">call</span>
+          Call Log
+        </a>
+</nav>
+</aside>
+<main class="flex-1 flex flex-col bg-slate-950">
+<header class="bg-slate-950 text-slate-50 font-[var(--font-display)] antialiased border-b border-slate-800 flex justify-between items-center w-full px-6 h-16">
+<div class="flex items-center">
+<span class="text-lg font-bold tracking-tight text-slate-50">Dashboard</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-900 transition-colors">
+<span class="material-symbols-outlined text-[var(--text-muted)]" data-icon="search">search</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-900 relative">
+<button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button>
+<span class="material-symbols-outlined text-slate-50" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-critical-red rounded-full ring-2 ring-slate-950"></span>
+</button>
+</div>
+</header>
+<div class="p-8 grid grid-cols-12 gap-6 opacity-40">
+<div class="col-span-8 space-y-6">
+<div class="h-64 bg-slate-900/50 border border-slate-800 rounded"></div>
+<div class="grid grid-cols-2 gap-6">
+<div class="h-40 bg-slate-900/50 border border-slate-800 rounded"></div>
+<div class="h-40 bg-slate-900/50 border border-slate-800 rounded"></div>
+</div>
+</div>
+<div class="col-span-4 bg-slate-900/50 border border-slate-800 rounded h-[calc(100vh-160px)]"></div>
+</div>
+</main>
+</div>
+<!-- Notification Backdrop Overlay -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity"></div>
+<!-- Notification Center Panel -->
+<div class="fixed top-0 right-0 h-screen w-[380px] bg-operator-dark border-l border-border-subtle z-50 flex flex-col shadow-2xl">
+<!-- Header -->
+<div class="flex items-center justify-between px-6 py-5 border-b border-border-subtle">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-ally-slate" data-icon="notifications_active">notifications_active</span>
+<h2 class="font-headline-md text-on-background">Notification Center</h2>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-low transition-colors text-ally-slate">
+<span class="material-symbols-outlined text-lg" data-icon="close">close</span>
+</button>
+</div>
+<!-- Filter/Action Bar -->
+<div class="px-6 py-3 flex items-center justify-between bg-surface-neutral/50 border-b border-border-subtle">
+<span class="font-label-caps text-ally-slate uppercase">Signals (3)</span>
+<button class="text-strategist-blue font-label-caps hover:underline">Mark all as read</button>
+</div>
+<!-- Notification List -->
+<div class="flex-1 overflow-y-auto">
+<!-- Deal Closed Item -->
+<div class="p-5 border-b border-border-subtle hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex gap-4">
+<div class="mt-1 flex-shrink-0 w-10 h-10 rounded bg-signal-green/10 flex items-center justify-center text-signal-green">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<span class="font-headline-md text-[14px] text-on-background truncate">Deal closed: CloudScale Enterprise</span>
+<span class="font-mono-data text-ally-slate text-[11px] whitespace-nowrap ml-2">12:42:01</span>
+</div>
+<p class="font-body-md text-ally-slate mt-1 line-clamp-2">Wagora successfully processed the signature and routed the contract to the Billing Department.</p>
+<div class="mt-3 flex items-center gap-2">
+<div class="px-2 py-1 rounded bg-signal-green/10 text-signal-green text-[11px] font-bold tracking-wider uppercase">High Signal</div>
+<div class="px-2 py-1 rounded bg-slate-800 text-slate-300 text-[11px] font-medium">Revenue Impact</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Call Booked Item -->
+<div class="p-5 border-b border-border-subtle hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex gap-4">
+<div class="mt-1 flex-shrink-0 w-10 h-10 rounded bg-strategist-blue/10 flex items-center justify-center text-strategist-blue">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<span class="font-headline-md text-[14px] text-on-background truncate">Call booked: Sarah Jenkins</span>
+<span class="font-mono-data text-ally-slate text-[11px] whitespace-nowrap ml-2">11:15:45</span>
+</div>
+<p class="font-body-md text-ally-slate mt-1">VP of Growth at Nexus Labs scheduled an introductory strategy session for next Tuesday at 2:00 PM.</p>
+<div class="mt-3 flex gap-2">
+<button class="bg-slate-800 hover:bg-slate-700 text-on-background text-[12px] px-3 py-1.5 font-medium transition-colors">Prepare Briefing</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Flagged Input Item -->
+<div class="p-5 border-b border-border-subtle hover:bg-surface-container-low transition-colors group cursor-pointer bg-caution-amber/5">
+<div class="flex gap-4">
+<div class="mt-1 flex-shrink-0 w-10 h-10 rounded bg-caution-amber/10 flex items-center justify-center text-caution-amber">
+<span class="material-symbols-outlined" data-icon="flag">flag</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<span class="font-headline-md text-[14px] text-on-background truncate">Flagged: Input needed for Campaign #04</span>
+<span class="font-mono-data text-ally-slate text-[11px] whitespace-nowrap ml-2">09:02:18</span>
+</div>
+<p class="font-body-md text-ally-slate mt-1">Wagora flagged a conversation. The lead requested a custom pricing tier that exceeds the current strategist thresholds.</p>
+<div class="mt-3 flex items-center gap-3">
+<button class="bg-caution-amber text-operator-dark text-[12px] px-3 py-1.5 font-bold transition-opacity active:opacity-80">Approve Tier</button>
+<button class="text-ally-slate hover:text-on-background text-[12px] font-medium">Dismiss</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats -->
+<div class="p-6 bg-surface-neutral/30 border-t border-border-subtle mt-auto">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-caps text-ally-slate">System Efficiency</span>
+<span class="font-mono-data text-signal-green">99.8%</span>
+</div>
+<div class="w-full bg-slate-800 h-1 mb-6">
+<div class="bg-signal-green h-full w-[99.8%]"></div>
+</div>
+<div class="relative w-full h-32 rounded bg-operator-dark overflow-hidden border border-slate-800">
+<img alt="Data Visualization" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" data-alt="A dark, sophisticated abstract visualization of digital data flowing through a neural network. The scene is dominated by deep charcoal and obsidian tones, with subtle thin lines of electric blue tracing connections. The lighting is low and moody, evoking a high-security command center environment. Minimalist and professional style suitable for a silent partner strategist platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6kTOTn9RFTL7_ALIwjcMApki0xJlewxzYU7s9q4IabNfxPkQoa3vXWIKOe2CQow7_XcptuLD30hCck8JAmXLTx7rbsY3QZ3rA1yPoWpCoiBjq4KI8het27Qtrln1msP4Exg-4QRZcqNADD0fXciW4TXkjxxSfgoM-c-PaKV2rx7NFMmLrK20eHvi-vbpCpOSy_8X7rhZWkAyoDOv2nkhWKMVSOiA9AXB4miquh_UvNsh3OR3y-Ec27syKlUoCafTAJNwEZt4Xc74"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-mono-data text-[10px] text-ally-slate tracking-widest uppercase bg-operator-dark/80 px-2 py-1">Operational Baseline: Stable</span>
+</div>
+</div>
+</div>
+</div>
+</body></html>

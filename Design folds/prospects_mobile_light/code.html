@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen">
+<!-- Top AppBar Component -->
+<header class="bg-[var(--background-secondary)]/90 /90 backdrop-blur-md text-[var(--text-primary)] dark:text-slate-50 docked full-width top-0 sticky z-40 border-b border-[var(--border-default)] flat no shadows flex justify-between items-center h-16 px-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Operator Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive in a sharp navy suit, looking directly at the camera with a confident and serene expression. The lighting is high-key and minimalist, set against a neutral, light gray studio background. The overall aesthetic is clean, modern, and aligned with a high-end command console interface, using subtle tonal transitions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhtHgW95Wnyu6I3-cWAfauFRK82v5PYtWTxCv-0UgquKi7Pg8oThLULyYhT8KCZFsAf00ktiWkXP7et1r2_J9cVFq-Nh5fbJM6bmrWMFaJr2Yv2dbPy9zU7CBA2oIGJ7D6nwJ_3m3EC4cghbPPc16lQsfmZ_J1If_YGMVucHsVUglt3LpzjxDUrIy1kgSAkh4sahuR1zfIaSSlTHmWSyjz4TsAHIfdVy2i6EwhAPxuFH030ZBjtst1B6wxL9Y7U6A5vKwftcG50nM"/>
+</div>
+<h1 class="font-[var(--font-display)] font-bold text-lg tracking-tight">Prospects</h1>
+</div>
+<button class="p-2 hover:bg-[var(--surface-elevated)] dark:hover:bg-slate-800 transition-colors active:opacity-70">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Filters Section -->
+<nav class="bg-background z-30 sticky top-16 border-b border-border-subtle">
+<!-- Row 1: Horizontal scrollable tabs -->
+<div class="flex overflow-x-auto no-scrollbar px-4 py-3 gap-6 items-center">
+<button class="whitespace-nowrap font-label-caps text-primary border-b-2 border-primary pb-1">ALL</button>
+<button class="whitespace-nowrap font-label-caps text-ally-slate pb-1">QUALIFIED</button>
+<button class="whitespace-nowrap font-label-caps text-ally-slate pb-1">CONTACTED</button>
+<button class="whitespace-nowrap font-label-caps text-ally-slate pb-1">REPLIED</button>
+<button class="whitespace-nowrap font-label-caps text-ally-slate pb-1">CLOSING</button>
+<button class="whitespace-nowrap font-label-caps text-ally-slate pb-1">CLOSED</button>
+<button class="whitespace-nowrap font-label-caps text-ally-slate pb-1">ARCHIVED</button>
+</div>
+<!-- Row 2: Three ghost select dropdowns -->
+<div class="flex px-4 py-3 gap-3 border-t border-border-subtle overflow-x-auto no-scrollbar">
+<div class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-border-subtle bg-white/50 text-[12px] font-medium text-on-surface-variant flex-shrink-0">
+<span>Platform</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="expand_more">expand_more</span>
+</div>
+<div class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-border-subtle bg-white/50 text-[12px] font-medium text-on-surface-variant flex-shrink-0">
+<span>Score</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="expand_more">expand_more</span>
+</div>
+<div class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-border-subtle bg-white/50 text-[12px] font-medium text-on-surface-variant flex-shrink-0">
+<span>Campaign</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</nav>
+<!-- Main Content: Prospect Cards -->
+<main class="p-4 flex flex-col gap-4 pb-32">
+<!-- Card 1 -->
+<div class="bg-[var(--surface-card)] rounded-card border border-border-subtle p-padding-card flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-[var(--font-body)] font-medium text-[14px] text-on-surface">Alexander Sterling</h3>
+<p class="font-[var(--font-body)] text-[13px] text-secondary">Chief Strategy Officer • NexaGrowth</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-ally-slate text-[18px]" data-icon="mail">mail</span>
+<div class="px-2 py-0.5 rounded-full bg-primary-fixed text-[10px] font-bold tracking-wider uppercase text-on-primary-fixed">LIVE</div>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between items-end">
+<span class="text-[10px] uppercase font-bold text-ally-slate tracking-widest">ICP Match</span>
+<span class="font-['Geist Mono'] text-[16px] text-signal-green font-bold">9.2</span>
+</div>
+<div class="h-[6px] w-full bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="h-full bg-signal-green w-[92%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-[var(--surface-card)] rounded-card border border-border-subtle p-padding-card flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-[var(--font-body)] font-medium text-[14px] text-on-surface">Elena Rodriguez</h3>
+<p class="font-[var(--font-body)] text-[13px] text-secondary">Director of Operations • BlueWave AI</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-ally-slate text-[18px]" data-icon="group">group</span>
+<div class="px-2 py-0.5 rounded-full bg-secondary-fixed text-[10px] font-bold tracking-wider uppercase text-on-secondary-fixed">REPLIED</div>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between items-end">
+<span class="text-[10px] uppercase font-bold text-ally-slate tracking-widest">ICP Match</span>
+<span class="font-['Geist Mono'] text-[16px] text-signal-green font-bold">8.7</span>
+</div>
+<div class="h-[6px] w-full bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="h-full bg-signal-green w-[87%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-[var(--surface-card)] rounded-card border border-border-subtle p-padding-card flex flex-col gap-4 opacity-80">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-[var(--font-body)] font-medium text-[14px] text-on-surface">Marcus Thorne</h3>
+<p class="font-[var(--font-body)] text-[13px] text-secondary">VP Sales • CloudScale</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-ally-slate text-[18px]" data-icon="mail">mail</span>
+<div class="px-2 py-0.5 rounded-full bg-surface-container-highest text-[10px] font-bold tracking-wider uppercase text-on-surface-variant">PAUSED</div>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between items-end">
+<span class="text-[10px] uppercase font-bold text-ally-slate tracking-widest">ICP Match</span>
+<span class="font-['Geist Mono'] text-[16px] text-caution-amber font-bold">7.4</span>
+</div>
+<div class="h-[6px] w-full bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="h-full bg-caution-amber w-[74%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-[var(--surface-card)] rounded-card border border-border-subtle p-padding-card flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-[var(--font-body)] font-medium text-[14px] text-on-surface">Sarah Jenkins</h3>
+<p class="font-[var(--font-body)] text-[13px] text-secondary">Founder • Zenith Solutions</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-ally-slate text-[18px]" data-icon="group">group</span>
+<div class="px-2 py-0.5 rounded-full bg-primary-fixed text-[10px] font-bold tracking-wider uppercase text-on-primary-fixed">LIVE</div>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between items-end">
+<span class="text-[10px] uppercase font-bold text-ally-slate tracking-widest">ICP Match</span>
+<span class="font-['Geist Mono'] text-[16px] text-signal-green font-bold">9.8</span>
+</div>
+<div class="h-[6px] w-full bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="h-full bg-signal-green w-[98%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-[var(--surface-card)] rounded-card border border-border-subtle p-padding-card flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-[var(--font-body)] font-medium text-[14px] text-on-surface">David Chen</h3>
+<p class="font-[var(--font-body)] text-[13px] text-secondary">Head of Engineering • Verve Tech</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-ally-slate text-[18px]" data-icon="mail">mail</span>
+<div class="px-2 py-0.5 rounded-full bg-error-container text-[10px] font-bold tracking-wider uppercase text-on-error-container">CLOSING</div>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between items-end">
+<span class="text-[10px] uppercase font-bold text-ally-slate tracking-widest">ICP Match</span>
+<span class="font-['Geist Mono'] text-[16px] text-signal-green font-bold">8.1</span>
+</div>
+<div class="h-[6px] w-full bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="h-full bg-signal-green w-[81%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar Component -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center bg-[var(--surface-card)] pb-safe border-t border-[var(--border-default)] z-50 h-20">
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 pt-2 pb-3 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-[var(--font-display)] text-[11px] font-medium tracking-wide uppercase mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-primary)] dark:text-slate-50 border-t-2 border-slate-900 dark:border-slate-50 pt-2 pb-3 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-[var(--font-display)] text-[11px] font-medium tracking-wide uppercase mt-1">Prospects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 pt-2 pb-3 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span class="font-[var(--font-display)] text-[11px] font-medium tracking-wide uppercase mt-1">Campaigns</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 pt-2 pb-3 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-[var(--font-display)] text-[11px] font-medium tracking-wide uppercase mt-1">Reports</span>
+</a>
+</nav>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

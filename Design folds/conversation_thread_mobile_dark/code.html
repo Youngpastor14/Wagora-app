@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<title>Wagora Conversation Thread</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: var(--text-primary); /* Dark mode operator background */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-slate-950 text-slate-50 flex justify-between items-center w-full px-4 h-14 border-b border-slate-800 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<button class="p-2 -ml-2 rounded-full hover:bg-slate-900 transition-colors">
+<span class="material-symbols-outlined align-middle" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-[var(--font-display)] font-semibold tracking-tight text-slate-50">Jordan Miller</span>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-signal-green/10">
+<div class="w-1.5 h-1.5 rounded-full bg-signal-green"></div>
+<span class="text-[10px] font-semibold text-signal-green uppercase tracking-wider">Live</span>
+</div>
+</div>
+<span class="text-[11px] font-mono-data text-[var(--text-secondary)] uppercase">Acme Corp</span>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-slate-900 transition-colors">
+<span class="material-symbols-outlined align-middle" data-icon="archive">archive</span>
+</button>
+</header>
+<!-- Flagged Conversation Banner -->
+<div class="bg-critical-red/10 border-b border-critical-red flex items-center px-4 py-2.5 gap-3">
+<span class="material-symbols-outlined text-critical-red text-[18px]" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-body-md text-slate-50 font-medium">Input needed.</span>
+</div>
+<!-- Message Thread -->
+<main class="flex-1 overflow-y-auto px-4 py-6 space-y-6">
+<!-- System Event -->
+<div class="flex justify-center">
+<span class="font-body-md text-[12px] text-[var(--text-secondary)] font-normal">Conversation started Oct 24, 2023</span>
+</div>
+<!-- Inbound Message (Prospect) -->
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="bg-[var(--surface-elevated)] border border-slate-800 p-4 rounded-xl rounded-tl-none shadow-sm">
+<p class="font-body-md text-slate-200">Hello, we're looking to scale our logistics operations by the end of Q4. Does Wagora have experience with cross-border fulfillment in the DACH region?</p>
+</div>
+<span class="mt-2 text-[10px] text-[var(--text-secondary)] font-mono-data uppercase">Prospect • 10:14 AM</span>
+</div>
+<!-- Outbound Message (Wagora) -->
+<div class="flex flex-col items-end self-end max-w-[85%]">
+<span class="mb-1 text-[11px] font-semibold text-strategist-blue font-mono-data">Wagora</span>
+<div class="bg-[var(--surface-card)] border border-slate-800/50 p-4 rounded-xl rounded-tr-none shadow-sm">
+<p class="font-body-md text-slate-300">Absolutely. We currently manage DACH region logistics for three Tier-1 retail partners. I've attached our recent case study on cross-border efficiency gains.</p>
+</div>
+<span class="mt-2 text-[10px] text-[var(--text-secondary)] font-mono-data uppercase">Sent • 10:16 AM</span>
+</div>
+<!-- System Event -->
+<div class="flex flex-col items-center gap-2">
+<div class="h-px w-full bg-slate-800"></div>
+<span class="font-body-md text-[12px] text-[var(--text-secondary)] font-normal py-1 px-3 bg-slate-900 rounded-full">Wagora flagged a conversation.</span>
+</div>
+<!-- Inbound Message (Prospect) -->
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="bg-[var(--surface-elevated)] border border-slate-800 p-4 rounded-xl rounded-tl-none shadow-sm border-l-critical-red border-l-2">
+<p class="font-body-md text-slate-200">That sounds promising. However, we have a very specific requirement regarding real-time customs clearance data. Can we jump on a call to discuss the API integration specifics?</p>
+</div>
+<span class="mt-2 text-[10px] text-[var(--text-secondary)] font-mono-data uppercase">Prospect • 11:02 AM</span>
+</div>
+<!-- Placeholder for scroll space -->
+<div class="h-12"></div>
+</main>
+<!-- Input Area (Fixed Bottom) -->
+<footer class="fixed bottom-0 w-full bg-slate-950 border-t border-slate-800 p-4 flex flex-col gap-3">
+<div class="relative flex items-center gap-3">
+<div class="flex-1 min-h-[44px] bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 flex items-center">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-slate-200 font-body-md resize-none py-0 placeholder:text-slate-600" placeholder="Reply to Jordan..." rows="1"></textarea>
+</div>
+<button class="bg-[var(--background-secondary)] text-slate-950 px-4 h-[44px] rounded-lg font-semibold text-sm hover:bg-[var(--border-default)] active:scale-95 transition-all flex items-center justify-center">
+                Send
+            </button>
+</div>
+<div class="flex items-center gap-4 px-1">
+<button class="text-[var(--text-secondary)] hover:text-slate-300 transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="attach_file">attach_file</span>
+</button>
+<button class="text-[var(--text-secondary)] hover:text-slate-300 transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome">auto_awesome</span>
+</button>
+<div class="ml-auto flex items-center gap-2">
+<span class="text-[10px] font-mono-data text-slate-600 uppercase">Operator Mode: Active</span>
+</div>
+</div>
+</footer>
+<!-- Image Example (Background Texture Logic) -->
+<div class="fixed inset-0 pointer-events-none -z-10 opacity-20">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(15,23,42,0)_0%,_rgba(15,23,42,1)_100%)]"></div>
+<img class="w-full h-full object-cover" data-alt="A sophisticated digital command center background with faint glowing grid lines and data nodes. The lighting is low-key, dominated by deep slates and blacks, with subtle blue luminescence. The aesthetic is clean, professional, and minimalist, evoking a sense of strategic control and advanced technology in a modern dark-mode interface. The atmosphere is quiet and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcn3JLuKilYaHQVfum8_Mhzl-tC_CcLAQ4YWaJyrUFNR4TIIqWSIli2aXynms0sP05rB9nGk3rHEypxQ_Hak0I6DWL279IpNw7TOuPyuovuAbpAQpq2DowmZ85OIv1_e1ciD2HP0wAWdd45-S8UBrbxL2UR9ydmRPJhsYvogad90P5fZvNga1lxdQleEeItp7M0XZLBSGKjBpTdUn8D8C5rxEIrUK7zP7GrjWH4mEy16a7RFwMLVPodhBQDnnEDHaTSiavtt8Yf7k"/>
+</div>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

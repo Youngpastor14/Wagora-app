@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[var(--surface-card)] border-b border-[var(--border-default)] ">
+<div class="flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-operator-dark">analytics</span>
+<h1 class="text-lg font-bold tracking-tighter text-[var(--text-primary)] dark:text-slate-50 font-[var(--font-display)]">Analytics</h1>
+</div>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border-subtle hover:bg-[var(--surface-elevated)] transition-colors active:opacity-80">
+<span class="text-label-caps font-label-caps text-ally-slate">Last 30 Days</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</header>
+<main class="pt-20 pb-24 px-6 max-w-lg mx-auto">
+<!-- Section 1: Metric Card Grid (Horizontal Scroll) -->
+<section class="mb-8 overflow-hidden">
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<!-- Card 1 -->
+<div class="min-w-[160px] p-padding-card bg-surface-container-lowest border border-border-subtle rounded-xl">
+<p class="text-label-caps font-label-caps text-ally-slate mb-2">Prospects Identified</p>
+<h2 class="text-headline-md font-headline-md text-operator-dark font-mono-data">1,284</h2>
+<div class="mt-2 flex items-center text-signal-green text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px] mr-1">trending_up</span>
+<span>+12.4%</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[160px] p-padding-card bg-surface-container-lowest border border-border-subtle rounded-xl">
+<p class="text-label-caps font-label-caps text-ally-slate mb-2">Reply Rate</p>
+<h2 class="text-headline-md font-headline-md text-operator-dark font-mono-data">18.8%</h2>
+<div class="mt-2 flex items-center text-signal-green text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px] mr-1">trending_up</span>
+<span>+2.1%</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="min-w-[160px] p-padding-card bg-surface-container-lowest border border-border-subtle rounded-xl">
+<p class="text-label-caps font-label-caps text-ally-slate mb-2">Closing Rate</p>
+<h2 class="text-headline-md font-headline-md text-operator-dark font-mono-data">4.2%</h2>
+<div class="mt-2 flex items-center text-critical-red text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px] mr-1">trending_down</span>
+<span>-0.4%</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="min-w-[160px] p-padding-card bg-surface-container-lowest border border-border-subtle rounded-xl">
+<p class="text-label-caps font-label-caps text-ally-slate mb-2">Avg Time to Close</p>
+<h2 class="text-headline-md font-headline-md text-operator-dark font-mono-data">4h</h2>
+<div class="mt-2 flex items-center text-signal-green text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px] mr-1">bolt</span>
+<span>FASTER</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="min-w-[160px] p-padding-card bg-surface-container-lowest border border-border-subtle rounded-xl">
+<p class="text-label-caps font-label-caps text-ally-slate mb-2">Revenue Secured</p>
+<h2 class="text-headline-md font-headline-md text-operator-dark font-mono-data">$28.4k</h2>
+<div class="mt-2 flex items-center text-signal-green text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px] mr-1">trending_up</span>
+<span>+15.2%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Chart Cards (Stacked) -->
+<div class="space-y-6">
+<!-- Line Chart: PROSPECTS OVER TIME -->
+<div class="p-padding-card bg-surface-container-lowest border border-border-subtle rounded-xl">
+<div class="flex justify-between items-start mb-6">
+<h3 class="text-label-caps font-label-caps text-ally-slate uppercase tracking-widest">PROSPECTS OVER TIME</h3>
+<span class="material-symbols-outlined text-ally-slate text-sm">info</span>
+</div>
+<div class="h-40 w-full flex items-end justify-between gap-1 relative border-l border-b border-border-subtle px-1">
+<!-- SVG Chart Path Simulation -->
+<svg class="absolute inset-0 w-full h-full px-1" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0 80 Q 20 60, 40 70 T 80 30 T 100 10" fill="none" stroke="var(--accent-primary)" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+<!-- X-Axis Labels -->
+<div class="absolute -bottom-6 w-full flex justify-between text-[10px] font-mono-data text-ally-slate">
+<span>WK 1</span><span>WK 2</span><span>WK 3</span><span>WK 4</span>
+</div>
+</div>
+</div>
+<!-- Horizontal Bar: REPLIES BY PLATFORM -->
+<div class="p-padding-card bg-surface-container-lowest border border-border-subtle rounded-xl">
+<h3 class="text-label-caps font-label-caps text-ally-slate uppercase tracking-widest mb-6">REPLIES BY PLATFORM</h3>
+<div class="space-y-4">
+<div class="space-y-1">
+<div class="flex justify-between text-mono-data text-[12px] mb-1">
+<span class="text-operator-dark">Email</span>
+<span class="text-ally-slate">642</span>
+</div>
+<div class="h-2 w-full bg-surface-neutral rounded-full overflow-hidden">
+<div class="h-full bg-strategist-blue w-[85%]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-mono-data text-[12px] mb-1">
+<span class="text-operator-dark">LinkedIn</span>
+<span class="text-ally-slate">421</span>
+</div>
+<div class="h-2 w-full bg-surface-neutral rounded-full overflow-hidden">
+<div class="h-full bg-strategist-blue w-[55%]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-mono-data text-[12px] mb-1">
+<span class="text-operator-dark">Instagram</span>
+<span class="text-ally-slate">221</span>
+</div>
+<div class="h-2 w-full bg-surface-neutral rounded-full overflow-hidden">
+<div class="h-full bg-strategist-blue w-[30%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Donut Chart: CLOSING PATH BREAKDOWN -->
+<div class="p-padding-card bg-surface-container-lowest border border-border-subtle rounded-xl">
+<h3 class="text-label-caps font-label-caps text-ally-slate uppercase tracking-widest mb-6">CLOSING PATH BREAKDOWN</h3>
+<div class="flex items-center justify-between">
+<div class="relative w-24 h-24">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="15.9" stroke="var(--border-default)" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.9" stroke="var(--accent-primary)" stroke-dasharray="60 40" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.9" stroke="var(--success)" stroke-dasharray="25 75" stroke-dashoffset="-60" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.9" stroke="var(--status-paused)" stroke-dasharray="15 85" stroke-dashoffset="-85" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-mono-data text-[12px] font-bold">100%</span>
+</div>
+</div>
+<div class="space-y-2 flex-1 ml-8">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-strategist-blue"></div>
+<span class="text-body-md text-operator-dark">Fast Close</span>
+<span class="ml-auto text-mono-data text-ally-slate">60%</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-signal-green"></div>
+<span class="text-body-md text-operator-dark">Call Booked</span>
+<span class="ml-auto text-mono-data text-ally-slate">25%</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-caution-amber"></div>
+<span class="text-body-md text-operator-dark">Nurtured</span>
+<span class="ml-auto text-mono-data text-ally-slate">15%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Campaign Performance Ranking -->
+<div class="p-padding-card bg-surface-container-lowest border border-border-subtle rounded-xl">
+<h3 class="text-label-caps font-label-caps text-ally-slate uppercase tracking-widest mb-6">CAMPAIGN PERFORMANCE</h3>
+<div class="space-y-5">
+<div class="flex items-center gap-4">
+<span class="text-mono-data text-ally-slate w-4">01</span>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-body-md font-bold text-operator-dark">Q4 Enterprise Reach</span>
+<span class="text-mono-data text-signal-green">+8.4%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-neutral rounded-full">
+<div class="h-full bg-operator-dark w-[92%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-mono-data text-ally-slate w-4">02</span>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-body-md font-bold text-operator-dark">Fintech Founders</span>
+<span class="text-mono-data text-signal-green">+5.1%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-neutral rounded-full">
+<div class="h-full bg-operator-dark w-[78%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-mono-data text-ally-slate w-4">03</span>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-body-md font-bold text-operator-dark">Mid-Market SaaS</span>
+<span class="text-mono-data text-caution-amber">-1.2%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-neutral rounded-full">
+<div class="h-full bg-operator-dark w-[64%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Analysis Image -->
+<div class="mt-8 relative h-48 rounded-xl overflow-hidden border border-border-subtle group">
+<img class="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-60 transition-opacity" data-alt="A clean, high-angle view of a futuristic data visualization dashboard displayed on a large professional monitor. The interface features complex graphs and metrics rendered in crisp, cool blue and slate tones against a dark workspace backdrop. Sharp focus and cinematic lighting emphasize a high-tech, data-driven analytical environment, conveying precision and strategic clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAB90_t8RHHejecsRBkb8AaCwDGwhYWUbIiUkfZEB6L0u8MSllQSaqG3ArokaC2plxy9ENiUAOEth82E40mIle7g6SggIe1kUvZGta6M0q9T05nB1uwySmfZogCe4aEGFVY-FfC8tRwFxlv_XKfKPZzofwQa-X2KDI3JuP6Fv-DpOT4-HdeaGgquagQHqr9UHihpzQT-Hy4CEimtDGbqLh5ZmWIjsnVPTILGZcO7lojo2mHMj18S946Sgmi2PtTBIbWhZpInnF6b8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-operator-dark/80 to-transparent flex flex-col justify-end p-padding-card">
+<span class="text-label-caps font-label-caps text-primary-fixed mb-1 uppercase">AI Insight</span>
+<p class="text-body-md text-white font-medium">Outbound efficiency is at a 90-day high. Recommend increasing fintech spend by 15%.</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-[var(--surface-card)] border-t border-[var(--border-default)] ">
+<div class="flex justify-around items-center w-full px-4 pb-safe h-16">
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 pt-2 hover:text-slate-600 transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-widest mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-primary)] dark:text-slate-50 border-t-2 border-slate-900 dark:border-slate-50 pt-2 active:scale-95" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-widest mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 pt-2 hover:text-slate-600 transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-widest mt-1">Prospects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 pt-2 hover:text-slate-600 transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium uppercase tracking-widest mt-1">Settings</span>
+</a>
+</div>
+</nav>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

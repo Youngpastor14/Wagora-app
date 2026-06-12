@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+supabase==2.25.0
+python-dotenv
+groq
+httpx
+python-jose[cryptography]
+pydantic
+python-multipart
+reportlab
+pypdf
+python-docx
+pillow

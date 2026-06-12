@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[var(--surface-card)] flex justify-between items-center w-full px-6 h-16 border-b border-[var(--border-default)] top-0 sticky z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-border-subtle">
+<img alt="Operator Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a corporate operator in a modern, brightly lit office environment. The lighting is soft and high-key, emphasizing a clean and minimalist light-mode aesthetic. The individual has a confident, steady expression, reflecting a sense of strategic accountability. The background features blurred architectural lines of a high-end command center in neutral slate and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzIiML2PDIYgXNe_mRDBS3t7jkk3WHmMvIsA8evUF4t9DmUkBuFj1taOy38Gw2J0nBv42Rygyi3ClQb5qhoFt2QVO_Uc5ITT-ms_U80FAt35Ks4HeCUc_yK6eLxdsnlDkT9Xyc7nrH0zvmOOFZ4R-snQfIUE9pDrWbRS7kVdA2DFfFwc_yCh-Nt-lMYs4ede5MRPifF07lpCxe8mrNbWxJxIUg_b8_XjZOqXp0IKH7NsoRqQI9rmgQrS5YC3tJWGQCyt9PlklRlHs"/>
+</div>
+<span class="text-lg font-bold tracking-tighter text-[var(--text-primary)] dark:text-slate-50 font-[var(--font-display)]">Wagora</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-[var(--background-secondary)] transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined text-[var(--text-primary)] dark:text-slate-50">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-8 py-16 text-center">
+<!-- Empty State Container -->
+<div class="max-w-xs w-full flex flex-col items-center">
+<!-- Geometric Icon Block -->
+<div class="w-24 h-24 mb-stack-lg relative flex items-center justify-center">
+<!-- Decorative Background Element -->
+<div class="absolute inset-0 bg-surface-container-low border border-border-subtle rounded-xl rotate-3"></div>
+<div class="absolute inset-0 bg-[var(--surface-card)] border border-border-subtle rounded-xl -rotate-3 transition-transform hover:rotate-0 duration-300"></div>
+<!-- Central Icon -->
+<div class="relative z-10 flex items-center justify-center bg-operator-dark text-white w-14 h-14 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-3xl">ads_click</span>
+</div>
+</div>
+<!-- Content Group -->
+<div class="space-y-stack-md mb-stack-lg">
+<h1 class="font-headline-md text-headline-md text-on-surface">No campaigns</h1>
+<p class="font-body-md text-body-md text-ally-slate leading-relaxed">
+                    Create a campaign and Wagora finds the clients. Our precision engine handles the outreach while you focus on the strategy.
+                </p>
+</div>
+<!-- Action Block -->
+<div class="w-full space-y-stack-md">
+<button class="w-full bg-operator-dark text-white font-label-caps py-4 rounded-lg flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    New campaign
+                </button>
+<button class="w-full bg-transparent text-ally-slate font-label-caps py-3 hover:bg-surface-container-low transition-colors rounded-lg">
+                    View templates
+                </button>
+</div>
+<!-- Strategic Insight / Contextual Ally Hint -->
+<div class="mt-12 p-4 bg-surface-neutral border border-border-subtle rounded-xl flex items-start gap-3 text-left">
+<span class="material-symbols-outlined text-strategist-blue text-sm">info</span>
+<p class="text-[12px] font-body-md text-ally-slate">
+<span class="font-semibold text-on-surface">Pro Tip:</span> Campaigns with narrow ICP parameters typically see a 24% higher engagement rate in the first 48 hours.
+                </p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-[var(--surface-card)] border-t border-[var(--border-default)] ">
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-[var(--text-secondary)] px-3 py-1 active:scale-95 transition-transform font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+            Dashboard
+        </a>
+<a class="flex flex-col items-center justify-center text-[var(--text-primary)] dark:text-slate-50 bg-[var(--surface-elevated)] dark:bg-slate-800 rounded-md px-3 py-1 active:scale-95 transition-transform font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined mb-1">ads_click</span>
+            Campaigns
+        </a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-[var(--text-secondary)] px-3 py-1 active:scale-95 transition-transform font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined mb-1">group</span>
+            Prospects
+        </a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-[var(--text-secondary)] px-3 py-1 active:scale-95 transition-transform font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined mb-1">forum</span>
+            Chats
+        </a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-[var(--text-secondary)] px-3 py-1 active:scale-95 transition-transform font-[var(--font-display)] text-[10px] font-medium uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined mb-1">handshake</span>
+            Deals
+        </a>
+</nav>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>

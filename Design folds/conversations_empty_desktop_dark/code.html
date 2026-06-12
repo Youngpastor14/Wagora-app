@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html data-theme="light" class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    body {
+      background-color: var(--background-primary);
+    }
+  </style>
+</head>
+<body class="h-full overflow-hidden text-slate-200 font-body-md">
+<!-- Side Navigation Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 bg-[var(--background-primary)] text-slate-200 font-[var(--font-display)] text-sm font-medium h-screen w-64 border-r border-slate-800 z-50">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-strategist-blue flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-slate-100 tracking-tighter">Wagora</h1>
+<p class="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-bold">Precision OS</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span>Campaigns</span>
+</a>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Prospects</span>
+</a>
+<!-- Active State Logic: Conversations -->
+<a class="flex items-center gap-3 bg-slate-800/50 text-slate-100 border-l-2 border-blue-500 px-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span>Conversations</span>
+</a>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span>Deals</span>
+</a>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+</nav>
+<div class="px-6 mb-6">
+<button class="w-full bg-[var(--surface-elevated)] text-operator-dark py-2.5 font-bold rounded text-sm hover:bg-[var(--surface-card)] transition-colors">
+        New Campaign
+      </button>
+</div>
+<div class="border-t border-slate-800 pt-4 space-y-1">
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 text-[var(--text-secondary)] hover:bg-slate-800/30 px-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex flex-col h-screen bg-[var(--background-primary)]">
+<!-- Top Bar -->
+<header class="flex justify-between items-center h-16 px-8 w-full border-b border-slate-800">
+<div class="flex items-center gap-4">
+<h2 class="font-[var(--font-display)] text-sm font-semibold tracking-tight text-slate-200">Conversations</h2>
+<span class="px-2 py-0.5 bg-slate-800 rounded text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-tighter">Inbox</span>
+</div>
+<div class="flex items-center gap-4">
+<button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button>
+<span class="material-symbols-outlined text-[var(--text-secondary)] hover:text-slate-100 cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-[var(--text-secondary)] hover:text-slate-100 cursor-pointer transition-colors" data-icon="settings">settings</span>
+<div class="h-8 w-8 rounded-full bg-slate-800 overflow-hidden border border-slate-700">
+<img alt="Operator Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a serious software operator in a modern tech environment. The person has a neutral, focused expression. The lighting is low-key and dramatic, using the brand's dark slate and blue tones to create a high-end, authoritative aesthetic. The background is a blurred server room with subtle blinking lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbLg6fZwNmPmvqzVWx29sgGfRPjb9S-3MRN-8fCPmh6n_u-J8v-XwqJ49LVJi29rhbdH7P9vCZAvB49KD9ym8zjg71xnN2JX3yACnSfvT3YIDDHJfhCTm8Us-IlgYzyWo-D_PFuVqRkxtVKmr_9FpCMt_EhbG4cbSIYF2h0XR95dfmOfo_PknCaQFRF82BhGF7dU_VBaVskniT_njhAr3dyQue2dUlCiw-D_gaR9417Piw9fQ6O_IDfdh7KnhruYw_msFW8wckb_g"/>
+</div>
+</div>
+</header>
+<!-- Split View Layout -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Left Panel: Inbox List (Empty State) -->
+<section class="w-[380px] border-r border-slate-800 flex flex-col bg-[var(--background-primary)]">
+<div class="p-4 border-b border-slate-800">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-caps text-label-caps text-[var(--text-muted)] uppercase tracking-widest">Inbox</span>
+<span class="font-mono-data text-mono-data bg-slate-800 px-2 py-0.5 rounded text-slate-300">0</span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-600 text-sm" data-icon="search">search</span>
+<input class="w-full bg-slate-900/50 border border-slate-800 rounded px-9 py-2 text-xs text-slate-300 placeholder:text-slate-600 focus:ring-1 focus:ring-strategist-blue focus:border-strategist-blue outline-none transition-all" placeholder="Search conversations..." type="text"/>
+</div>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center p-8 text-center">
+<div class="w-12 h-12 rounded-full border border-slate-800 flex items-center justify-center mb-4 opacity-50">
+<span class="material-symbols-outlined text-[var(--text-secondary)]" data-icon="mail_outline">mail_outline</span>
+</div>
+<p class="font-headline-md text-[var(--text-muted)] text-sm mb-1">No messages to display</p>
+<p class="font-body-md text-slate-600 text-[12px] leading-relaxed">Your message queue is currently quiet.</p>
+</div>
+</section>
+<!-- Right Panel: Conversation Detail (Empty State) -->
+<section class="flex-1 bg-[var(--background-primary)] relative overflow-hidden">
+<!-- Geometric Grid Background Pattern (CSS Only) -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(var(--surface-card) 1px, transparent 1px); background-size: 32px 32px;"></div>
+<div class="h-full flex flex-col items-center justify-center max-w-md mx-auto text-center relative z-10">
+<!-- Geometric Chat Icon -->
+<div class="relative mb-8">
+<div class="w-24 h-24 rounded-2xl border-2 border-slate-800 flex items-center justify-center rotate-45">
+<div class="-rotate-45">
+<span class="material-symbols-outlined text-5xl text-secondary" style="font-variation-settings: 'FILL' 1; font-weight: 300;">forum</span>
+</div>
+</div>
+<div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-signal-green" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+</div>
+<h3 class="font-headline-lg text-secondary mb-4 tracking-tight">No conversations yet.</h3>
+<p class="font-body-md text-ally-slate leading-relaxed mb-8 px-4">
+            Conversations appear when prospects reply to your campaigns. Wagora is actively monitoring your active sequences for high-intent signals.
+          </p>
+<div class="flex gap-4">
+<button class="bg-operator-dark text-white border border-slate-800 px-6 py-2.5 font-bold rounded text-sm hover:border-slate-600 transition-all">
+              View Active Campaigns
+            </button>
+<button class="bg-transparent text-[var(--text-muted)] hover:text-slate-100 px-6 py-2.5 font-semibold rounded text-sm transition-all flex items-center gap-2">
+              Learn about Signal Detection
+              <span class="material-symbols-outlined text-sm" data-icon="north_east">north_east</span>
+</button>
+</div>
+</div>
+<!-- System Status Bar -->
+<footer class="absolute bottom-0 left-0 w-full h-12 border-t border-slate-800/50 bg-[var(--background-primary)] flex items-center justify-between px-8">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-green shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+<span class="font-label-caps text-[10px] tracking-widest text-[var(--text-secondary)] uppercase">System Active</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-[10px] tracking-widest text-[var(--text-secondary)] uppercase">0 Signals Detected</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-1 w-32 bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-strategist-blue w-1/4 rounded-full opacity-50"></div>
+</div>
+<span class="font-mono-data text-[10px] text-slate-600">POLLING MS: 450</span>
+</div>
+</footer>
+</section>
+</div>
+</main>
+</body></html>

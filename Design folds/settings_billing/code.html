@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="../styles/tokens.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<script>(function(){var t=localStorage.getItem('wagora-theme');document.documentElement.setAttribute('data-theme',t||'light');})()</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+
+        @import url('https://fonts.cdnfonts.com/css/geist-mono');
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-primary);
+            color: var(--text-primary);
+        }
+        .clash-display { font-family: var(--font-display); font-weight: 700; }
+        .geist-mono { font-family: var(--font-mono); }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--background-primary)",
+            "background-primary": "var(--background-primary)",
+            "background-secondary": "var(--background-secondary)",
+            "surface": "var(--background-primary)",
+            "surface-card": "var(--surface-card)",
+            "surface-elevated": "var(--surface-elevated)",
+            "surface-neutral": "var(--background-primary)",
+            "surface-container": "var(--surface-elevated)",
+            "surface-container-low": "var(--background-secondary)",
+            "surface-container-lowest": "var(--surface-card)",
+            "surface-container-high": "var(--surface-elevated)",
+            "surface-container-highest": "var(--surface-elevated)",
+            "surface-bright": "var(--surface-card)",
+            "surface-dim": "var(--background-secondary)",
+            "surface-variant": "var(--surface-elevated)",
+            "surface-tint": "var(--text-secondary)",
+            "on-surface": "var(--text-primary)",
+            "on-surface-variant": "var(--text-secondary)",
+            "on-background": "var(--text-primary)",
+            "on-primary": "var(--surface-card)",
+            "on-secondary": "var(--surface-card)",
+            "on-tertiary": "var(--surface-card)",
+            "on-error": "var(--surface-card)",
+            "on-primary-container": "var(--text-muted)",
+            "on-secondary-container": "var(--surface-card)",
+            "on-tertiary-container": "var(--text-muted)",
+            "on-error-container": "var(--destructive)",
+            "on-primary-fixed": "var(--text-primary)",
+            "on-primary-fixed-variant": "var(--text-secondary)",
+            "on-secondary-fixed": "var(--text-primary)",
+            "on-secondary-fixed-variant": "var(--accent-primary)",
+            "on-tertiary-fixed": "var(--text-primary)",
+            "on-tertiary-fixed-variant": "var(--text-secondary)",
+            "inverse-surface": "var(--text-primary)",
+            "inverse-on-surface": "var(--background-primary)",
+            "inverse-primary": "var(--border-default)",
+            "accent-primary": "var(--accent-primary)",
+            "accent-secondary": "var(--accent-secondary)",
+            "operator-dark": "var(--text-primary)",
+            "ally-slate": "var(--text-secondary)",
+            "strategist-blue": "var(--accent-primary)",
+            "signal-green": "var(--success)",
+            "caution-amber": "var(--status-paused)",
+            "critical-red": "var(--destructive)",
+            "brand-teal": "var(--accent-primary)",
+            "success": "var(--success)",
+            "destructive": "var(--destructive)",
+            "border-subtle": "var(--border-subtle)",
+            "border-default": "var(--border-default)",
+            "outline": "var(--text-muted)",
+            "outline-variant": "var(--border-default)",
+            "primary": "var(--text-primary)",
+            "primary-container": "var(--text-primary)",
+            "primary-fixed": "var(--border-default)",
+            "primary-fixed-dim": "var(--border-default)",
+            "secondary": "var(--accent-primary)",
+            "secondary-container": "var(--accent-primary)",
+            "secondary-fixed": "var(--surface-elevated)",
+            "secondary-fixed-dim": "var(--border-default)",
+            "tertiary": "var(--text-primary)",
+            "tertiary-container": "var(--text-primary)",
+            "tertiary-fixed": "var(--surface-elevated)",
+            "tertiary-fixed-dim": "var(--border-default)",
+            "error": "var(--destructive)",
+            "error-container": "rgba(229, 62, 62, 0.15)",
+          },
+          borderRadius: {
+            "DEFAULT": "var(--radius-xs)",
+            "sm": "var(--radius-sm)",
+            "md": "var(--radius-md)",
+            "lg": "var(--radius-lg)",
+            "xl": "var(--radius-lg)",
+            "full": "var(--radius-pill)",
+          },
+          spacing: {
+            "unit": "8px",
+            "stack-sm": "4px",
+            "stack-md": "12px",
+            "stack-lg": "24px",
+            "padding-card": "20px",
+            "gutter-grid": "24px",
+            "margin-page": "32px",
+          },
+          fontFamily: {
+            "display-xl": ["'Clash Display'", "sans-serif"],
+            "headline-lg": ["'Clash Display'", "sans-serif"],
+            "headline-md": ["'Clash Display'", "sans-serif"],
+            "label-caps": ["'Satoshi'", "sans-serif"],
+            "body-lg": ["'Satoshi'", "sans-serif"],
+            "body-md": ["'Satoshi'", "sans-serif"],
+            "mono-data": ["'Geist Mono'", "monospace"],
+          },
+          fontSize: {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-xl": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          },
+        },
+      },
+    }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-neutral min-h-screen pb-20">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 flex items-center px-4 h-16 bg-[var(--surface-card)] border-b border-[var(--border-default)] ">
+<button class="material-symbols-outlined text-[var(--text-primary)] dark:text-slate-50 mr-4 active:opacity-70 transition-opacity">arrow_back</button>
+<h1 class="clash-display text-[24px] text-[var(--text-primary)] dark:text-slate-50">Billing</h1>
+</header>
+<main class="pt-20 px-4 max-w-md mx-auto space-y-6">
+<!-- Current Plan Card -->
+<section class="bg-[var(--surface-card)] rounded-xl border border-border-subtle p-padding-card shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="font-label-caps text-label-caps text-ally-slate uppercase tracking-wider mb-1 block">Current Plan</span>
+<h2 class="font-headline-md text-headline-md text-operator-dark">Growth Plan</h2>
+</div>
+<span class="bg-strategist-blue/10 text-strategist-blue text-[11px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter">Active</span>
+</div>
+<div class="mb-8">
+<p class="geist-mono text-[32px] font-bold text-operator-dark tracking-tighter">$499.00<span class="text-ally-slate text-sm font-medium ml-1">/mo</span></p>
+</div>
+<div class="space-y-6">
+<!-- Usage: Prospects -->
+<div>
+<div class="flex justify-between text-body-md font-body-md mb-2">
+<span class="text-operator-dark font-medium">Prospects</span>
+<span class="text-ally-slate"><strong class="text-operator-dark geist-mono">842</strong> / 1,000</span>
+</div>
+<div class="h-1.5 w-full bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="h-full bg-operator-dark rounded-full" style="width: 84.2%;"></div>
+</div>
+</div>
+<!-- Usage: Conversations -->
+<div>
+<div class="flex justify-between text-body-md font-body-md mb-2">
+<span class="text-operator-dark font-medium">Conversations</span>
+<span class="text-ally-slate"><strong class="text-operator-dark geist-mono">2,105</strong> / 5,000</span>
+</div>
+<div class="h-1.5 w-full bg-[var(--surface-elevated)] rounded-full overflow-hidden">
+<div class="h-full bg-strategist-blue rounded-full" style="width: 42.1%;"></div>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 bg-operator-dark text-white rounded-lg font-bold text-body-md active:opacity-70 transition-opacity">
+                Manage Subscription
+            </button>
+</section>
+<!-- Billing History -->
+<section>
+<h3 class="font-headline-md text-headline-md text-operator-dark mb-4 px-1">Billing History</h3>
+<div class="bg-[var(--surface-card)] rounded-xl border border-border-subtle overflow-hidden shadow-sm">
+<div class="divide-y divide-border-subtle">
+<!-- Invoice Row 1 -->
+<div class="p-4 flex items-center justify-between hover:bg-[var(--background-secondary)] transition-colors">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-[var(--surface-elevated)] rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-ally-slate">description</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-operator-dark">Oct 01, 2023</p>
+<p class="text-[12px] text-ally-slate">Growth Plan • Monthly</p>
+</div>
+</div>
+<div class="text-right flex items-center">
+<span class="geist-mono text-body-md font-bold text-operator-dark mr-3">$499.00</span>
+<button class="material-symbols-outlined text-ally-slate hover:text-operator-dark">download</button>
+</div>
+</div>
+<!-- Invoice Row 2 -->
+<div class="p-4 flex items-center justify-between hover:bg-[var(--background-secondary)] transition-colors">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-[var(--surface-elevated)] rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-ally-slate">description</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-operator-dark">Sep 01, 2023</p>
+<p class="text-[12px] text-ally-slate">Growth Plan • Monthly</p>
+</div>
+</div>
+<div class="text-right flex items-center">
+<span class="geist-mono text-body-md font-bold text-operator-dark mr-3">$499.00</span>
+<button class="material-symbols-outlined text-ally-slate hover:text-operator-dark">download</button>
+</div>
+</div>
+<!-- Invoice Row 3 -->
+<div class="p-4 flex items-center justify-between hover:bg-[var(--background-secondary)] transition-colors">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-[var(--surface-elevated)] rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-ally-slate">description</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-operator-dark">Aug 01, 2023</p>
+<p class="text-[12px] text-ally-slate">Growth Plan • Monthly</p>
+</div>
+</div>
+<div class="text-right flex items-center">
+<span class="geist-mono text-body-md font-bold text-operator-dark mr-3">$499.00</span>
+<button class="material-symbols-outlined text-ally-slate hover:text-operator-dark">download</button>
+</div>
+</div>
+<!-- Invoice Row 4 -->
+<div class="p-4 flex items-center justify-between hover:bg-[var(--background-secondary)] transition-colors">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-[var(--surface-elevated)] rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-ally-slate">description</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-operator-dark">Jul 01, 2023</p>
+<p class="text-[12px] text-ally-slate">Pro Plan • Monthly</p>
+</div>
+</div>
+<div class="text-right flex items-center">
+<span class="geist-mono text-body-md font-bold text-operator-dark mr-3">$249.00</span>
+<button class="material-symbols-outlined text-ally-slate hover:text-operator-dark">download</button>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-[var(--background-secondary)] text-ally-slate font-semibold text-body-md hover:text-operator-dark transition-colors border-t border-border-subtle">
+                    View All Invoices
+                </button>
+</div>
+</section>
+<!-- Payment Method -->
+<section class="bg-[var(--surface-card)] rounded-xl border border-border-subtle p-padding-card shadow-sm">
+<h3 class="font-headline-md text-headline-md text-operator-dark mb-4">Payment Method</h3>
+<div class="flex items-center justify-between p-4 bg-[var(--background-secondary)] rounded-lg border border-border-subtle">
+<div class="flex items-center space-x-4">
+<div class="bg-[var(--surface-card)] p-2 rounded border border-border-subtle">
+<img alt="Visa" class="h-4" data-alt="A clean, high-resolution logo of a Visa credit card displayed on a plain white background. The logo is sharp and professional, fitting into a minimalist and high-end financial application's payment settings. The lighting is neutral and even, emphasizing a secure and corporate aesthetic with deep blues and yellows against a pristine white surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2-o-iIbgAnmqKFvzrUfi7pC0K43ZwEhncTW93GpPM3DBHd_6zfMktj2RhuvWs8dyN353evxheqh2xNem3K3E8M34HqciB_HwcxUXWZkoPjjvgfZWmyeJ11qwdAR0qCpdGAIiLHkVsxnMv9lzrPO4OUEfNTZbDg2PKL_4at5XbaDJt43YL2rmEmNcreBsfYgIrM1K3p4jviJzFJmO2r0C4XwpWdYT4Z5VJs-q2aN6Yc3Hhhhd4k_oNYN3kbP5586wWWFM2gIQkUG0"/>
+</div>
+<div>
+<p class="font-body-md font-bold text-operator-dark">Visa ending in 4242</p>
+<p class="text-[12px] text-ally-slate uppercase tracking-widest">Expires 12/25</p>
+</div>
+</div>
+<button class="text-strategist-blue font-bold text-body-md">Edit</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-16 px-6 bg-[color-mix(in_srgb,var(--surface-card)_80%,transparent)] /80 backdrop-blur-md border-t border-[var(--border-default)] ">
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase mt-1">Campaigns</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-muted)] dark:text-slate-600 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase mt-1">Analyst</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--text-primary)] dark:text-slate-50 font-bold active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-[var(--font-display)] text-[10px] font-medium tracking-wide uppercase mt-1">Settings</span>
+</a>
+</nav>
+<script>(function(){var t=localStorage.getItem('wagora-theme')||'light';document.documentElement.setAttribute('data-theme',t);var i=document.getElementById('theme-icon');if(i)i.textContent=t==='dark'?'light_mode':'dark_mode';})()</script>
+<div id="wagora-theme-toggle-float" style="position:fixed;bottom:80px;left:16px;z-index:9998"><button id="wagora-theme-toggle" style="background:var(--surface-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all 0.2s;box-shadow:var(--shadow-card)" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('wagora-theme',n);document.getElementById('theme-icon').textContent=n==='dark'?'light_mode':'dark_mode'})()"><span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span></button></div>
+</body></html>
