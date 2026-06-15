@@ -29,6 +29,7 @@ export interface Database {
           trial_ends_at: string;
           email_verified_at: string | null;
           onboarding_completed: boolean;
+          active_agent_id: string | null;
           created_at: string;
         };
         Insert: {
@@ -42,6 +43,7 @@ export interface Database {
           trial_ends_at?: string;
           email_verified_at?: string | null;
           onboarding_completed?: boolean;
+          active_agent_id?: string | null;
           created_at?: string;
         };
         Update: {
@@ -52,6 +54,7 @@ export interface Database {
           avatar_url?: string | null;
           plan?: Plan;
           onboarding_completed?: boolean;
+          active_agent_id?: string | null;
         };
       };
 
@@ -419,6 +422,103 @@ export interface Database {
         };
         Update: {
           status?: DocumentStatus;
+        };
+      };
+
+      daily_usage: {
+        Row: {
+          id: string;
+          user_id: string;
+          date: string;
+          email_count: number;
+        };
+        Insert: {
+          id?: string;
+          user_id?: string;
+          date?: string;
+          email_count?: number;
+        };
+        Update: {
+          email_count?: number;
+        };
+      };
+
+      sales_agents: {
+        Row: {
+          id: string;
+          user_id: string;
+          name: string;
+          persona: string | null;
+          tone: string;
+          is_active: boolean;
+          target_industries: string[] | null;
+          target_roles: string[] | null;
+          geography: string[] | null;
+          offer_description: string | null;
+          icp_threshold: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id?: string;
+          name?: string;
+          persona?: string | null;
+          tone?: string;
+          is_active?: boolean;
+          target_industries?: string[] | null;
+          target_roles?: string[] | null;
+          geography?: string[] | null;
+          offer_description?: string | null;
+          icp_threshold?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          name?: string;
+          persona?: string | null;
+          tone?: string;
+          is_active?: boolean;
+          target_industries?: string[] | null;
+          target_roles?: string[] | null;
+          geography?: string[] | null;
+          offer_description?: string | null;
+          icp_threshold?: number;
+          updated_at?: string;
+        };
+      };
+
+      followup_queue: {
+        Row: {
+          id: string;
+          user_id: string;
+          prospect_id: string | null;
+          campaign_id: string | null;
+          prospect_email: string | null;
+          prospect_name: string | null;
+          scheduled_at: string;
+          message_content: string | null;
+          status: 'pending' | 'sent' | 'failed' | 'cancelled';
+          attempt_count: number;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id?: string;
+          prospect_id?: string | null;
+          campaign_id?: string | null;
+          prospect_email?: string | null;
+          prospect_name?: string | null;
+          scheduled_at: string;
+          message_content?: string | null;
+          status?: 'pending' | 'sent' | 'failed' | 'cancelled';
+          attempt_count?: number;
+          created_at?: string;
+        };
+        Update: {
+          status?: 'pending' | 'sent' | 'failed' | 'cancelled';
+          attempt_count?: number;
+          message_content?: string | null;
         };
       };
     };

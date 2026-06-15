@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.so
+*.whl
+
+# Virtual Environment
+venv/
+env/
+.venv/
+.env.bak
+
+# Environment Variables — NEVER commit secrets
+.env
+.env.*
+!.env.example
+
+# Local database fallback (ephemeral, not source of truth)
+local_db.json
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+*.pdf
+test_*.py
+
+# Logs
+*.log

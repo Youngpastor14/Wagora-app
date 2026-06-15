@@ -13,7 +13,12 @@ app = FastAPI(title="Wagora API", version="1.0.0")
 
 # Setup CORS Origins
 origins = [
+    # Local development
     "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:5175",
+    # Production (Vercel)
+    "https://wagora-app.vercel.app",
     "https://wagora.vercel.app",
 ]
 if settings.FRONTEND_URL and settings.FRONTEND_URL not in origins:
@@ -23,8 +28,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-Requested-With"],
+    max_age=600,  # Cache preflight for 10 minutes
 )
 
 # Import and include all route routers
@@ -45,15 +51,15 @@ app.include_router(agents.router, prefix="/api")
 async def health_check():
     return {"status": "wagora backend running", "version": "1.0.0"}
 
-# Global Exception Handler
+# Global Exception Handler — sanitized to never leak internals
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
-    logger.error(f"Unhandled exception: {str(exc)}", exc_info=True)
+    logger.error(f"Unhandled exception on {request.method} {request.url.path}: {str(exc)}", exc_info=True)
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         content={
             "error": "Internal Server Error",
-            "detail": str(exc)
+            "detail": "An unexpected error occurred. Please try again or contact support."
         }
     )
 

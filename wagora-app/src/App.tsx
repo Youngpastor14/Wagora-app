@@ -6,6 +6,8 @@ import SignIn from './pages/auth/SignIn';
 import SignUp from './pages/auth/SignUp';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import VerifyEmail from './pages/auth/VerifyEmail';
+import AuthCallback from './pages/auth/AuthCallback';
+import ResetPassword from './pages/auth/ResetPassword';
 import Campaigns from './pages/campaigns/Campaigns';
 import Prospects from './pages/prospects/Prospects';
 import Conversations from './pages/conversations/Conversations';
@@ -31,6 +33,11 @@ function App() {
         <Router>
           <Routes>
             {/* Auth (Public Routes) */}
+            {/* Auth Callback — handles PKCE code exchange for OAuth + email verify */}
+            {/* Must be OUTSIDE PublicRoute so logged-in users can reach it */}
+            <Route path="/auth/callback" element={<AuthCallback />} />
+            <Route path="/auth/reset-password" element={<ResetPassword />} />
+
             <Route path="/auth" element={<PublicRoute><AuthLayout /></PublicRoute>}>
               <Route path="signin" element={<SignIn />} />
               <Route path="signup" element={<SignUp />} />
