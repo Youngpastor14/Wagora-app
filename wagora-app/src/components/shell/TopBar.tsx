@@ -48,8 +48,8 @@ export default function TopBar() {
       
       {/* Mobile Title & Logo */}
       <div className="flex items-center gap-3 sm:hidden">
-        <div className="w-8 h-8 bg-token-accent flex items-center justify-center rounded shrink-0">
-          <span className="material-symbols-outlined text-[var(--surface-card)] text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>deployed_code</span>
+        <div className="w-8 h-8 bg-[#006c4f] flex items-center justify-center rounded-[var(--radius-sm)] shrink-0">
+          <span className="font-sans font-extrabold text-white text-base leading-none">W</span>
         </div>
         <h2 className="font-clash text-lg font-bold tracking-tight text-token-primary">
           {getPageTitle(location.pathname)}

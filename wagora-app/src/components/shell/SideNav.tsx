@@ -34,11 +34,11 @@ export default function SideNav() {
       
       {/* Logo Area */}
       <div className="h-16 flex items-center justify-center lg:justify-start lg:px-6 mb-8 border-b border-[var(--border-subtle)] lg:border-none">
-        <div className="w-8 h-8 bg-token-accent flex items-center justify-center rounded shrink-0">
-          <span className="material-symbols-outlined text-[var(--surface-card)] text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>deployed_code</span>
+        <div className="w-8 h-8 bg-[#006c4f] flex items-center justify-center rounded-[var(--radius-sm)] shrink-0">
+          <span className="font-sans font-extrabold text-white text-base leading-none">W</span>
         </div>
         <div className="hidden lg:block ml-3">
-          <h1 className="text-xl font-black text-token-primary tracking-tighter font-clash leading-none">Wagora</h1>
+          <h1 className="text-xl font-black text-token-primary tracking-tighter font-clash leading-none">WAGORA</h1>
           <p className="text-[10px] uppercase tracking-widest text-token-secondary font-bold mt-1">Precision OS</p>
         </div>
       </div>
