@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Mail, RefreshCw, Loader2, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Mail, Loader2, CheckCircle2 } from 'lucide-react';
 import { supabase } from '@/lib/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -50,60 +50,58 @@ export default function VerifyEmail() {
   };
 
   return (
-    <div className="space-y-6 text-center">
-      <div className="flex justify-center">
-        <div className="w-16 h-16 rounded-full bg-[var(--surface-primary)] border border-[var(--border-default)] flex items-center justify-center text-[var(--accent-primary)]">
-          <Mail size={32} />
+    <div className="w-full flex flex-col items-center gap-6">
+      {/* Auth Card */}
+      <main className="w-full max-w-[400px] bg-[var(--surface-card)] border border-[var(--border-subtle)] p-8 rounded-xl shadow-sm relative z-10 text-center space-y-6">
+        <div className="flex justify-center">
+          <div className="w-16 h-16 rounded-full bg-[var(--background-secondary)] border border-[var(--border-default)] flex items-center justify-center text-[var(--accent-primary)]">
+            <Mail size={32} />
+          </div>
         </div>
-      </div>
 
-      <div className="space-y-2">
-        <h2 className="font-clash text-headline-md font-bold text-token-primary">Verify your email</h2>
-        <p className="text-token-secondary max-w-sm mx-auto">
-          We sent a verification link to <strong className="text-token-primary">{email || 'your email'}</strong>. 
-          Please click it to activate your account.
-        </p>
-      </div>
-
-      {resendStatus === 'success' && (
-        <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-sm p-3 rounded-[var(--radius-md)] flex items-center justify-center gap-2">
-          <CheckCircle2 size={16} />
-          Verification email resent successfully!
+        <div className="space-y-2">
+          <h2 className="font-clash text-2xl font-bold text-[var(--text-primary)]">Verify your email</h2>
+          <p className="text-sm text-[var(--text-secondary)] max-w-sm mx-auto leading-relaxed">
+            We sent a verification link to <strong className="text-[var(--text-primary)]">{email || 'your email'}</strong>. 
+            Please click it to activate your account.
+          </p>
         </div>
-      )}
 
-      {resendStatus === 'error' && (
-        <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-3 rounded-[var(--radius-md)]">
-          {errorMessage}
+        {resendStatus === 'success' && (
+          <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-sm p-3 rounded-[var(--radius-md)] flex items-center justify-center gap-2">
+            <CheckCircle2 size={16} />
+            Verification email resent successfully!
+          </div>
+        )}
+
+        {resendStatus === 'error' && (
+          <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-3 rounded-[var(--radius-md)]">
+            {errorMessage}
+          </div>
+        )}
+
+        <div className="pt-4 space-y-4">
+          <button
+            type="button"
+            onClick={handleResend}
+            disabled={resending || !email}
+            className="w-full h-12 bg-[var(--text-primary)] hover:bg-[var(--accent-primary-hover)] hover:text-white text-[var(--background-primary)] font-semibold text-sm rounded transition-all active:scale-[0.98] flex items-center justify-center cursor-pointer disabled:opacity-50"
+          >
+            {resending ? (
+              <span className="flex items-center gap-2">
+                <Loader2 size={16} className="animate-spin" />
+                Resending...
+              </span>
+            ) : "Resend verification email"}
+          </button>
+
+          <div className="pt-4 border-t border-[var(--border-subtle)] text-center">
+            <Link to="/auth/signin" className="text-sm font-semibold text-[var(--text-primary)] hover:underline">
+              Back to Sign In
+            </Link>
+          </div>
         </div>
-      )}
-
-      <div className="pt-4 space-y-3">
-        <button
-          type="button"
-          onClick={handleResend}
-          disabled={resending || !email}
-          className="w-full flex items-center justify-center gap-2 bg-token-primary text-[var(--surface-card)] py-2.5 rounded-[var(--radius-md)] font-bold hover:bg-opacity-90 disabled:opacity-50 transition-all"
-        >
-          {resending ? (
-            <>
-              <Loader2 size={18} className="animate-spin" />
-              Resending...
-            </>
-          ) : (
-            <>
-              Resend verification email
-              <RefreshCw size={16} />
-            </>
-          )}
-        </button>
-
-        <div className="flex justify-center gap-4 text-sm mt-4">
-          <Link to="/auth/signin" className="font-bold text-token-accent hover:text-[var(--accent-primary-hover)]">
-            Back to Sign In
-          </Link>
-        </div>
-      </div>
+      </main>
     </div>
   );
 }

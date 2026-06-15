@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, ArrowRight, Loader2, CheckCircle2 } from 'lucide-react';
+import { Loader2, CheckCircle2 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function ForgotPassword() {
@@ -33,83 +33,83 @@ export default function ForgotPassword() {
 
   if (success) {
     return (
-      <div className="space-y-6 text-center">
+      <main className="w-full max-w-[400px] bg-[var(--surface-card)] border border-[var(--border-subtle)] p-8 rounded-xl shadow-sm relative z-10 text-center space-y-6">
         <div className="flex justify-center">
           <CheckCircle2 size={48} className="text-[var(--accent-primary)] animate-pulse" />
         </div>
         <div>
-          <h2 className="font-clash text-headline-md font-bold text-token-primary">Check your email</h2>
-          <p className="text-token-secondary mt-2">
-            We have sent password reset instructions to <strong className="text-token-primary">{email}</strong>.
+          <h2 className="font-clash text-2xl font-bold text-[var(--text-primary)]">Check your email</h2>
+          <p className="text-sm text-[var(--text-secondary)] mt-2 leading-relaxed">
+            We have sent password reset instructions to <strong className="text-[var(--text-primary)]">{email}</strong>.
           </p>
         </div>
         <Link 
           to="/auth/signin" 
-          className="w-full flex items-center justify-center gap-2 bg-token-primary text-[var(--surface-card)] py-2.5 rounded-[var(--radius-md)] font-bold hover:bg-opacity-90 transition-all mt-6"
+          className="w-full h-12 bg-[var(--text-primary)] hover:bg-[var(--accent-primary-hover)] hover:text-white text-[var(--background-primary)] font-semibold text-sm rounded transition-all active:scale-[0.98] flex items-center justify-center cursor-pointer"
         >
           Back to Sign In
         </Link>
-      </div>
+      </main>
     );
   }
 
   return (
-    <div className="space-y-6">
-      <div className="text-center">
-        <h2 className="font-clash text-headline-md font-bold text-token-primary">Reset Password</h2>
-        <p className="text-token-secondary mt-1">We'll send you a link to reset your password.</p>
-      </div>
+    <div className="w-full flex flex-col items-center gap-6">
+      {/* Auth Card */}
+      <main className="w-full max-w-[400px] bg-[var(--surface-card)] border border-[var(--border-subtle)] rounded-xl p-8 shadow-sm relative z-10">
+        <header className="mb-8 text-center">
+          <h1 className="font-clash text-2xl font-bold text-[var(--text-primary)]">Reset Password</h1>
+          <p className="text-sm text-[var(--text-secondary)] mt-2">We'll send you a link to reset your password.</p>
+        </header>
 
-      {error && (
-        <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-3 rounded-[var(--radius-md)]">
-          {error}
-        </div>
-      )}
+        {error && (
+          <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-3 rounded-[var(--radius-md)] mb-6">
+            {error}
+          </div>
+        )}
 
-      <form className="space-y-4" onSubmit={handleSubmit}>
-        <div>
-          <label className="block text-sm font-medium text-token-primary mb-1">Email address</label>
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Mail size={16} className="text-token-muted" />
-            </div>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          {/* Email Field */}
+          <div className="space-y-2">
+            <label className="block text-[11px] font-bold tracking-wider text-[var(--text-secondary)] uppercase" htmlFor="email">
+              EMAIL ADDRESS
+            </label>
             <input 
+              id="email"
               type="email" 
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full pl-10 pr-3 py-2 bg-[var(--surface-primary)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-token-primary placeholder-token-muted focus:outline-none focus:ring-2 focus:ring-token-accent focus:border-transparent transition-all"
+              className="w-full h-11 px-4 bg-[var(--surface-card)] border border-[var(--border-subtle)] rounded text-sm focus:ring-1 focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] outline-none transition-all placeholder:text-[var(--text-muted)] text-[var(--text-primary)]"
               placeholder="you@company.com"
               disabled={loading}
+              autoComplete="email"
             />
           </div>
+
+          <button 
+            type="submit"
+            disabled={loading || !email}
+            className="w-full h-12 bg-[var(--text-primary)] hover:bg-[var(--accent-primary-hover)] hover:text-white text-[var(--background-primary)] font-semibold text-sm rounded transition-all active:scale-[0.98] flex items-center justify-center cursor-pointer disabled:opacity-50"
+          >
+            {loading ? (
+              <span className="flex items-center gap-2">
+                <Loader2 size={16} className="animate-spin" />
+                Sending Link...
+              </span>
+            ) : "Send Reset Link"}
+          </button>
+        </form>
+
+        <div className="mt-8 pt-6 border-t border-[var(--border-subtle)] text-center">
+          <p className="text-sm text-[var(--text-secondary)]">
+            Remembered your password?{' '}
+            <Link to="/auth/signin" className="font-semibold text-[var(--text-primary)] hover:underline">
+              Sign In
+            </Link>
+          </p>
         </div>
-
-        <button 
-          type="submit"
-          disabled={loading || !email}
-          className="w-full flex items-center justify-center gap-2 bg-token-primary text-[var(--surface-card)] py-2.5 rounded-[var(--radius-md)] font-bold hover:bg-opacity-90 disabled:opacity-50 transition-all mt-6"
-        >
-          {loading ? (
-            <>
-              <Loader2 size={18} className="animate-spin" />
-              Sending Link...
-            </>
-          ) : (
-            <>
-              Send Reset Link
-              <ArrowRight size={18} />
-            </>
-          )}
-        </button>
-      </form>
-
-      <p className="text-center text-sm text-token-secondary">
-        Remembered your password?{' '}
-        <Link to="/auth/signin" className="font-bold text-token-accent hover:text-[var(--accent-primary-hover)]">
-          Sign In
-        </Link>
-      </p>
+      </main>
     </div>
   );
 }

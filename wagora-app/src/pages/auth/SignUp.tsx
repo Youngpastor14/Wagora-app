@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { Mail, User, Building, Lock, ArrowRight, Loader2, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Loader2, CheckCircle2 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function SignUp() {
-  const { signUp } = useAuth();
+  const { signUp, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   
@@ -14,6 +14,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [agreedTerms, setAgreedTerms] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
@@ -50,165 +51,213 @@ export default function SignUp() {
     }
   };
 
+  const handleGoogleSignUp = async () => {
+    setGoogleLoading(true);
+    setError(null);
+    try {
+      const { error: googleError } = await signInWithGoogle();
+      if (googleError) {
+        setError(googleError.message);
+        setGoogleLoading(false);
+      }
+    } catch (err: any) {
+      setError(err?.message || 'An unexpected error occurred during Google sign up.');
+      setGoogleLoading(false);
+    }
+  };
+
   const marketingUrl = import.meta.env.VITE_MARKETING_URL || 'http://localhost:5173';
 
   if (success) {
     return (
-      <div className="space-y-6 text-center">
+      <main className="w-full max-w-md bg-[var(--surface-card)] border border-[var(--border-subtle)] p-8 rounded-xl shadow-sm relative z-10 text-center space-y-6">
         <div className="flex justify-center">
           <CheckCircle2 size={48} className="text-[var(--accent-primary)] animate-pulse" />
         </div>
         <div>
-          <h2 className="font-clash text-headline-md font-bold text-token-primary">Check your email</h2>
-          <p className="text-token-secondary mt-2">
-            We have sent a verification link to <strong className="text-token-primary">{email}</strong>. 
+          <h2 className="font-clash text-2xl font-bold text-[var(--text-primary)]">Check your email</h2>
+          <p className="text-sm text-[var(--text-secondary)] mt-2 leading-relaxed">
+            We have sent a verification link to <strong className="text-[var(--text-primary)]">{email}</strong>. 
             Please check your inbox and verify your email to complete registration.
           </p>
         </div>
         <Link 
           to="/auth/signin" 
-          className="w-full flex items-center justify-center gap-2 bg-token-primary text-[var(--surface-card)] py-2.5 rounded-[var(--radius-md)] font-bold hover:bg-opacity-90 transition-all mt-6"
+          className="w-full h-12 bg-[var(--text-primary)] hover:bg-[var(--accent-primary-hover)] hover:text-white text-[var(--background-primary)] font-semibold text-sm rounded transition-all active:scale-[0.98] flex items-center justify-center cursor-pointer"
         >
           Proceed to Sign In
         </Link>
-      </div>
+      </main>
     );
   }
 
   return (
-    <div className="space-y-6">
-      <div className="text-center relative">
-        <a 
-          href={marketingUrl} 
-          className="absolute -top-16 left-0 text-xs font-medium text-token-secondary hover:text-token-primary transition-colors flex items-center gap-1"
-        >
-          ← Back to wagora.com
-        </a>
-        <h2 className="font-clash text-headline-md font-bold text-token-primary">Create Account</h2>
-        <p className="text-token-secondary mt-1">
-          {planParam !== 'free' 
-            ? `Initialize your Wagora ${planParam.charAt(0).toUpperCase() + planParam.slice(1)} workspace.` 
-            : 'Initialize your autonomous sales engine.'}
-        </p>
-      </div>
+    <div className="w-full flex flex-col items-center gap-6 animate-fade-in">
+      {/* Auth Card */}
+      <main className="w-full max-w-md bg-[var(--surface-card)] border border-[var(--border-subtle)] p-6 rounded-xl shadow-sm relative z-10">
+        <header className="mb-6 relative">
+          <a 
+            href={marketingUrl} 
+            className="text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-1 mb-6"
+          >
+            ← Back to wagora.com
+          </a>
+          <h1 className="font-clash text-2xl font-bold text-[var(--text-primary)] leading-tight tracking-tight">
+            Build your pipeline.
+          </h1>
+          <p className="text-sm text-[var(--text-secondary)] mt-2">
+            Let Wagora run it.
+          </p>
+        </header>
 
-      {error && (
-        <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-3 rounded-[var(--radius-md)]">
-          {error}
-        </div>
-      )}
+        {error && (
+          <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-3 rounded-[var(--radius-md)] mb-6">
+            {error}
+          </div>
+        )}
 
-      <form className="space-y-4" onSubmit={handleSubmit}>
-        <div>
-          <label className="block text-sm font-medium text-token-primary mb-1">Full Name</label>
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <User size={16} className="text-token-muted" />
-            </div>
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          {/* Full Name */}
+          <div className="space-y-1">
+            <label className="block text-[11px] font-bold tracking-wider text-[var(--text-secondary)] uppercase" htmlFor="fullName">
+              Full name
+            </label>
             <input 
+              id="fullName"
               type="text" 
               required
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="w-full pl-10 pr-3 py-2 bg-[var(--surface-primary)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-token-primary placeholder-token-muted focus:outline-none focus:ring-2 focus:ring-token-accent focus:border-transparent transition-all"
-              placeholder="John Doe"
-              disabled={loading}
+              className="w-full h-11 px-4 bg-[var(--background-primary)] border border-[var(--border-default)] rounded-lg text-sm focus:ring-1 focus:ring-[var(--accent-primary)] focus:outline-none placeholder:text-[var(--text-muted)] text-[var(--text-primary)]"
+              placeholder="Alex Operator"
+              disabled={loading || googleLoading}
+              autoComplete="name"
             />
           </div>
-        </div>
 
-        <div>
-          <label className="block text-sm font-medium text-token-primary mb-1">Work Email</label>
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Mail size={16} className="text-token-muted" />
-            </div>
+          {/* Email */}
+          <div className="space-y-1">
+            <label className="block text-[11px] font-bold tracking-wider text-[var(--text-secondary)] uppercase" htmlFor="email">
+              Email
+            </label>
             <input 
+              id="email"
               type="email" 
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full pl-10 pr-3 py-2 bg-[var(--surface-primary)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-token-primary placeholder-token-muted focus:outline-none focus:ring-2 focus:ring-token-accent focus:border-transparent transition-all"
-              placeholder="john@company.com"
-              disabled={loading}
+              className="w-full h-11 px-4 bg-[var(--background-primary)] border border-[var(--border-default)] rounded-lg text-sm focus:ring-1 focus:ring-[var(--accent-primary)] focus:outline-none placeholder:text-[var(--text-muted)] text-[var(--text-primary)]"
+              placeholder="alex@operator.io"
+              disabled={loading || googleLoading}
+              autoComplete="email"
             />
           </div>
-        </div>
 
-        <div>
-          <label className="block text-sm font-medium text-token-primary mb-1">Company Name</label>
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Building size={16} className="text-token-muted" />
-            </div>
+          {/* Company Name */}
+          <div className="space-y-1">
+            <label className="block text-[11px] font-bold tracking-wider text-[var(--text-secondary)] uppercase" htmlFor="companyName">
+              Company Name
+            </label>
             <input 
+              id="companyName"
               type="text" 
               required
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
-              className="w-full pl-10 pr-3 py-2 bg-[var(--surface-primary)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-token-primary placeholder-token-muted focus:outline-none focus:ring-2 focus:ring-token-accent focus:border-transparent transition-all"
+              className="w-full h-11 px-4 bg-[var(--background-primary)] border border-[var(--border-default)] rounded-lg text-sm focus:ring-1 focus:ring-[var(--accent-primary)] focus:outline-none placeholder:text-[var(--text-muted)] text-[var(--text-primary)]"
               placeholder="Acme Corp"
-              disabled={loading}
+              disabled={loading || googleLoading}
+              autoComplete="organization"
             />
           </div>
-        </div>
 
-        <div>
-          <label className="block text-sm font-medium text-token-primary mb-1">Password</label>
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Lock size={16} className="text-token-muted" />
-            </div>
+          {/* Password */}
+          <div className="space-y-1">
+            <label className="block text-[11px] font-bold tracking-wider text-[var(--text-secondary)] uppercase" htmlFor="password">
+              Password
+            </label>
             <input 
+              id="password"
               type="password" 
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full pl-10 pr-3 py-2 bg-[var(--surface-primary)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-token-primary placeholder-token-muted focus:outline-none focus:ring-2 focus:ring-token-accent focus:border-transparent transition-all"
+              className="w-full h-11 px-4 bg-[var(--background-primary)] border border-[var(--border-default)] rounded-lg text-sm focus:ring-1 focus:ring-[var(--accent-primary)] focus:outline-none placeholder:text-[var(--text-muted)] text-[var(--text-primary)]"
               placeholder="••••••••"
-              disabled={loading}
+              disabled={loading || googleLoading}
+              autoComplete="new-password"
             />
           </div>
+
+          {/* Terms checkbox */}
+          <div className="flex items-start gap-2 pt-1">
+            <input 
+              type="checkbox" 
+              id="terms"
+              checked={agreedTerms}
+              onChange={(e) => setAgreedTerms(e.target.checked)}
+              className="mt-1 border border-[var(--border-default)] rounded-[var(--radius-sm)] focus:ring-[var(--accent-primary)] bg-[var(--background-primary)] h-4 w-4 shrink-0 cursor-pointer"
+            />
+            <label htmlFor="terms" className="text-xs text-[var(--text-secondary)] leading-relaxed cursor-pointer select-none">
+              I agree to the <a href="#" className="font-semibold text-[var(--text-primary)] hover:underline">Terms of Service</a> and <a href="#" className="font-semibold text-[var(--text-primary)] hover:underline">Privacy Policy</a>.
+            </label>
+          </div>
+
+          {/* CTA */}
+          <button 
+            type="submit"
+            disabled={loading || googleLoading || !agreedTerms}
+            className="w-full bg-[var(--text-primary)] text-[var(--background-primary)] font-semibold py-3.5 rounded-lg hover:opacity-90 transition-opacity flex justify-center items-center gap-2 cursor-pointer disabled:opacity-50 mt-6"
+          >
+            {loading ? (
+              <>
+                <Loader2 size={16} className="animate-spin" />
+                Initializing...
+              </>
+            ) : (
+              <>
+                <span className="text-xs uppercase tracking-wider font-bold">Get started</span>
+                <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </>
+            )}
+          </button>
+        </form>
+
+        <div className="relative my-6 flex items-center">
+          <div className="flex-grow border-t border-[var(--border-subtle)]"></div>
+          <span className="px-3 text-[10px] text-[var(--text-secondary)] uppercase tracking-wider font-bold">or</span>
+          <div className="flex-grow border-t border-[var(--border-subtle)]"></div>
         </div>
 
-        <div className="flex items-start gap-2 pt-1">
-          <input 
-            type="checkbox" 
-            id="terms"
-            checked={agreedTerms}
-            onChange={(e) => setAgreedTerms(e.target.checked)}
-            className="mt-1 border border-[var(--border-default)] rounded-[var(--radius-sm)] focus:ring-token-accent bg-[var(--surface-primary)] h-4 w-4"
-          />
-          <label htmlFor="terms" className="text-xs text-token-secondary leading-relaxed">
-            I agree to the <a href="#" className="font-semibold text-token-accent hover:underline">Terms of Service</a> and <a href="#" className="font-semibold text-token-accent hover:underline">Privacy Policy</a>.
-          </label>
-        </div>
-
+        {/* Google OAuth Button */}
         <button 
-          type="submit"
-          disabled={loading || !agreedTerms}
-          className="w-full flex items-center justify-center gap-2 bg-token-primary text-[var(--surface-card)] py-2.5 rounded-[var(--radius-md)] font-bold hover:bg-opacity-90 disabled:opacity-50 transition-all mt-6"
+          type="button"
+          onClick={handleGoogleSignUp}
+          disabled={loading || googleLoading}
+          className="w-full flex items-center justify-center gap-3 border border-[var(--border-subtle)] py-3 rounded-lg hover:bg-[var(--surface-elevated)] transition-colors cursor-pointer disabled:opacity-50 text-[var(--text-primary)] font-medium text-sm"
         >
-          {loading ? (
-            <>
-              <Loader2 size={18} className="animate-spin" />
-              Initializing...
-            </>
+          {googleLoading ? (
+            <Loader2 size={16} className="animate-spin" />
           ) : (
-            <>
-              Create Account
-              <ArrowRight size={18} />
-            </>
+            <img 
+              alt="Google" 
+              className="w-4 h-4 grayscale contrast-200" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX1dMK2fPbELfME1ozQ3jkE0_jN4vYxOmUVqFJXRu2_hv-8D1KZ_GejEhrDuPqJ4cj5o-0jBM98ouf9degIzeQWaBQS9MzbFhBIdpa0lVsvCss8Zgda_WqSQ3lA2aKcXfpa-lRi5g_AYzeoMvu2-4gCnQs68Pd7GKMMOGisJrOrSzVCml5Co79ccIpzUgnUbqeueWztLQXM5i4TiZJL-ZSjT7NpxSRWxCz5CD_msvC0D9bo7tWvYgo7Kh0bRdXQxsL02gV8-Z_3SY"
+            />
           )}
+          <span className="text-sm font-medium">Sign up with Google</span>
         </button>
-      </form>
 
-      <p className="text-center text-sm text-token-secondary">
-        Already have an account?{' '}
-        <Link to="/auth/signin" className="font-bold text-token-accent hover:text-[var(--accent-primary-hover)]">
-          Sign In
-        </Link>
-      </p>
+        {/* Footer */}
+        <div className="mt-6 text-center">
+          <p className="text-sm text-[var(--text-secondary)]">
+            Already have an account?{' '}
+            <Link to="/auth/signin" className="font-semibold text-[var(--text-primary)] hover:underline">
+              Sign In
+            </Link>
+          </p>
+        </div>
+      </main>
     </div>
   );
 }
