@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Mail, Lock, ArrowRight, Loader2 } from 'lucide-react';
+import { Lock, Loader2 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/lib/supabase/client';
 
 export default function SignIn() {
   const { signIn, signInWithGoogle } = useAuth();
@@ -26,7 +27,39 @@ export default function SignIn() {
     try {
       const { error: signInError } = await signIn(email, password);
       if (signInError) {
-        setError(signInError.message);
+        // Supabase returns 'Invalid login credentials' for both wrong password
+        // AND unconfirmed email — detect the unconfirmed case and help the user
+        const msg = signInError.message.toLowerCase();
+        if (
+          msg.includes('email not confirmed') ||
+          msg.includes('invalid login credentials')
+        ) {
+          // Check if the user exists but hasn't confirmed their email
+          const { data: { user: checkUser } } = await supabase.auth.getUser();
+          const emailConfirmed = checkUser?.email_confirmed_at;
+
+          if (!emailConfirmed) {
+            // Route to verification page with the email pre-filled
+            navigate('/auth/verify-email', {
+              state: { email },
+              replace: false,
+            });
+            setLoading(false);
+            return;
+          }
+        }
+
+        // Map common Supabase error messages to user-friendly text
+        let friendlyError = signInError.message;
+        if (msg.includes('invalid login credentials')) {
+          friendlyError = 'Incorrect email or password. Please try again.';
+        } else if (msg.includes('too many requests')) {
+          friendlyError = 'Too many sign-in attempts. Please wait a few minutes and try again.';
+        } else if (msg.includes('user not found')) {
+          friendlyError = 'No account found with this email. Please sign up first.';
+        }
+
+        setError(friendlyError);
         setLoading(false);
       } else {
         // AuthContext handles session updates, ProtectedRoute handles redirection to /onboarding if needed

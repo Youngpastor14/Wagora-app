@@ -31,7 +31,7 @@ export default function VerifyEmail() {
         type: 'signup',
         email: email,
         options: {
-          emailRedirectTo: `${window.location.origin}/auth/signin`
+          emailRedirectTo: `${window.location.origin}/auth/callback`
         }
       });
 

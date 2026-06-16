@@ -40,10 +40,24 @@ export default function SignUp() {
       const { error: signUpError } = await signUp(email, password, fullName, companyName);
       
       if (signUpError) {
-        setError(signUpError.message);
+        // User-friendly error messages
+        const msg = signUpError.message.toLowerCase();
+        let friendlyError = signUpError.message;
+        if (msg.includes('user already registered') || msg.includes('already exists')) {
+          friendlyError = 'An account with this email already exists. Please sign in instead.';
+        } else if (msg.includes('password should be')) {
+          friendlyError = 'Password must be at least 6 characters.';
+        } else if (msg.includes('invalid email')) {
+          friendlyError = 'Please enter a valid email address.';
+        }
+        setError(friendlyError);
         setLoading(false);
       } else {
-        setSuccess(true);
+        // Redirect to verify-email page with email pre-filled so they can resend
+        navigate('/auth/verify-email', {
+          state: { email },
+          replace: true,
+        });
       }
     } catch (err: any) {
       setError(err?.message || 'An unexpected error occurred during sign up.');
