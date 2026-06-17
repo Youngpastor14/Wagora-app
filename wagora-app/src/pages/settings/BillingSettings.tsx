@@ -6,11 +6,81 @@ import EmptyState from '@/components/ui/EmptyState';
 import { useToast } from '@/components/ui/Toast';
 
 const plans = [
-  { id: 'free', name: 'Free (Trial)', price: '$0', period: '/mo', features: ['1 campaign', '50 prospects/mo', 'Email only', '5 conversations'] },
-  { id: 'pro', name: 'Pro', price: '$29', period: '/mo', features: ['3 campaigns', '200 prospects/mo', 'Email + LinkedIn', '50 conversations'] },
-  { id: 'growth', name: 'Growth', price: '$79', period: '/mo', features: ['10 campaigns', '1,000 prospects/mo', 'All platforms', 'Unlimited conversations', 'Analytics'] },
-  { id: 'agency', name: 'Agency', price: '$199', period: '/mo', features: ['Unlimited campaigns', '5,000 prospects/mo', 'All platforms', 'Unlimited everything', 'Priority support', 'Team seats'] },
+  {
+    id: 'free',
+    name: 'Free (Trial)',
+    price: '$0',
+    period: '/mo',
+    features: [
+      '1 campaign',
+      '50 prospects/mo',
+      '20 emails/day',
+      'Email outreach only',
+      '5 conversations',
+    ],
+    note: 'LinkedIn & Instagram require Starter or above',
+  },
+  {
+    id: 'starter',
+    name: 'Starter',
+    price: '$9',
+    period: '/mo',
+    features: [
+      '2 campaigns',
+      '200 prospects/mo',
+      '100 emails/day',
+      'Email + LinkedIn',
+      '20 conversations',
+    ],
+    note: null,
+  },
+  {
+    id: 'pro',
+    name: 'Pro',
+    price: '$29',
+    period: '/mo',
+    features: [
+      '5 campaigns',
+      '500 prospects/mo',
+      '100 emails/day',
+      'Email + LinkedIn',
+      '50 conversations',
+    ],
+    note: null,
+  },
+  {
+    id: 'growth',
+    name: 'Growth',
+    price: '$79',
+    period: '/mo',
+    features: [
+      '10 campaigns',
+      '1,000 prospects/mo',
+      '300 emails/day',
+      'All platforms',
+      'Unlimited conversations',
+      'Analytics',
+    ],
+    note: null,
+  },
+  {
+    id: 'agency',
+    name: 'Agency',
+    price: '$199',
+    period: '/mo',
+    features: [
+      'Unlimited campaigns',
+      '5,000 prospects/mo',
+      '1,000 emails/day',
+      'All platforms',
+      'Unlimited everything',
+      'Priority support',
+      'Team seats',
+    ],
+    note: null,
+  },
 ];
+
 
 export default function BillingSettings() {
   const { toast } = useToast();
@@ -74,8 +144,8 @@ export default function BillingSettings() {
           <span className="text-sm text-[var(--text-muted)] mb-1 ml-2">{activePlan.price}{activePlan.period}</span>
         </div>
         <p className="text-sm text-[var(--text-secondary)] mt-2">
-          {activePlanId === 'free' 
-            ? 'Running on the initial free tier. Upgrade below to connect LinkedIn and Instagram platforms.' 
+          {activePlanId === 'free'
+            ? 'You have 20 emails/day on the free tier. Upgrade to unlock LinkedIn, more campaigns, and higher daily send limits.'
             : `Your workspace has access to the full ${activePlan.name} features.`}
         </p>
       </div>
@@ -113,6 +183,11 @@ export default function BillingSettings() {
                     </li>
                   ))}
                 </ul>
+                {p.note && (
+                  <p className="mt-3 text-[10px] text-[var(--text-muted)] leading-relaxed border-t border-[var(--border-subtle)] pt-3">
+                    ⚠ {p.note}
+                  </p>
+                )}
               </div>
               {!isCurrent && (
                 <button 

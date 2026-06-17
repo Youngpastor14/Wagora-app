@@ -50,43 +50,46 @@ async def launch_campaign_outreach(
             detail="Campaign offer document required before launching"
         )
 
-    # 4. Check plan tier
-    profile = await db_get_profile(user_id)
-    plan = (profile.get("plan") or "free").lower()
-    
-    limit_mapping = {
-        "free": 0,
-        "starter": 100,
-        "pro": 100,
-        "growth": 300,
-        "agency": 1000
-    }
-    daily_limit = limit_mapping.get(plan, 0)
-    
-    if plan == "free" or daily_limit == 0:
-        raise HTTPException(
-            status_code=400,
-            detail="Email outreach requires Starter plan or above"
-        )
+    # 4. Check plan tier and resolve daily email limit
+    try:
+        profile = await db_get_profile(user_id)
+        plan = (profile.get("plan") or "free").lower()
+    except Exception as e:
+        logger.error(f"Failed to fetch profile for user {user_id}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to resolve plan limits")
 
-    # 5. Check daily limit
-    today_str = datetime.utcnow().strftime("%Y-%m-%d")
-    current_usage = await db_get_daily_usage(user_id, today_str)
-    
+    # Free gets 20/day. LinkedIn remains Starter+ only (enforced by platform check upstream).
+    limit_mapping = {
+        "free":    20,
+        "starter": 100,
+        "pro":     100,
+        "growth":  300,
+        "agency":  1000,
+    }
+    daily_limit = limit_mapping.get(plan, 20)  # safe fallback to free tier
+
+    # 5. Check daily usage against the plan limit
+    try:
+        today_str = datetime.utcnow().strftime("%Y-%m-%d")
+        current_usage = await db_get_daily_usage(user_id, today_str)
+    except Exception as e:
+        logger.error(f"Failed to fetch daily usage for user {user_id}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to check daily usage")
+
     if current_usage >= daily_limit:
         raise HTTPException(
             status_code=429,
-            detail="Daily email limit reached. Resets at midnight."
+            detail=f"Daily email limit of {daily_limit} reached for your {plan} plan. Resets at midnight UTC."
         )
 
-    # 6. Calculate batch size cap (min of remaining daily capacity or 50 manual batch limit)
+    # 6. Calculate batch size cap
     remaining = daily_limit - current_usage
     batch_size = min(remaining, len(pending), 50)
-    
+
     if batch_size <= 0:
         raise HTTPException(
             status_code=429,
-            detail="Daily email limit reached. Resets at midnight."
+            detail=f"Daily email limit of {daily_limit} reached for your {plan} plan. Resets at midnight UTC."
         )
 
     # 7. Start outreach batch execution in background
@@ -130,26 +133,36 @@ async def get_outreach_status(
     ])
     failed = len([p for p in prospects if "Failed" in str(p.get("last_contact", ""))])
     
-    profile = await db_get_profile(user_id)
-    plan = (profile.get("plan") or "free").lower()
-    
+    try:
+        profile = await db_get_profile(user_id)
+        plan = (profile.get("plan") or "free").lower()
+    except Exception as e:
+        logger.error(f"Failed to fetch profile for status check, user {user_id}: {e}")
+        plan = "free"
+
     limit_mapping = {
-        "free": 0,
+        "free":    20,
         "starter": 100,
-        "pro": 100,
-        "growth": 300,
-        "agency": 1000
+        "pro":     100,
+        "growth":  300,
+        "agency":  1000,
     }
-    daily_limit = limit_mapping.get(plan, 0)
-    
-    today_str = datetime.utcnow().strftime("%Y-%m-%d")
-    current_usage = await db_get_daily_usage(user_id, today_str)
-    
+    daily_limit = limit_mapping.get(plan, 20)
+
+    try:
+        today_str = datetime.utcnow().strftime("%Y-%m-%d")
+        current_usage = await db_get_daily_usage(user_id, today_str)
+    except Exception as e:
+        logger.error(f"Failed to fetch daily usage for status check, user {user_id}: {e}")
+        current_usage = 0
+
     return {
         "total_prospects": total,
         "contacted": contacted,
         "pending": pending,
         "failed": failed,
+        "plan": plan,
+        "daily_limit": daily_limit,
         "daily_sends_used": current_usage,
         "daily_sends_remaining": max(0, daily_limit - current_usage)
     }
