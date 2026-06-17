@@ -8,6 +8,7 @@ import asyncio
 from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from typing import Tuple
 
 from config import settings
 from services.supabase_service import (
@@ -26,18 +27,36 @@ from services.supabase_service import (
 )
 from services.groq_service import call_groq
 from services.document_service import build_ai_context
+from services.encryption_service import decrypt_credential
 
 logger = logging.getLogger("wagora-api")
 
 class EmailSendError(Exception):
     pass
 
+
 class GmailService:
-    def __init__(self):
-        self.sender_address = settings.GMAIL_SENDER_ADDRESS
-        self.app_password = settings.GMAIL_APP_PASSWORD
-        if not self.sender_address or not self.app_password:
-            logger.warning("GMAIL_SENDER_ADDRESS or GMAIL_APP_PASSWORD environment variables not set")
+    """
+    Sends email via Gmail SMTP using explicit per-instance credentials.
+    No global env vars are read inside send_email or validate_connection.
+    """
+
+    def __init__(self, sender_email: str, app_password: str):
+        """
+        Args:
+            sender_email: The Gmail address used as the From / login address.
+            app_password:  The 16-character Gmail App Password (spaces stripped).
+
+        Raises:
+            ValueError: If either credential is missing.
+        """
+        if not sender_email or not app_password:
+            raise ValueError(
+                "Gmail credentials required to send email. "
+                "Connect your Gmail account in Settings."
+            )
+        self.sender_email = sender_email.strip()
+        self.app_password = app_password.replace(" ", "")  # strip any paste-in spaces
 
     def send_email(
         self,
@@ -53,42 +72,30 @@ class GmailService:
         Returns: {"sent": True, "message_id": "string"}
         Raises: EmailSendError on failure.
         """
-        if not self.sender_address or not self.app_password:
-            raise EmailSendError("Gmail credentials are not configured in backend environment variables")
-
         try:
-            # Generate unique message ID
             message_uuid = str(uuid.uuid4())
             msg_id = f"<{message_uuid}@wagora.outreach>"
 
             msg = MIMEMultipart('alternative')
             msg['Subject'] = subject
 
-            # Determine From header
             display_name = from_display_name or "Wagora Outreach"
-            msg['From'] = f"{display_name} <{self.sender_address}>"
+            msg['From'] = f"{display_name} <{self.sender_email}>"
             msg['To'] = to_email
-
-            if reply_to:
-                msg['Reply-To'] = reply_to
-            else:
-                msg['Reply-To'] = self.sender_address
-
+            msg['Reply-To'] = reply_to or self.sender_email
             msg['Message-ID'] = msg_id
             msg['X-Mailer'] = "Wagora Outreach"
 
-            # Attach text and html parts
             msg.attach(MIMEText(body_text, 'plain'))
             msg.attach(MIMEText(body_html, 'html'))
 
-            # Setup SMTP server connection (Gmail TLS port 587)
-            server = smtplib.SMTP("smtp.gmail.com", 587)
+            server = smtplib.SMTP("smtp.gmail.com", 587, timeout=15)
             server.starttls()
-            server.login(self.sender_address, self.app_password)
-            server.sendmail(self.sender_address, to_email, msg.as_string())
+            server.login(self.sender_email, self.app_password)
+            server.sendmail(self.sender_email, to_email, msg.as_string())
             server.quit()
 
-            logger.info(f"Email sent successfully to {to_email} with Message-ID {msg_id}")
+            logger.info(f"Email sent to {to_email} (Message-ID: {msg_id})")
             return {"sent": True, "message_id": msg_id}
         except Exception as e:
             logger.error(f"Failed to send email to {to_email}: {e}")
@@ -96,20 +103,111 @@ class GmailService:
 
     def validate_connection(self) -> bool:
         """
-        Tests SMTP connection without sending.
-        Returns True if connected, False otherwise.
+        Performs a real SMTP login to verify credentials without sending a message.
+        Returns True on success, False on any failure.
         """
-        if not self.sender_address or not self.app_password:
-            return False
         try:
-            server = smtplib.SMTP("smtp.gmail.com", 587)
+            server = smtplib.SMTP("smtp.gmail.com", 587, timeout=15)
             server.starttls()
-            server.login(self.sender_address, self.app_password)
+            server.login(self.sender_email, self.app_password)
             server.quit()
             return True
         except Exception as e:
-            logger.error(f"Gmail SMTP connection validation failed: {e}")
+            logger.warning(f"Gmail SMTP validation failed for {self.sender_email}: {e}")
             return False
+
+
+async def get_gmail_credentials_for_user(
+    user_id: str,
+    supabase_client=None
+) -> Tuple[str, str]:
+    """
+    Resolves Gmail credentials for a user in priority order:
+
+    1. connected_platforms JSONB in workspace_settings
+       (gmail.connection_status == 'connected' and encrypted_credentials set)
+       → decrypt and return (account_email, app_password)
+
+    2. Founder fallback: if profiles.is_founder == True
+       → return (GMAIL_SENDER_ADDRESS, GMAIL_APP_PASSWORD) from env
+
+    3. Neither found → raise ValueError
+
+    Args:
+        user_id:          Supabase user UUID.
+        supabase_client:  Optional pre-resolved Supabase admin client.
+                          If None, will be resolved internally.
+
+    Returns:
+        Tuple of (sender_email: str, app_password: str)
+
+    Raises:
+        ValueError: If no connected Gmail and user is not the founder.
+    """
+    from services.supabase_service import get_supabase_client as _get_sb
+
+    client = supabase_client or _get_sb()
+
+    # --- 1. Check connected_platforms in workspace_settings ---
+    try:
+        ws_res = (
+            client
+            .table("workspace_settings")
+            .select("connected_platforms")
+            .eq("user_id", user_id)
+            .maybe_single()
+            .execute()
+        )
+        ws_data = ws_res.data or {}
+        platforms: dict = ws_data.get("connected_platforms") or {}
+        gmail_cfg: dict = platforms.get("gmail") or {}
+
+        if (
+            gmail_cfg.get("connection_status") == "connected"
+            and gmail_cfg.get("encrypted_credentials")
+            and gmail_cfg.get("account_email")
+        ):
+            account_email: str = gmail_cfg["account_email"]
+            raw_app_password: str = decrypt_credential(
+                gmail_cfg["encrypted_credentials"]
+            )
+            return account_email, raw_app_password
+    except Exception as e:
+        logger.warning(
+            f"Could not read connected_platforms for user {user_id}: {e}"
+        )
+
+    # --- 2. Founder fallback ---
+    try:
+        profile_res = (
+            client
+            .table("profiles")
+            .select("is_founder")
+            .eq("id", user_id)
+            .maybe_single()
+            .execute()
+        )
+        is_founder = (profile_res.data or {}).get("is_founder", False)
+        if is_founder:
+            founder_email = settings.GMAIL_SENDER_ADDRESS
+            founder_pw    = settings.GMAIL_APP_PASSWORD
+            if founder_email and founder_pw:
+                logger.info(
+                    f"Using founder Gmail fallback for user {user_id}"
+                )
+                return founder_email, founder_pw
+            logger.warning(
+                f"User {user_id} is founder but GMAIL_SENDER_ADDRESS / "
+                f"GMAIL_APP_PASSWORD are not set in environment."
+            )
+    except Exception as e:
+        logger.warning(f"Could not read is_founder for user {user_id}: {e}")
+
+    # --- 3. No credentials available ---
+    raise ValueError(
+        "Gmail not connected. Connect your Gmail account in "
+        "Settings → Platforms before launching outreach."
+    )
 
 
 async def run_outreach_batch(
@@ -123,34 +221,41 @@ async def run_outreach_batch(
     Runs one outreach batch for a campaign asynchronously.
     """
     logger.info(f"Starting outreach batch for user {user_id}, campaign {campaign_id}")
-    
-    # Initialize services
-    gmail_service = GmailService()
-    
-    # 1. Fetch campaign details and workspace from local/remote DB
+
+    # --- Resolve Gmail credentials for this user (their own account, or founder fallback) ---
+    try:
+        sender_email, app_password = await get_gmail_credentials_for_user(user_id)
+        gmail_service = GmailService(sender_email, app_password)
+    except ValueError as cred_err:
+        logger.error(f"Cannot start outreach — no Gmail credentials: {cred_err}")
+        await db_insert_notification({
+            "user_id": user_id,
+            "type": "error",
+            "message": str(cred_err),
+            "read": False,
+            "link": "/settings/platforms"
+        })
+        return {"sent": 0, "failed": 0, "stopped_reason": "gmail_not_connected"}
+
+    # 1. Fetch campaign details
     campaign = await db_get_campaign(campaign_id)
     if not campaign:
         logger.error(f"Campaign {campaign_id} not found")
         return {"sent": 0, "failed": 0, "stopped_reason": "campaign_not_found"}
-        
+
     profile = await db_get_profile(user_id)
     ws_settings = await db_get_workspace_settings(user_id)
-    
-    # Get plan and limits
+
+    # Get plan and daily limit
     plan = (profile.get("plan") or "free").lower()
-    
     limit_mapping = {
-        "free": 0,
+        "free":    20,
         "starter": 100,
-        "pro": 100, # Treat pro as Starter
-        "growth": 300,
-        "agency": 1000
+        "pro":     100,
+        "growth":  300,
+        "agency":  1000,
     }
-    daily_limit = limit_mapping.get(plan, 0)
-    
-    if daily_limit == 0:
-        logger.warning(f"Outreach blocked: Plan is {plan} for user {user_id}")
-        return {"sent": 0, "failed": 0, "stopped_reason": "outreach_not_available_on_free_tier"}
+    daily_limit = limit_mapping.get(plan, 20)
 
     # 2. Build AI context
     doc_context = await build_ai_context(user_id, campaign_id)

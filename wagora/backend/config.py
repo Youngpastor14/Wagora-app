@@ -13,5 +13,8 @@ class Settings(BaseModel):
     PORT: int = int(os.getenv("PORT", "8000"))
     GMAIL_SENDER_ADDRESS: str = os.getenv("GMAIL_SENDER_ADDRESS", "")
     GMAIL_APP_PASSWORD: str = os.getenv("GMAIL_APP_PASSWORD", "")
+    # Fernet key for encrypting stored credentials (base64-encoded 32 bytes)
+    # Generate: python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+    ENCRYPTION_KEY: str = os.getenv("ENCRYPTION_KEY", "")
 
 settings = Settings()

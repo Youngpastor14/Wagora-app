@@ -34,7 +34,7 @@ app.add_middleware(
 )
 
 # Import and include all route routers
-from routes import ai, campaigns, prospects, outreach, conversations, invoices, webhooks, documents, agents
+from routes import ai, campaigns, prospects, outreach, conversations, invoices, webhooks, documents, agents, platforms
 
 app.include_router(ai.router, prefix="/api")
 app.include_router(campaigns.router, prefix="/api")
@@ -45,6 +45,7 @@ app.include_router(invoices.router, prefix="/api")
 app.include_router(webhooks.router, prefix="/api")
 app.include_router(documents.router, prefix="/api")
 app.include_router(agents.router, prefix="/api")
+app.include_router(platforms.router, prefix="/api")
 
 # Base Health Check Route
 @app.get("/")
