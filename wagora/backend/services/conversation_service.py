@@ -19,7 +19,7 @@ from services.supabase_service import (
 )
 from services.groq_service import call_groq
 from services.document_service import build_ai_context
-from services.email_service import GmailService
+from services.email_service import GmailService, get_gmail_credentials_for_user
 
 logger = logging.getLogger("wagora-api")
 
@@ -254,14 +254,43 @@ async def process_incoming_reply(
     }
     await db_insert_message(ai_msg)
 
-    # 12. Send reply via email
-    gmail_service = GmailService()
+    # 12. Resolve this user's Gmail credentials and send the reply
     reply_sent = False
-    
+    gmail_send_error: str | None = None
+
+    try:
+        sender_email, app_password = await get_gmail_credentials_for_user(user_id)
+        gmail_service = GmailService(sender_email, app_password)
+    except ValueError as cred_err:
+        # User has no connected Gmail — log the failure, do not crash
+        gmail_send_error = str(cred_err)
+        logger.warning(
+            f"Cannot send reply for message {message_id} — "
+            f"no Gmail credentials for user {user_id}: {cred_err}"
+        )
+        try:
+            await db_insert_activity({
+                "user_id": user_id,
+                "type": "reply_failed_no_gmail",
+                "message": (
+                    f"AI reply to {prospect.get('name')} could not be sent — "
+                    f"Gmail not connected. Go to Settings → Platforms."
+                ),
+                "meta": "no_gmail"
+            })
+        except Exception as act_err:
+            logger.error(f"Failed to log reply_failed_no_gmail activity: {act_err}")
+        return {
+            "path": path,
+            "reply_sent": False,
+            "reason": "gmail_not_connected",
+            "reply_preview": reply[:100]
+        }
+
     subject = "Reply from Wagora"
     if campaign:
         subject = f"Re: {campaign.get('name', 'Outreach')}"
-    
+
     # Try fetching the original subject line from messages
     sent_msgs = [m for m in history if m.get("sender") in ("user", "wagora") and m.get("subject")]
     if sent_msgs:
@@ -270,18 +299,19 @@ async def process_incoming_reply(
             subject = f"Re: {subject}"
 
     body_html = f"<html><body>{reply.replace(chr(10), '<br>')}</body></html>"
-    
+
     try:
         gmail_service.send_email(
             to_email=prospect.get("email"),
             subject=subject,
             body_html=body_html,
             body_text=reply,
-            from_display_name=workspace_name
+            from_display_name=workspace_name,
+            reply_to=sender_email
         )
         reply_sent = True
     except Exception as e:
-        logger.error(f"Gmail SMTP reply dispatch failed: {e}")
+        logger.error(f"Gmail SMTP reply dispatch failed for user {user_id}: {e}")
 
     # 13. Log activity
     await db_insert_activity({

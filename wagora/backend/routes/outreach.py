@@ -11,7 +11,7 @@ from services.supabase_service import (
     db_get_prospects,
     db_get_daily_usage
 )
-from services.email_service import run_outreach_batch
+from services.email_service import run_outreach_batch, get_gmail_credentials_for_user
 
 logger = logging.getLogger("wagora-api")
 router = APIRouter(prefix="/outreach", tags=["Outreach"])
@@ -92,7 +92,29 @@ async def launch_campaign_outreach(
             detail=f"Daily email limit of {daily_limit} reached for your {plan} plan. Resets at midnight UTC."
         )
 
-    # 7. Start outreach batch execution in background
+    # 7. Pre-flight: verify this user has Gmail connected (or is a founder)
+    #    Fail here with a structured error so the frontend can show the banner.
+    try:
+        await get_gmail_credentials_for_user(user_id)
+    except ValueError as e:
+        raise HTTPException(
+            status_code=400,
+            detail={
+                "error": "gmail_not_connected",
+                "message": (
+                    "Connect your Gmail account in Settings → Platforms "
+                    "before launching outreach."
+                )
+            }
+        )
+    except Exception as e:
+        logger.error(f"Unexpected error during Gmail pre-flight for user {user_id}: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail="Failed to verify Gmail connection. Please try again."
+        )
+
+    # 8. Start outreach batch execution in background
     background_tasks.add_task(
         run_outreach_batch,
         user_id=user_id,

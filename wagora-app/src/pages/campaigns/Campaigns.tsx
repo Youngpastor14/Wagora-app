@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Search, Plus, Megaphone, Pause, Play, Copy, Trash2, ArrowLeft, Loader2, Users, MessageSquare, Upload, Check, FileText, ShieldAlert, ArrowRight } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Search, Plus, Megaphone, Pause, Play, Copy, Trash2, ArrowLeft, Loader2, Users, MessageSquare, Upload, Check, FileText, ShieldAlert, ArrowRight, Mail } from 'lucide-react';
 import { useCampaigns } from '@/hooks/useCampaigns';
 import { useProspects } from '@/hooks/useProspects';
 import { useConversations } from '@/hooks/useConversations';
@@ -9,12 +9,14 @@ import EmptyState from '@/components/ui/EmptyState';
 import { useToast } from '@/components/ui/Toast';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase/client';
+import { useNavigate } from 'react-router-dom';
 
 const statusFilters = ['All', 'Live', 'Paused', 'Draft', 'Complete', 'Needs attention'];
 
 export default function Campaigns() {
   const { toast } = useToast();
   const { user } = useAuth();
+  const navigate = useNavigate();
   
   // Real database hooks
   const { campaigns, loading, createCampaign, updateCampaign, deleteCampaign } = useCampaigns();
@@ -27,6 +29,11 @@ export default function Campaigns() {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [activeTab, setActiveTab] = useState('Overview');
   const [actionLoading, setActionLoading] = useState(false);
+
+  // Gmail connection state (drives Launch button vs. connect-Gmail banner)
+  const [gmailConnected, setGmailConnected] = useState<boolean | null>(null); // null = checking
+  const [gmailConnectedEmail, setGmailConnectedEmail] = useState<string | null>(null);
+  const [gmailStatusLoading, setGmailStatusLoading] = useState(false);
 
   // Stepped Form States
   const [tempCampaignId, setTempCampaignId] = useState('');
@@ -53,9 +60,7 @@ export default function Campaigns() {
       const token = session?.access_token;
       const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
       const response = await fetch(`${apiUrl}/api/documents/?campaign_id=${campId}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: { 'Authorization': `Bearer ${token}` }
       });
       if (response.ok) {
         const data = await response.json();
@@ -65,6 +70,32 @@ export default function Campaigns() {
       console.error('Failed to fetch campaign documents:', err);
     }
   };
+
+  // Fetch Gmail connection status from the platforms API
+  const fetchGmailStatus = useCallback(async () => {
+    if (!user) return;
+    setGmailStatusLoading(true);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token;
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const res = await fetch(`${apiUrl}/api/platforms/gmail/status`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setGmailConnected(data.connected);
+        setGmailConnectedEmail(data.email ?? null);
+      } else {
+        // Treat error as unknown — don't block the user
+        setGmailConnected(null);
+      }
+    } catch {
+      setGmailConnected(null);
+    } finally {
+      setGmailStatusLoading(false);
+    }
+  }, [user]);
 
   useEffect(() => {
     if (!showCreateModal || !tempCampaignId) return;
@@ -222,14 +253,13 @@ export default function Campaigns() {
       setLaunchError(null);
       return;
     }
-    
     fetchOutreachStatus(selectedCampaignId);
+    fetchGmailStatus(); // check Gmail whenever a campaign is opened
     const interval = setInterval(() => {
       fetchOutreachStatus(selectedCampaignId);
     }, 60000);
-    
     return () => clearInterval(interval);
-  }, [selectedCampaignId]);
+  }, [selectedCampaignId, fetchGmailStatus]);
 
   const handleLaunchCampaign = async (campaignId: string) => {
     setActionLoading(true);
@@ -242,9 +272,7 @@ export default function Campaigns() {
 
       const response = await fetch(`${apiUrl}/api/outreach/launch/${campaignId}`, {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: { 'Authorization': `Bearer ${token}` }
       });
 
       const data = await response.json();
@@ -254,22 +282,32 @@ export default function Campaigns() {
         toast('Outreach started. Wagora is sending your first batch.', { type: 'success' });
         fetchOutreachStatus(campaignId);
       } else if (response.status === 400) {
-        if (data.detail && data.detail.includes('plan')) {
+        // Handle structured detail objects (e.g. gmail_not_connected)
+        const detail = data.detail;
+        const errorCode = typeof detail === 'object' ? detail?.error : null;
+        const errorMsg  = typeof detail === 'object' ? detail?.message : detail;
+
+        if (errorCode === 'gmail_not_connected') {
+          // Backend confirmed Gmail is not connected — refresh status to show the banner
+          setGmailConnected(false);
+          toast('Connect your Gmail account before launching outreach.', { type: 'error' });
+        } else if (errorMsg && String(errorMsg).includes('plan')) {
           toast('Email outreach requires Starter plan or above. Please upgrade.', { type: 'error' });
           setLaunchError('upgrade_required');
-        } else if (data.detail && data.detail.includes('offer document')) {
-          toast(data.detail, { type: 'error' });
+        } else if (errorMsg && String(errorMsg).includes('offer document')) {
+          toast(errorMsg, { type: 'error' });
           setMissingOfferDoc(true);
         } else {
-          toast(data.detail || 'Launch failed.', { type: 'error' });
-          setLaunchError(data.detail || 'Launch failed.');
+          toast(String(errorMsg) || 'Launch failed.', { type: 'error' });
+          setLaunchError(String(errorMsg) || 'Launch failed.');
         }
       } else if (response.status === 429) {
         toast('Daily limit reached. Outreach resumes tomorrow.', { type: 'error' });
         setLaunchError('limit_reached');
       } else {
-        toast(data.detail || 'Failed to start campaign outreach.', { type: 'error' });
-        setLaunchError(data.detail || 'Failed to start campaign outreach.');
+        const msg = (data.detail?.message ?? data.detail) || 'Failed to start campaign outreach.';
+        toast(String(msg), { type: 'error' });
+        setLaunchError(String(msg));
       }
     } catch (err: any) {
       console.error(err);
@@ -491,20 +529,30 @@ export default function Campaigns() {
             <p className="text-sm text-[var(--text-secondary)] mt-1">{c.description}</p>
           </div>
           <div className="flex gap-2 flex-wrap">
-            {c.status === 'Draft' && (
+            {/* Gmail not connected — hide launch, show banner button */}
+            {(c.status === 'Draft' || c.status === 'Paused') && gmailConnected === false && (
+              <button
+                onClick={() => navigate('/settings?tab=platforms')}
+                className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-[var(--radius-md)] bg-amber-500 text-white hover:bg-amber-600 transition-colors"
+              >
+                <Mail size={14} /> Connect Gmail to launch
+              </button>
+            )}
+            {/* Gmail connected or status unknown (null) — show normal buttons */}
+            {c.status === 'Draft' && gmailConnected !== false && (
               <button 
                 onClick={() => handleLaunchCampaign(c.id)} 
-                disabled={actionLoading}
-                className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-[var(--radius-md)] bg-[var(--accent-primary)] text-white hover:bg-[var(--accent-primary-hover)] transition-colors"
+                disabled={actionLoading || gmailStatusLoading}
+                className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-[var(--radius-md)] bg-[var(--accent-primary)] text-white hover:bg-[var(--accent-primary-hover)] transition-colors disabled:opacity-50"
               >
                 {actionLoading ? <Loader2 size={14} className="animate-spin" /> : <Play size={14} />} Launch outreach
               </button>
             )}
-            {c.status === 'Paused' && (
+            {c.status === 'Paused' && gmailConnected !== false && (
               <button 
                 onClick={() => handleLaunchCampaign(c.id)} 
-                disabled={actionLoading}
-                className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-[var(--radius-md)] bg-[var(--accent-primary)] text-white hover:bg-[var(--accent-primary-hover)] transition-colors"
+                disabled={actionLoading || gmailStatusLoading}
+                className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-[var(--radius-md)] bg-[var(--accent-primary)] text-white hover:bg-[var(--accent-primary-hover)] transition-colors disabled:opacity-50"
               >
                 {actionLoading ? <Loader2 size={14} className="animate-spin" /> : <Play size={14} />} Resume outreach
               </button>
@@ -534,6 +582,27 @@ export default function Campaigns() {
             </button>
           </div>
         </div>
+
+        {/* Gmail not connected banner — shown below the header, above other alerts */}
+        {gmailConnected === false && (c.status === 'Draft' || c.status === 'Paused') && (
+          <div className="p-4 rounded-[var(--radius-md)] border border-amber-500 bg-amber-500/8 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-start gap-3">
+              <Mail size={16} className="text-amber-500 mt-0.5 shrink-0" />
+              <div>
+                <p className="text-sm font-semibold text-amber-500">Gmail account not connected</p>
+                <p className="text-xs text-[var(--text-secondary)] mt-0.5">
+                  Connect your Gmail account to start sending outreach emails from your own address.
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => navigate('/settings?tab=platforms')}
+              className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-[var(--radius-md)] bg-amber-500 text-white hover:bg-amber-600 transition-colors"
+            >
+              Go to Settings <ArrowRight size={12} />
+            </button>
+          </div>
+        )}
 
         {missingOfferDoc && (
           <div className="p-4 rounded-[var(--radius-md)] border border-[var(--destructive)] bg-red-500/5 text-sm space-y-1">
