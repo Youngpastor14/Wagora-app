@@ -14,8 +14,7 @@ const plans = [
     features: [
       '1 campaign',
       '50 prospects/mo',
-      '20 emails/day',
-      'Email outreach only',
+      '20 outreach emails per day',
       '5 conversations',
     ],
     note: 'LinkedIn & Instagram require Starter or above',

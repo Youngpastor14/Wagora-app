@@ -613,8 +613,8 @@ export default function Campaigns() {
         
         {launchError === 'upgrade_required' && (
           <div className="p-4 rounded-[var(--radius-md)] border border-amber-500 bg-amber-500/5 text-sm space-y-1">
-            <h4 className="font-semibold text-amber-500 flex items-center gap-1.5"><ShieldAlert size={16} /> Upgrade plan required</h4>
-            <p className="text-xs text-[var(--text-secondary)]">Email outreach is not available on the Free plan. Please upgrade to a Starter, Growth, or Agency plan to launch campaigns.</p>
+            <h4 className="font-semibold text-amber-500 flex items-center gap-1.5"><ShieldAlert size={16} /> Daily limit reached</h4>
+            <p className="text-xs text-[var(--text-secondary)]">You have reached your plan's daily email limit. Free accounts can send 20 outreach emails per day. Upgrade to Starter, Growth, or Agency for higher daily limits.</p>
           </div>
         )}
 
