@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Lock, Loader2 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
-import { supabase } from '@/lib/supabase/client';
 
 export default function SignIn() {
   const { signIn, signInWithGoogle } = useAuth();
@@ -27,26 +26,13 @@ export default function SignIn() {
     try {
       const { error: signInError } = await signIn(email, password);
       if (signInError) {
-        // Supabase returns 'Invalid login credentials' for both wrong password
-        // AND unconfirmed email — detect the unconfirmed case and help the user
         const msg = signInError.message.toLowerCase();
-        if (
-          msg.includes('email not confirmed') ||
-          msg.includes('invalid login credentials')
-        ) {
-          // Check if the user exists but hasn't confirmed their email
-          const { data: { user: checkUser } } = await supabase.auth.getUser();
-          const emailConfirmed = checkUser?.email_confirmed_at;
 
-          if (!emailConfirmed) {
-            // Route to verification page with the email pre-filled
-            navigate('/auth/verify-email', {
-              state: { email },
-              replace: false,
-            });
-            setLoading(false);
-            return;
-          }
+        // Supabase returns 'email not confirmed' for unverified accounts
+        if (msg.includes('email not confirmed')) {
+          navigate('/auth/verify-email', { state: { email }, replace: false });
+          setLoading(false);
+          return;
         }
 
         // Map common Supabase error messages to user-friendly text
@@ -62,8 +48,10 @@ export default function SignIn() {
         setError(friendlyError);
         setLoading(false);
       } else {
-        // AuthContext handles session updates, ProtectedRoute handles redirection to /onboarding if needed
-        navigate(from, { replace: true });
+        // Sign-in succeeded. Navigate to the intended destination.
+        // AuthContext will handle session + profile in the background.
+        // Use 'from' if set, otherwise go to /dashboard.
+        navigate(from === '/dashboard' ? '/dashboard' : from, { replace: true });
       }
     } catch (err: any) {
       setError(err?.message || 'An unexpected error occurred during sign in.');
