@@ -17,7 +17,11 @@ origins = [
     "http://localhost:5173",
     "http://localhost:5174",
     "http://localhost:5175",
-    # Production (Vercel)
+    # Production — custom domains
+    "https://app.getwagora.com",
+    "https://getwagora.com",
+    "https://www.getwagora.com",
+    # Production — Vercel preview URLs (keep for PR previews)
     "https://wagora-app.vercel.app",
     "https://wagora.vercel.app",
 ]
