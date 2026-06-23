@@ -98,7 +98,8 @@ export default function AuthCallback() {
           }
         });
 
-        // Safety timeout: after 12 seconds, stop waiting and redirect to sign-in
+        // Safety timeout: after 5 seconds, stop waiting and redirect to sign-in.
+        // 12s was far too long — most real exchanges complete in under 2s.
         const timeout = setTimeout(() => {
           if (isMounted) {
             subscription.unsubscribe();
@@ -107,7 +108,7 @@ export default function AuthCallback() {
               state: { message: 'Session verification timed out. Please sign in again.' }
             });
           }
-        }, 12000);
+        }, 5000);
 
         // Cleanup
         return () => {

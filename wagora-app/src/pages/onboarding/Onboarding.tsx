@@ -233,6 +233,9 @@ export default function Onboarding() {
     setChatMessages(prev => [...prev, userMsg]);
     setInputText('');
     setIsThinking(true);
+    // UX-08 FIX: advance chatStep so preset chips and disabled states work correctly
+    // Step 0 → 1 on first user message (shows step-1 preset chips)
+    setChatStep(prev => Math.min(prev + 1, 2));
     setActiveLogs(prev => [...prev, 'Sending query to Wagora brain...', 'Contacting Groq inference nodes...']);
 
     try {
@@ -314,6 +317,8 @@ export default function Onboarding() {
         ]);
 
         setActiveLogs(prev => [...prev, 'Configuration analysis complete.', 'Campaign parameters locked.']);
+        // Step → 2: input becomes disabled, launch buttons are shown
+        setChatStep(2);
       } else {
         setChatMessages(prev => [
           ...prev,

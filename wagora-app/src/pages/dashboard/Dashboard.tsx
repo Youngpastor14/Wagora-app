@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { TrendingUp, Users, MessageSquare, Handshake, BarChart3, Phone, Megaphone, Target, Flag, Send, ArrowRight, DollarSign } from 'lucide-react';
+import { TrendingUp, Users, MessageSquare, Handshake, BarChart3, Phone, Megaphone, Target, Flag, Send, ArrowRight, DollarSign, Mail, X } from 'lucide-react';
 import { useCampaigns } from '@/hooks/useCampaigns';
 import { useProspects } from '@/hooks/useProspects';
 import { useConversations } from '@/hooks/useConversations';
 import { useDeals } from '@/hooks/useDeals';
 import { useActivities } from '@/hooks/useActivities';
 import { useAuth } from '@/contexts/AuthContext';
+import { useState } from 'react';
 
 const activityIcons: Record<string, typeof TrendingUp> = {
   prospect_found: Users,
@@ -39,6 +40,20 @@ export default function Dashboard() {
   const { activities, loading: loadingActivities } = useActivities(8);
 
   const loading = loadingCampaigns || loadingProspects || loadingConversations || loadingDeals || loadingActivities;
+
+  // UX-09: Gmail connection banner — show when user has campaigns but none are Live
+  // (this is exactly the state after onboarding: Draft campaign, no Gmail yet)
+  const [gmailBannerDismissed, setGmailBannerDismissed] = useState(() => {
+    try { return sessionStorage.getItem('wagora-gmail-banner-dismissed') === '1'; } catch { return false; }
+  });
+  const hasCampaigns = campaigns.length > 0;
+  const hasLiveCampaign = campaigns.some(c => c.status === 'Live');
+  const showGmailBanner = !loading && hasCampaigns && !hasLiveCampaign && !gmailBannerDismissed;
+
+  const dismissGmailBanner = () => {
+    setGmailBannerDismissed(true);
+    try { sessionStorage.setItem('wagora-gmail-banner-dismissed', '1'); } catch { /* ignore */ }
+  };
 
   // Aggregate metrics
   const totalCampaigns = campaigns.length;
@@ -161,6 +176,40 @@ export default function Dashboard() {
             Create first campaign with AI
             <ArrowRight size={16} />
           </button>
+        </div>
+      )}
+
+      {/* UX-09: Gmail connection banner — critical next step after onboarding */}
+      {showGmailBanner && (
+        <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 sm:p-5 bg-[var(--surface-card)] border border-amber-500/30 rounded-[var(--radius-lg)] shadow-[var(--shadow-card)] overflow-hidden">
+          {/* Subtle amber glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(245,158,11,0.06)_0%,transparent_60%)] pointer-events-none" />
+          <div className="flex items-start gap-3 relative z-10">
+            <div className="w-9 h-9 rounded-[var(--radius-md)] bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 mt-0.5">
+              <Mail size={16} className="text-amber-500" />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-[var(--text-primary)]">Connect Gmail to activate your campaign</p>
+              <p className="text-xs text-[var(--text-secondary)] mt-0.5 max-w-lg">
+                Your campaign is saved as a draft. Connect your Gmail account in Settings › Platforms to start sending outreach.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 shrink-0 relative z-10 w-full sm:w-auto">
+            <button
+              onClick={() => navigate('/settings?tab=platforms')}
+              className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold rounded-[var(--radius-md)] transition-colors"
+            >
+              <Mail size={14} /> Connect Gmail
+            </button>
+            <button
+              onClick={dismissGmailBanner}
+              className="p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-elevated)] rounded-[var(--radius-md)] transition-colors"
+              aria-label="Dismiss"
+            >
+              <X size={16} />
+            </button>
+          </div>
         </div>
       )}
 
