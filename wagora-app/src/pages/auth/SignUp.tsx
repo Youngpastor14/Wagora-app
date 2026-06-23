@@ -80,7 +80,7 @@ export default function SignUp() {
     }
   };
 
-  const marketingUrl = import.meta.env.VITE_MARKETING_URL || 'http://localhost:5173';
+  const marketingUrl = import.meta.env.VITE_MARKETING_URL || 'https://getwagora.com';
 
   if (success) {
     return (

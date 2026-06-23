@@ -74,7 +74,7 @@ export default function SignIn() {
     }
   };
 
-  const marketingUrl = import.meta.env.VITE_MARKETING_URL || 'http://localhost:5173';
+  const marketingUrl = import.meta.env.VITE_MARKETING_URL || 'https://getwagora.com';
 
   return (
     <div className="w-full flex flex-col items-center gap-6">

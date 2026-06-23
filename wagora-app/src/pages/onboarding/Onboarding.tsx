@@ -1,9 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ArrowLeft, Upload, Check, MessageSquare, Sparkles, Loader2, FileText, CheckCircle, Send, ShieldAlert, Cpu, Terminal, Settings } from 'lucide-react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { ArrowRight, ArrowLeft, Upload, Check, MessageSquare, Sparkles, Loader2, FileText, Send, ShieldAlert, Cpu, Terminal, Settings as SettingsIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/components/ui/Toast';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase/client';
+
+// CQ-04: single source of truth for API URL
+const API_URL = import.meta.env.VITE_API_URL || 'https://api.getwagora.com';
 
 interface ChatMessage {
   id: string;
@@ -71,32 +74,31 @@ export default function Onboarding() {
   const [uploadingDocType, setUploadingDocType] = useState<string | null>(null);
   const [docErrors, setDocErrors] = useState<{ [key: string]: string }>({});
 
-  const fetchWizardDocs = async () => {
+  // BUG-02 FIX: memoize with useCallback so the interval effect doesn't restart on every render
+  const fetchWizardDocs = useCallback(async () => {
     if (!user) return;
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-      const response = await fetch(`${apiUrl}/api/documents/`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+      const response = await fetch(`${API_URL}/api/documents/`, {
+        headers: { 'Authorization': `Bearer ${token}` }
       });
       if (response.ok) {
         const data = await response.json();
         setWizardDocs(data);
       }
-    } catch (err) {
-      console.error('Failed to fetch wizard documents:', err);
+    } catch {
+      // Non-critical — fail silently, user can still proceed
     }
-  };
+  }, [user]);
 
   useEffect(() => {
     if (onboardingState !== 'wizard' && onboardingState !== 'ai_chat') return;
     fetchWizardDocs();
-    const interval = setInterval(fetchWizardDocs, 4000);
+    // Poll every 8s (not 4s) — documents parse slowly, no need to hammer the API
+    const interval = setInterval(fetchWizardDocs, 8000);
     return () => clearInterval(interval);
-  }, [user, onboardingState]);
+  }, [user, onboardingState, fetchWizardDocs]);
 
   const handleWizardDocUpload = async (file: File, docType: string, maxSizeMB: number) => {
     if (!file || !user) return;
@@ -127,9 +129,7 @@ export default function Onboarding() {
 
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-
-      const createRes = await fetch(`${apiUrl}/api/documents/`, {
+      const createRes = await fetch(`${API_URL}/api/documents/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -150,14 +150,14 @@ export default function Onboarding() {
 
       const newDoc = await createRes.json();
 
-      fetch(`${apiUrl}/api/documents/parse`, {
+      fetch(`${API_URL}/api/documents/parse`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ document_id: newDoc.id })
-      }).catch(err => console.error('Document parsing trigger failed:', err));
+      }).catch(() => { /* Parsing is async fire-and-forget */ });
 
       await fetchWizardDocs();
       toast('Document uploaded.', { type: 'success' });
@@ -177,9 +177,7 @@ export default function Onboarding() {
 
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-
-      const deleteRes = await fetch(`${apiUrl}/api/documents/${docId}`, {
+      const deleteRes = await fetch(`${API_URL}/api/documents/${docId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -240,7 +238,7 @@ export default function Onboarding() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      // API_URL is defined at module level
 
       const chatHistory = chatMessages
         .concat(userMsg)
@@ -256,7 +254,7 @@ export default function Onboarding() {
         workspace_id: user?.id || ''
       };
 
-      const response = await fetch(`${apiUrl}/api/ai/chat`, {
+      const response = await fetch(`${API_URL}/api/ai/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -415,7 +413,8 @@ export default function Onboarding() {
           name: isAI ? (aiConfig?.campaign_name || 'AI Onboarded Campaign') : (campaignName || `${brandName} Launch Campaign`),
           platform: cPlatform,
           description: `Outreach targeting: ${icpText}`,
-          status: 'Live'
+          // BUG-06 FIX: launch as Draft — user must connect Gmail and add prospects first
+          status: 'Draft'
         })
         .select()
         .single();
@@ -435,7 +434,7 @@ export default function Onboarding() {
       // 5. Refresh profile locally so route guards let the user in
       await refreshProfile();
 
-      toast("Campaign live. Outreach begins within the hour.", { type: 'success' });
+      toast("Setup complete! Connect Gmail in Settings → Platforms to activate your campaign.", { type: 'success' });
       navigate('/dashboard', { replace: true });
     } catch (err: any) {
       console.error(err);
@@ -454,44 +453,30 @@ export default function Onboarding() {
   };
 
   // Convert AI configurations
+  // MIN-03 FIX: Removed hardcoded 'DesignForge' placeholder data — now starts blank
   const handleEditFirst = () => {
     if (aiConfig) {
       setBrandData({
-        name: aiConfig.campaign_name || 'AI Onboarded Brand',
-        industry: aiConfig.target_industries?.[0] || 'Fintech',
-        whatYouSell: aiConfig.offer_description || 'Fintech sales and optimization services',
+        name: aiConfig.campaign_name || '',
+        industry: aiConfig.target_industries?.[0] || '',
+        whatYouSell: aiConfig.offer_description || '',
         brandVoice: 'Professional and direct',
       });
       setIcpData({
         industries: aiConfig.target_industries ? aiConfig.target_industries.join(', ') : '',
         roles: aiConfig.target_roles ? aiConfig.target_roles.join(', ') : '',
-        companySize: '10-200 employees',
+        companySize: '',
         geography: aiConfig.geography ? aiConfig.geography.join(', ') : '',
-        painPoints: 'Slow client acquisition, lack of structure',
+        painPoints: '',
         threshold: aiConfig.icp_threshold ? String(aiConfig.icp_threshold) : '7',
       });
     } else {
-      setBrandData({
-        name: 'DesignForge',
-        industry: 'Brand Identity',
-        whatYouSell: 'Brand identity packages for growing startups',
-        brandVoice: 'Minimal and precise',
-      });
-      setIcpData({
-        industries: 'E-commerce, SaaS, D2C',
-        roles: 'Founder, CEO, VP Growth',
-        companySize: '10-150 employees',
-        geography: 'North America, Europe',
-        painPoints: 'Inconsistent brand positioning, lack of structure',
-        threshold: '8',
-      });
+      // No AI config — start with blank fields so real user data is entered
+      setBrandData({ name: '', industry: '', whatYouSell: '', brandVoice: 'Professional and direct' });
+      setIcpData({ industries: '', roles: '', companySize: '', geography: '', painPoints: '', threshold: '7' });
     }
-    setPlatforms({
-      email: true,
-      linkedin: true,
-      instagram: false,
-    });
-    setCurrentStep(4); // Go directly to review step of wizard
+    setPlatforms({ email: true, linkedin: false, instagram: false });
+    setCurrentStep(4);
     setOnboardingState('wizard');
   };
 
@@ -499,7 +484,8 @@ export default function Onboarding() {
   const prevWizard = () => { if (currentStep > 0) setCurrentStep(currentStep - 1); };
 
   return (
-    <div className="min-h-screen bg-[var(--background-primary)] text-[var(--text-primary)] flex flex-col relative select-none">
+    // UX-05 FIX: removed select-none from root — users must be able to copy text
+    <div className="min-h-screen bg-[var(--background-primary)] text-[var(--text-primary)] flex flex-col relative">
       {/* Absolute top progress indicator (2px Teal Line) */}
       <div className="absolute top-0 left-0 w-full h-[2px] bg-[var(--border-subtle)] z-50">
         <div 
@@ -614,8 +600,11 @@ export default function Onboarding() {
                           </div>
                           <div className="p-3 bg-[var(--surface-elevated)] border border-[var(--border-subtle)] rounded-lg">
                             <p className="text-[9px] font-mono text-[var(--text-muted)] uppercase">Outbox channels</p>
-                            <p className="text-xs font-semibold mt-1">Email & LinkedIn</p>
-                            <p className="text-[10px] text-[var(--text-secondary)]">Daily limit: 65 messages</p>
+                            {/* MIN-04 FIX: derive from actual platforms state, not hardcoded strings */}
+                            <p className="text-xs font-semibold mt-1">
+                              {Object.entries(platforms).filter(([,v]) => v).map(([k]) => k.charAt(0).toUpperCase() + k.slice(1)).join(' & ') || 'Email'}
+                            </p>
+                            <p className="text-[10px] text-[var(--text-secondary)]">20 outreach emails per day on Free</p>
                           </div>
                           <div className="p-3 bg-[var(--surface-elevated)] border border-[var(--border-subtle)] rounded-lg">
                             <p className="text-[9px] font-mono text-[var(--text-muted)] uppercase">Outreach Limits</p>
@@ -756,7 +745,7 @@ export default function Onboarding() {
                     onClick={() => setShowConfigDrawer(true)}
                     className="text-[10px] font-bold text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors flex items-center gap-1 font-mono uppercase"
                   >
-                    <Settings size={11} />
+                    <SettingsIcon size={11} />
                     Config
                   </button>
                 </div>
@@ -854,26 +843,8 @@ export default function Onboarding() {
                     <button onClick={() => setShowConfigDrawer(false)} className="text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)]">Close</button>
                   </div>
                   <pre className="bg-[var(--surface-elevated)] p-4 border border-[var(--border-subtle)] rounded-lg font-mono text-[11px] text-[var(--text-secondary)] overflow-x-auto whitespace-pre-wrap leading-relaxed">
-                    {JSON.stringify(aiConfig || {
-                      session_id: "session_wa_05c98912",
-                      campaign_name: "Fintech Growth Q3",
-                      match_threshold: 8,
-                      outreach_channels: ["email", "linkedin"],
-                      limits: {
-                        daily_email: 40,
-                        daily_linkedin: 25,
-                      },
-                      brand_profile: {
-                        name: "DesignForge",
-                        voice: "Minimal & Precise",
-                        uploaded_documents: uploadedFile ? [uploadedFile] : [],
-                      },
-                      followup_schedule: {
-                        first: "3 days",
-                        second: "7 days",
-                        third: "14 days",
-                      }
-                    }, null, 2)}
+                    {/* MIN-03 FIX: only show real config, no fake placeholder data */}
+                    {aiConfig ? JSON.stringify(aiConfig, null, 2) : 'No configuration yet — complete the AI setup to see your campaign parameters.'}
                   </pre>
                 </div>
                 <button 
@@ -1285,6 +1256,7 @@ export default function Onboarding() {
   );
 }
 
+// CQ-05 FIX: renamed from 'Settings' to 'SlidersIcon' to avoid naming conflict with settings page
 // Simple custom component for Sliders
 function SlidersIcon({ size, className }: { size: number; className?: string }) {
   return (

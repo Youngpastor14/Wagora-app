@@ -16,6 +16,23 @@
     <meta property="og:title" content="Wagora — Precision OS" />
     <meta property="og:description" content="Pipeline automation. Outreach, conversations, and closing handled by Wagora." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://app.getwagora.com" />
+
+    <!-- Theme color for mobile browser chrome -->
+    <meta name="theme-color" content="#0D0F0C" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3fbf5" media="(prefers-color-scheme: light)" />
+
+    <!-- BUG-05 FIX: Apply saved theme synchronously BEFORE first paint to prevent flash -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('wagora-theme');
+          var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          var theme = (saved === 'dark' || saved === 'light') ? saved : preferred;
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
 
     <!-- Material Symbols for shell icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
