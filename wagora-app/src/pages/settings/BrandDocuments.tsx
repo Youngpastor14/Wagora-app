@@ -32,8 +32,8 @@ export default function BrandDocuments() {
 
       if (error) throw error;
       setDocs(data || []);
-    } catch (err: any) {
-      console.error('Failed to fetch documents:', err);
+    } catch {
+      // Silent fail — empty state is shown when docs can't be fetched
     } finally {
       setLoading(false);
     }

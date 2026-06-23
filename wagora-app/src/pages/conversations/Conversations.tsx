@@ -7,6 +7,8 @@ import { useToast } from '@/components/ui/Toast';
 import type { Database } from '@/lib/supabase/types';
 import { supabase } from '@/lib/supabase/client';
 
+const API_URL = import.meta.env.VITE_API_URL || 'https://api.getwagora.com';
+
 type Conversation = Database['public']['Tables']['conversations']['Row'];
 type Message = Database['public']['Tables']['messages']['Row'];
 
@@ -271,9 +273,8 @@ export default function Conversations() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-
-      const response = await fetch(`${apiUrl}/api/conversations/reply/${activeConversationId}`, {
+      
+      const response = await fetch(`${API_URL}/api/conversations/reply/${activeConversationId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

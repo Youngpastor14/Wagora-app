@@ -8,6 +8,7 @@ import Modal from '@/components/ui/Modal';
 import type { Database } from '@/lib/supabase/types';
 import { supabase } from '@/lib/supabase/client';
 
+const API_URL = import.meta.env.VITE_API_URL || 'https://api.getwagora.com';
 
 interface LineItem {
   id: string;
@@ -51,9 +52,8 @@ export default function Invoices() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
       
-      const response = await fetch(`${apiUrl}/api/invoices/generate-pdf`, {
+      const response = await fetch(`${API_URL}/api/invoices/generate-pdf`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -96,7 +96,6 @@ export default function Invoices() {
         setDownloadSuccessId(null);
       }, 2000);
     } catch (err: any) {
-      console.error(err);
       setDownloadErrorId(invoiceId);
       toast('PDF generation failed. Try again.', { type: 'error' });
     } finally {

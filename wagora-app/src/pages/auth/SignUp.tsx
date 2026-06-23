@@ -112,6 +112,8 @@ export default function SignUp() {
         <header className="mb-6 relative">
           <a 
             href={marketingUrl} 
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-1 mb-6"
           >
             ← Back to wagora.com

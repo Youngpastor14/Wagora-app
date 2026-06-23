@@ -191,8 +191,8 @@ export function useConversations() {
         .from('conversations')
         .update({ unread: false })
         .eq('id', conversationId);
-    } catch (err) {
-      console.error('Failed to mark conversation as read', err);
+    } catch {
+      // Silent fail — read state is non-critical
     }
   };
 

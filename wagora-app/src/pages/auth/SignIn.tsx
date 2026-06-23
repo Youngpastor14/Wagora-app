@@ -49,9 +49,7 @@ export default function SignIn() {
         setLoading(false);
       } else {
         // Sign-in succeeded. Navigate to the intended destination.
-        // AuthContext will handle session + profile in the background.
-        // Use 'from' if set, otherwise go to /dashboard.
-        navigate(from === '/dashboard' ? '/dashboard' : from, { replace: true });
+        navigate(from, { replace: true });
       }
     } catch (err: any) {
       setError(err?.message || 'An unexpected error occurred during sign in.');
@@ -82,7 +80,9 @@ export default function SignIn() {
       <main className="w-full max-w-[400px] bg-[var(--surface-card)] border border-[var(--border-subtle)] rounded-xl p-8 shadow-sm relative z-10">
         <header className="mb-8 relative">
           <a 
-            href={marketingUrl} 
+            href={marketingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-1 mb-6"
           >
             ← Back to wagora.com

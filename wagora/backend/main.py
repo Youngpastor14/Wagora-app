@@ -13,17 +13,11 @@ app = FastAPI(title="Wagora API", version="1.0.0")
 
 # Setup CORS Origins
 origins = [
-    # Local development
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "http://localhost:5175",
-    # Production — custom domains
-    "https://app.getwagora.com",
+    # Production custom domains — the ONLY origins allowed in production
     "https://getwagora.com",
     "https://www.getwagora.com",
-    # Production — Vercel preview URLs (keep for PR previews)
-    "https://wagora-app.vercel.app",
-    "https://wagora.vercel.app",
+    "https://app.getwagora.com",
+    "https://api.getwagora.com",
 ]
 if settings.FRONTEND_URL and settings.FRONTEND_URL not in origins:
     origins.append(settings.FRONTEND_URL)

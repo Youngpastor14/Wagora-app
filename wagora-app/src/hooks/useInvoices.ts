@@ -63,8 +63,8 @@ export function useInvoices() {
       } else {
         setTemplates(data || []);
       }
-    } catch (err: any) {
-      console.error('Failed to fetch templates:', err);
+    } catch {
+      // Silent fail — templates load non-critically
     } finally {
       setTemplatesLoading(false);
     }
@@ -157,9 +157,8 @@ export function useInvoices() {
       }
       setTemplates((prev) => [data, ...prev]);
       return data;
-    } catch (err: any) {
-      console.error('Failed to create template:', err);
-      throw err;
+    } catch {
+      throw new Error('Failed to create template');
     }
   };
 
@@ -178,9 +177,8 @@ export function useInvoices() {
       }
       setTemplates((prev) => prev.map((t) => (t.id === id ? data : t)));
       return data;
-    } catch (err: any) {
-      console.error('Failed to update template:', err);
-      throw err;
+    } catch {
+      throw new Error('Failed to update template');
     }
   };
 
