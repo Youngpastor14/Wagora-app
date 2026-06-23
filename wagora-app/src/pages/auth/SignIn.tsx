@@ -48,11 +48,19 @@ export default function SignIn() {
         setError(friendlyError);
         setLoading(false);
       } else {
-        // Sign-in succeeded. Navigate to the intended destination.
+        // MIN-09 FIX: simplified — the ternary was identical on both branches
         navigate(from, { replace: true });
       }
     } catch (err: any) {
-      setError(err?.message || 'An unexpected error occurred during sign in.');
+      // UX-04: distinguish network failures from auth failures
+      const isNetworkError = err?.message?.toLowerCase().includes('fetch') ||
+        err?.message?.toLowerCase().includes('network') ||
+        err?.name === 'TypeError';
+      setError(
+        isNetworkError
+          ? 'Connection failed. Check your internet and try again.'
+          : (err?.message || 'An unexpected error occurred during sign in.')
+      );
       setLoading(false);
     }
   };
@@ -85,7 +93,7 @@ export default function SignIn() {
             rel="noopener noreferrer"
             className="text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-1 mb-6"
           >
-            ← Back to wagora.com
+            ← Back to getwagora.com
           </a>
           <h1 className="font-clash text-[28px] font-semibold text-[var(--text-primary)] leading-tight tracking-tight">
             Welcome back.

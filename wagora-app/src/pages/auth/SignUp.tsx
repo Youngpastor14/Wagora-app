@@ -60,7 +60,14 @@ export default function SignUp() {
         });
       }
     } catch (err: any) {
-      setError(err?.message || 'An unexpected error occurred during sign up.');
+      const isNetworkError = err?.message?.toLowerCase().includes('fetch') ||
+        err?.message?.toLowerCase().includes('network') ||
+        err?.name === 'TypeError';
+      setError(
+        isNetworkError
+          ? 'Connection failed. Check your internet and try again.'
+          : (err?.message || 'An unexpected error occurred during sign up.')
+      );
       setLoading(false);
     }
   };
@@ -111,12 +118,12 @@ export default function SignUp() {
       <main className="w-full max-w-md bg-[var(--surface-card)] border border-[var(--border-subtle)] p-6 rounded-xl shadow-sm relative z-10">
         <header className="mb-6 relative">
           <a 
-            href={marketingUrl} 
+            href={marketingUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-1 mb-6"
           >
-            ← Back to wagora.com
+            ← Back to getwagora.com
           </a>
           <h1 className="font-clash text-2xl font-bold text-[var(--text-primary)] leading-tight tracking-tight">
             Build your pipeline.

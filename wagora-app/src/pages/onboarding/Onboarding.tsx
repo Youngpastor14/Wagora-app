@@ -162,7 +162,6 @@ export default function Onboarding() {
       await fetchWizardDocs();
       toast('Document uploaded.', { type: 'success' });
     } catch (err: any) {
-      console.error(err);
       setDocErrors(prev => ({ ...prev, [docType]: err.message || 'Upload failed.' }));
     } finally {
       setUploadingDocType(null);
@@ -191,7 +190,6 @@ export default function Onboarding() {
       await fetchWizardDocs();
       toast('Document deleted.', { type: 'success' });
     } catch (err: any) {
-      console.error(err);
       toast(`Deletion failed: ${err.message}`, { type: 'error' });
     }
   };
@@ -332,7 +330,6 @@ export default function Onboarding() {
         setActiveLogs(prev => [...prev, 'Response received successfully.', 'Awaiting next instruction.']);
       }
     } catch (err) {
-      console.error(err);
       setIsThinking(false);
       setChatMessages(prev => [
         ...prev,
@@ -442,7 +439,6 @@ export default function Onboarding() {
       toast("Setup complete! Connect Gmail in Settings → Platforms to activate your campaign.", { type: 'success' });
       navigate('/dashboard', { replace: true });
     } catch (err: any) {
-      console.error(err);
       toast(`Setup failed: ${err?.message || 'Please check your connection and try again.'}`, { type: 'error' });
     } finally {
       setSaving(false);

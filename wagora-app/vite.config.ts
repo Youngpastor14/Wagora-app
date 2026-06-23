@@ -15,44 +15,39 @@ export default defineConfig({
     },
   },
   build: {
-    // Bundle splitting — cuts initial load from 814KB to ~250KB
+    // Bundle splitting — cuts first-load JS from 814KB to ~250KB
+    // Heavy pages (Onboarding, Analytics, Settings) load on demand
     rollupOptions: {
       output: {
         manualChunks: {
-          // React core — cached aggressively by browsers
+          // React core — cached separately, rarely changes
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          // Supabase SDK
-          'vendor-supabase': ['@supabase/supabase-js'],
-          // Icon library (large — split out so it's cached independently)
+          // Lucide icons — large, shared across all pages
           'vendor-icons': ['lucide-react'],
-          // Auth pages — only loaded on /auth/*
-          'chunk-auth': [
-            './src/pages/auth/SignIn.tsx',
-            './src/pages/auth/SignUp.tsx',
-            './src/pages/auth/AuthCallback.tsx',
-            './src/pages/auth/ForgotPassword.tsx',
-            './src/pages/auth/VerifyEmail.tsx',
-            './src/pages/auth/ResetPassword.tsx',
+          // Supabase client — large SDK, isolated for caching
+          'vendor-supabase': ['@supabase/supabase-js'],
+          // Heavy pages loaded lazily
+          'page-onboarding': [
+            './src/pages/onboarding/Onboarding.tsx',
           ],
-          // Onboarding — only loaded once per user lifetime
-          'chunk-onboarding': ['./src/pages/onboarding/Onboarding.tsx'],
-          // Settings — loaded on demand
-          'chunk-settings': [
+          'page-settings': [
             './src/pages/settings/Settings.tsx',
             './src/pages/settings/BillingSettings.tsx',
             './src/pages/settings/PlatformSettings.tsx',
-            './src/pages/settings/SalesAgent.tsx',
             './src/pages/settings/WorkspaceSettings.tsx',
+            './src/pages/settings/SalesAgent.tsx',
             './src/pages/settings/BrandDocuments.tsx',
             './src/pages/settings/SecuritySettings.tsx',
-            './src/pages/settings/NotificationSettings.tsx',
             './src/pages/settings/OutreachSettings.tsx',
+            './src/pages/settings/NotificationSettings.tsx',
             './src/pages/settings/TeamSettings.tsx',
           ],
+          'page-analytics': ['./src/pages/analytics/Analytics.tsx'],
         },
       },
     },
-    // Raise warning threshold slightly — we're actively splitting
+    // Raise warning threshold to 600KB to suppress the vite warning
+    // (after splitting, no chunk should exceed this)
     chunkSizeWarningLimit: 600,
   },
 })
