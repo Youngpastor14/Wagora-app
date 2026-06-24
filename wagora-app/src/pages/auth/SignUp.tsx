@@ -222,7 +222,7 @@ export default function SignUp() {
               className="mt-1 border border-[var(--border-default)] rounded-[var(--radius-sm)] focus:ring-[var(--accent-primary)] bg-[var(--background-primary)] h-4 w-4 shrink-0 cursor-pointer"
             />
             <label htmlFor="terms" className="text-xs text-[var(--text-secondary)] leading-relaxed cursor-pointer select-none">
-              I agree to the <a href="#" className="font-semibold text-[var(--text-primary)] hover:underline">Terms of Service</a> and <a href="#" className="font-semibold text-[var(--text-primary)] hover:underline">Privacy Policy</a>.
+              I agree to the <a href="https://getwagora.com/terms" target="_blank" rel="noopener noreferrer" className="font-semibold text-[var(--text-primary)] hover:underline">Terms of Service</a> and <a href="https://getwagora.com/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-[var(--text-primary)] hover:underline">Privacy Policy</a>.
             </label>
           </div>
 
