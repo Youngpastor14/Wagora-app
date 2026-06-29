@@ -20,11 +20,12 @@ router = APIRouter(prefix="/outreach", tags=["Outreach"])
 async def launch_campaign_outreach(
     campaign_id: str,
     background_tasks: BackgroundTasks,
-    user_id: str = Depends(get_current_user)
+    current_user: dict = Depends(get_current_user)
 ):
     """
     Triggers an outreach batch for a campaign.
     """
+    user_id = current_user["user_id"]
     # 1. Fetch campaign and verify ownership
     campaign = await db_get_campaign(campaign_id)
     if not campaign:
@@ -134,11 +135,12 @@ async def launch_campaign_outreach(
 @router.get("/status/{campaign_id}")
 async def get_outreach_status(
     campaign_id: str,
-    user_id: str = Depends(get_current_user)
+    current_user: dict = Depends(get_current_user)
 ):
     """
     Returns current outreach status details for a campaign.
     """
+    user_id = current_user["user_id"]
     campaign = await db_get_campaign(campaign_id)
     if not campaign:
         raise HTTPException(status_code=404, detail="Campaign not found")

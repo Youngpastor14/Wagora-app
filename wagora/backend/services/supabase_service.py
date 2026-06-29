@@ -23,6 +23,20 @@ def get_supabase_client() -> Client:
         _supabase_client = create_client(settings.SUPABASE_URL, settings.SUPABASE_SERVICE_ROLE_KEY)
     return _supabase_client
 
+def get_user_supabase_client(user_token: Optional[str] = None) -> Client:
+    """
+    Returns a user-scoped Supabase client for RLS-protected queries.
+    Uses anon key and attaches postgrest.auth(user_token) for user context.
+    """
+    if not settings.SUPABASE_URL:
+        raise ValueError("SUPABASE_URL must be set in environment variables")
+    anon_key = os.getenv("SUPABASE_ANON_KEY", "") or settings.SUPABASE_SERVICE_ROLE_KEY
+    client = create_client(settings.SUPABASE_URL, anon_key)
+    if user_token:
+        client.postgrest.auth(user_token)
+    return client
+
+
 # =========================================================================
 # LOCAL FALLBACK DATABASE IMPLEMENTATION
 # =========================================================================

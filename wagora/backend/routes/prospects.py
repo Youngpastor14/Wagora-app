@@ -37,7 +37,8 @@ class UpdateProspectRequest(BaseModel):
     last_contact: Optional[str] = None
 
 @router.get("/")
-async def get_prospects(campaign_id: Optional[str] = None, user_id: str = Depends(get_current_user)):
+async def get_prospects(campaign_id: Optional[str] = None, current_user: dict = Depends(get_current_user)):
+    user_id = current_user["user_id"]
     try:
         res = await db_get_prospects(user_id, campaign_id)
         return res
@@ -46,7 +47,8 @@ async def get_prospects(campaign_id: Optional[str] = None, user_id: str = Depend
         raise HTTPException(status_code=500, detail="Failed to fetch prospects")
 
 @router.post("/")
-async def create_prospect(req: CreateProspectRequest, user_id: str = Depends(get_current_user)):
+async def create_prospect(req: CreateProspectRequest, current_user: dict = Depends(get_current_user)):
+    user_id = current_user["user_id"]
     try:
         import uuid
         prospect_id = req.id or str(uuid.uuid4())
@@ -70,7 +72,8 @@ async def create_prospect(req: CreateProspectRequest, user_id: str = Depends(get
         raise HTTPException(status_code=500, detail="Failed to create prospect")
 
 @router.patch("/{prospect_id}")
-async def update_prospect_endpoint(prospect_id: str, req: UpdateProspectRequest, user_id: str = Depends(get_current_user)):
+async def update_prospect_endpoint(prospect_id: str, req: UpdateProspectRequest, current_user: dict = Depends(get_current_user)):
+    user_id = current_user["user_id"]
     try:
         prospect = await db_get_prospect(prospect_id)
         if not prospect:
@@ -88,7 +91,8 @@ async def update_prospect_endpoint(prospect_id: str, req: UpdateProspectRequest,
         raise HTTPException(status_code=500, detail="Failed to update prospect")
 
 @router.delete("/{prospect_id}")
-async def delete_prospect_endpoint(prospect_id: str, user_id: str = Depends(get_current_user)):
+async def delete_prospect_endpoint(prospect_id: str, current_user: dict = Depends(get_current_user)):
+    user_id = current_user["user_id"]
     try:
         prospect = await db_get_prospect(prospect_id)
         if not prospect:
@@ -103,3 +107,4 @@ async def delete_prospect_endpoint(prospect_id: str, user_id: str = Depends(get_
     except Exception as e:
         logger.error(f"Failed to delete prospect: {e}")
         raise HTTPException(status_code=500, detail="Failed to delete prospect")
+

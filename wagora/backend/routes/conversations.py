@@ -17,10 +17,11 @@ class ReplyRequest(BaseModel):
     override_path: Optional[str] = None
 
 @router.get("/")
-async def get_conversations(user_id: str = Depends(get_current_user)):
+async def get_conversations(current_user: dict = Depends(get_current_user)):
     """
     Returns all conversations belonging to the authenticated user.
     """
+    user_id = current_user["user_id"]
     try:
         conversations = await db_get_conversations(user_id)
         return conversations
@@ -32,8 +33,9 @@ async def get_conversations(user_id: str = Depends(get_current_user)):
 async def generate_conversation_reply(
     conversation_id: str,
     req: ReplyRequest,
-    user_id: str = Depends(get_current_user)
+    current_user: dict = Depends(get_current_user)
 ):
+    user_id = current_user["user_id"]
     """
     Manually triggers AI reply generation for a conversation.
     """

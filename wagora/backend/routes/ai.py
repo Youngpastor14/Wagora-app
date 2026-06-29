@@ -30,11 +30,12 @@ class GenerateMessageRequest(BaseModel):
     channel: str
 
 @router.post("/chat")
-async def chat_endpoint(req: ChatRequest, user_id: str = Depends(get_current_user)):
+async def chat_endpoint(req: ChatRequest, current_user: dict = Depends(get_current_user)):
     """
     General AI chat endpoint used by onboarding setup and conversation handler.
     Enhances the system prompt with user's workspace settings and compiled brand documents.
     """
+    user_id = current_user["user_id"]
     ws_data = {}
     try:
         ws_data = await db_get_workspace_settings(user_id)
@@ -93,10 +94,11 @@ async def chat_endpoint(req: ChatRequest, user_id: str = Depends(get_current_use
     }
 
 @router.post("/qualify-prospect")
-async def qualify_prospect(req: QualifyRequest, user_id: str = Depends(get_current_user)):
+async def qualify_prospect(req: QualifyRequest, current_user: dict = Depends(get_current_user)):
     """
     Scores a prospect against the user's ICP.
     """
+    user_id = current_user["user_id"]
     prospect = req.prospect
     icp = req.icp_config
     
@@ -136,10 +138,11 @@ async def qualify_prospect(req: QualifyRequest, user_id: str = Depends(get_curre
     }
 
 @router.post("/generate-message")
-async def generate_message(req: GenerateMessageRequest, user_id: str = Depends(get_current_user)):
+async def generate_message(req: GenerateMessageRequest, current_user: dict = Depends(get_current_user)):
     """
     Generates a personalized outreach message for a prospect.
     """
+    user_id = current_user["user_id"]
     from services.supabase_service import db_get_profile, db_get_workspace_settings, db_get_active_agent
     profile = await db_get_profile(user_id)
     ws_data = await db_get_workspace_settings(user_id)

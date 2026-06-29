@@ -7,6 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from middleware.auth import get_current_user
 from services.supabase_service import (
     get_supabase_client,
+    get_user_supabase_client,
     db_get_brand_document,
     db_update_brand_document,
     db_get_brand_documents,
@@ -29,10 +30,11 @@ class CreateDocRequest(BaseModel):
     campaign_id: Optional[str] = None
 
 @router.get("/")
-async def get_documents_endpoint(campaign_id: Optional[str] = None, user_id: str = Depends(get_current_user)):
+async def get_documents_endpoint(campaign_id: Optional[str] = None, current_user: dict = Depends(get_current_user)):
     """
     Returns all brand documents for the user, optionally filtered by campaign.
     """
+    user_id = current_user["user_id"]
     try:
         docs = await db_get_brand_documents(user_id, campaign_id)
         return docs
@@ -40,10 +42,11 @@ async def get_documents_endpoint(campaign_id: Optional[str] = None, user_id: str
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/")
-async def create_document_endpoint(req: CreateDocRequest, user_id: str = Depends(get_current_user)):
+async def create_document_endpoint(req: CreateDocRequest, current_user: dict = Depends(get_current_user)):
     """
     Creates a new brand document record.
     """
+    user_id = current_user["user_id"]
     try:
         import uuid
         doc_data = {
@@ -63,10 +66,12 @@ async def create_document_endpoint(req: CreateDocRequest, user_id: str = Depends
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.delete("/{doc_id}")
-async def delete_document_endpoint(doc_id: str, user_id: str = Depends(get_current_user)):
+async def delete_document_endpoint(doc_id: str, current_user: dict = Depends(get_current_user)):
     """
     Deletes a brand document record.
     """
+    user_id = current_user["user_id"]
+    user_token = current_user["token"]
     try:
         doc = await db_get_brand_document(doc_id)
         if not doc:
@@ -76,7 +81,7 @@ async def delete_document_endpoint(doc_id: str, user_id: str = Depends(get_curre
             
         # Try deleting from Supabase
         try:
-            supabase = get_supabase_client()
+            supabase = get_user_supabase_client(user_token)
             supabase.table("brand_documents").delete().eq("id", doc_id).execute()
         except Exception:
             pass
@@ -93,10 +98,11 @@ async def delete_document_endpoint(doc_id: str, user_id: str = Depends(get_curre
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/parse")
-async def parse_document_endpoint(req: ParseRequest, user_id: str = Depends(get_current_user)):
+async def parse_document_endpoint(req: ParseRequest, current_user: dict = Depends(get_current_user)):
     """
     Downloads the file from Supabase storage, extracts its text, and saves it to the database.
     """
+    user_id = current_user["user_id"]
     # 1. Fetch document metadata and check ownership
     doc = await db_get_brand_document(req.document_id)
     if not doc:
@@ -156,10 +162,11 @@ async def parse_document_endpoint(req: ParseRequest, user_id: str = Depends(get_
         }
 
 @router.get("/context")
-async def get_compiled_context(campaign_id: Optional[str] = None, user_id: str = Depends(get_current_user)):
+async def get_compiled_context(campaign_id: Optional[str] = None, current_user: dict = Depends(get_current_user)):
     """
     Returns the compiled text context compiled from all active brand/campaign documents.
     """
+    user_id = current_user["user_id"]
     try:
         context = await build_ai_context(user_id, campaign_id)
         return {
@@ -169,3 +176,4 @@ async def get_compiled_context(campaign_id: Optional[str] = None, user_id: str =
     except Exception as e:
         logger.error(f"Failed to compile document context: {e}")
         raise HTTPException(status_code=500, detail=f"Failed to build context: {str(e)}")
+

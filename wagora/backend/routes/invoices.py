@@ -7,7 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 
 from middleware.auth import get_current_user
-from services.supabase_service import get_supabase_client
+from services.supabase_service import get_supabase_client, get_user_supabase_client
 from services.pdf_service import generate_invoice_pdf
 
 router = APIRouter(prefix="/invoices", tags=["Invoices"])
@@ -35,11 +35,13 @@ class CreateInvoiceRequest(BaseModel):
     due_at: Optional[str] = None
 
 @router.get("/")
-async def get_invoices(user_id: str = Depends(get_current_user)):
+async def get_invoices(current_user: dict = Depends(get_current_user)):
     """
     Returns all invoices for the authenticated user.
     """
-    supabase = get_supabase_client()
+    user_id = current_user["user_id"]
+    user_token = current_user["token"]
+    supabase = get_user_supabase_client(user_token)
     try:
         res = supabase.table("invoices").select("*").eq("user_id", user_id).order("created_at", desc=True).execute()
         return res.data or []
@@ -47,11 +49,13 @@ async def get_invoices(user_id: str = Depends(get_current_user)):
         raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
 
 @router.post("/")
-async def create_invoice(req: CreateInvoiceRequest, user_id: str = Depends(get_current_user)):
+async def create_invoice(req: CreateInvoiceRequest, current_user: dict = Depends(get_current_user)):
     """
     Creates a new invoice and generates invoice number in WGR-YYYY-NNN format sequentially.
     """
-    supabase = get_supabase_client()
+    user_id = current_user["user_id"]
+    user_token = current_user["token"]
+    supabase = get_user_supabase_client(user_token)
     try:
         # Determine year and generate prefix
         year = datetime.datetime.now().year
@@ -104,11 +108,13 @@ async def create_invoice(req: CreateInvoiceRequest, user_id: str = Depends(get_c
         raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
 
 @router.patch("/{invoice_id}/status")
-async def update_invoice_status(invoice_id: str, req: UpdateStatusRequest, user_id: str = Depends(get_current_user)):
+async def update_invoice_status(invoice_id: str, req: UpdateStatusRequest, current_user: dict = Depends(get_current_user)):
     """
     Updates the status of an invoice. If set to 'Paid', also updates the linked deal status to 'In delivery'.
     """
-    supabase = get_supabase_client()
+    user_id = current_user["user_id"]
+    user_token = current_user["token"]
+    supabase = get_user_supabase_client(user_token)
     try:
         # Fetch and verify ownership of the invoice
         inv_res = supabase.table("invoices").select("*").eq("id", invoice_id).execute()
@@ -138,10 +144,13 @@ async def update_invoice_status(invoice_id: str, req: UpdateStatusRequest, user_
         raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
 
 @router.post("/generate-pdf")
-async def generate_pdf_endpoint(req: GeneratePdfRequest, user_id: str = Depends(get_current_user)):
+async def generate_pdf_endpoint(req: GeneratePdfRequest, current_user: dict = Depends(get_current_user)):
     """
     Generates and returns a PDF for an invoice with ownership protection.
     """
+    user_id = current_user["user_id"]
+    user_token = current_user["token"]
+    # Use admin client for PDF generation as it reads across multiple tables (profiles, invoice_templates)
     supabase = get_supabase_client()
     try:
         # 1. Fetch invoice and verify ownership

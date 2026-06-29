@@ -7,10 +7,10 @@ supabase_client = None
 if settings.SUPABASE_URL and settings.SUPABASE_SERVICE_ROLE_KEY:
     supabase_client = create_client(settings.SUPABASE_URL, settings.SUPABASE_SERVICE_ROLE_KEY)
 
-async def get_current_user(authorization: str = Header(None)) -> str:
+async def get_current_user(authorization: str = Header(None)) -> dict:
     """
     Middleware dependency to verify the Supabase JWT token from the Authorization header.
-    Returns the user's UUID (str) on success, otherwise raises 401.
+    Returns a dict with 'user_id' and 'token' on success, otherwise raises 401.
     """
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(status_code=401, detail="Unauthorized")
@@ -25,6 +25,7 @@ async def get_current_user(authorization: str = Header(None)) -> str:
         response = supabase_client.auth.get_user(token)
         if not response or not response.user:
             raise HTTPException(status_code=401, detail="Invalid authorization token")
-        return response.user.id
+        return {"user_id": response.user.id, "token": token}
     except Exception as e:
         raise HTTPException(status_code=401, detail=f"Unauthorized: {str(e)}")
+

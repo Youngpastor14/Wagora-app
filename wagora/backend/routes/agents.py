@@ -18,14 +18,14 @@ class AgentSaveRequest(BaseModel):
     is_active: bool = True
 
 @router.get("/active")
-async def get_active_agent(user_id: str = Depends(get_current_user)):
+async def get_active_agent(current_user: dict = Depends(get_current_user)):
     """
     Returns the user's active sales agent.
     """
+    user_id = current_user["user_id"]
     try:
         agent = await db_get_active_agent(user_id)
         if not agent:
-            # Return empty structure or 404
             return {"status": "none", "agent": None}
         return {"status": "success", "agent": agent}
     except Exception as e:
@@ -33,10 +33,11 @@ async def get_active_agent(user_id: str = Depends(get_current_user)):
         raise HTTPException(status_code=500, detail="Failed to fetch active agent")
 
 @router.post("/")
-async def save_agent(req: AgentSaveRequest, user_id: str = Depends(get_current_user)):
+async def save_agent(req: AgentSaveRequest, current_user: dict = Depends(get_current_user)):
     """
     Saves a sales agent config and sets it as the active agent on the profile.
     """
+    user_id = current_user["user_id"]
     try:
         agent_data = {
             "id": req.id,

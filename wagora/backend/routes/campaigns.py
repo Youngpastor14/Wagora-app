@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
 
 from middleware.auth import get_current_user
-from services.supabase_service import get_supabase_client, db_get_campaign, db_update_campaign
+from services.supabase_service import get_supabase_client, get_user_supabase_client, db_get_campaign, db_update_campaign
 
 logger = logging.getLogger("wagora-api")
 router = APIRouter(prefix="/campaigns", tags=["Campaigns"])
@@ -32,13 +32,15 @@ class UpdateCampaignRequest(BaseModel):
     last_active: Optional[str] = None
 
 @router.get("/")
-async def get_campaigns(user_id: str = Depends(get_current_user)):
+async def get_campaigns(current_user: dict = Depends(get_current_user)):
     """
     Returns all campaigns belonging to the authenticated user.
     """
+    user_id = current_user["user_id"]
+    user_token = current_user["token"]
     try:
-        # Try Supabase query
-        supabase = get_supabase_client()
+        # Try Supabase query with user JWT
+        supabase = get_user_supabase_client(user_token)
         res = supabase.table("campaigns").select("*").eq("user_id", user_id).order("created_at", desc=True).execute()
         if res.data:
             return res.data
@@ -55,10 +57,12 @@ async def get_campaigns(user_id: str = Depends(get_current_user)):
     return results
 
 @router.post("/")
-async def create_campaign(req: CreateCampaignRequest, user_id: str = Depends(get_current_user)):
+async def create_campaign(req: CreateCampaignRequest, current_user: dict = Depends(get_current_user)):
     """
     Creates a new campaign.
     """
+    user_id = current_user["user_id"]
+    user_token = current_user["token"]
     import uuid
     campaign_id = req.id or str(uuid.uuid4())
     
@@ -78,9 +82,9 @@ async def create_campaign(req: CreateCampaignRequest, user_id: str = Depends(get
         "created_at": datetime.utcnow().isoformat() if "datetime" in globals() else None
     }
     
-    # Try inserting to Supabase
+    # Try inserting to Supabase with user JWT
     try:
-        supabase = get_supabase_client()
+        supabase = get_user_supabase_client(user_token)
         cleaned_data = {
             "id": campaign_id,
             "user_id": user_id,
@@ -107,10 +111,12 @@ async def create_campaign(req: CreateCampaignRequest, user_id: str = Depends(get
     return campaign_data
 
 @router.patch("/{campaign_id}")
-async def update_campaign_endpoint(campaign_id: str, req: UpdateCampaignRequest, user_id: str = Depends(get_current_user)):
+async def update_campaign_endpoint(campaign_id: str, req: UpdateCampaignRequest, current_user: dict = Depends(get_current_user)):
     """
     Updates campaign details.
     """
+    user_id = current_user["user_id"]
+    user_token = current_user["token"]
     campaign = await db_get_campaign(campaign_id)
     if not campaign:
         raise HTTPException(status_code=404, detail="Campaign not found")
@@ -122,19 +128,21 @@ async def update_campaign_endpoint(campaign_id: str, req: UpdateCampaignRequest,
     return res
 
 @router.delete("/{campaign_id}")
-async def delete_campaign_endpoint(campaign_id: str, user_id: str = Depends(get_current_user)):
+async def delete_campaign_endpoint(campaign_id: str, current_user: dict = Depends(get_current_user)):
     """
     Deletes a campaign.
     """
+    user_id = current_user["user_id"]
+    user_token = current_user["token"]
     campaign = await db_get_campaign(campaign_id)
     if not campaign:
         raise HTTPException(status_code=404, detail="Campaign not found")
     if campaign.get("user_id") != user_id:
         raise HTTPException(status_code=403, detail="Access forbidden")
         
-    # Try deleting from Supabase
+    # Try deleting from Supabase with user JWT
     try:
-        supabase = get_supabase_client()
+        supabase = get_user_supabase_client(user_token)
         supabase.table("campaigns").delete().eq("id", campaign_id).execute()
     except Exception:
         pass
@@ -152,11 +160,13 @@ async def delete_campaign_endpoint(campaign_id: str, user_id: str = Depends(get_
 async def campaign_launch_endpoint_alias(
     campaign_id: str,
     background_tasks: BackgroundTasks,
-    user_id: str = Depends(get_current_user)
+    current_user: dict = Depends(get_current_user)
 ):
+    user_id = current_user["user_id"]
     from routes.outreach import launch_campaign_outreach
     return await launch_campaign_outreach(
         campaign_id=campaign_id,
         background_tasks=background_tasks,
         user_id=user_id
     )
+
