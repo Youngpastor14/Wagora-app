@@ -22,6 +22,7 @@ interface AuthContextType {
   signOut: () => Promise<void>;
   resetPassword: (email: string) => Promise<{ error: AuthError | null }>;
   refreshProfile: () => Promise<void>;
+  markOnboardingComplete: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -74,6 +75,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const refreshProfile = useCallback(async () => {
     if (user) await fetchProfile(user.id);
   }, [user, fetchProfile]);
+
+  /**
+   * Synchronously patches the in-memory profile to mark onboarding complete.
+   * Must be called BEFORE navigate() so ProtectedRoute sees the updated value
+   * on its next render and does not redirect back to /onboarding.
+   */
+  const markOnboardingComplete = useCallback(() => {
+    setProfile((prev) => prev ? { ...prev, onboarding_completed: true } : prev);
+  }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -190,6 +200,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signOut,
       resetPassword,
       refreshProfile,
+      markOnboardingComplete,
     }}>
       {children}
     </AuthContext.Provider>

@@ -43,7 +43,7 @@ When you have all 5, respond with ONLY this JSON (no other text):
 export default function Onboarding() {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { user, refreshProfile } = useAuth();
+  const { user, markOnboardingComplete } = useAuth();
   const [saving, setSaving] = useState(false);
 
   // Onboarding modes: 'welcome' | 'select_mode' | 'wizard' | 'ai_chat'
@@ -433,8 +433,8 @@ export default function Onboarding() {
           meta: 'Live'
         });
 
-      // 5. Refresh profile locally so route guards let the user in
-      await refreshProfile();
+      // 5. Mark onboarding complete in React state so route guards let the user in
+      markOnboardingComplete();
 
       toast("Setup complete! Connect Gmail in Settings → Platforms to activate your campaign.", { type: 'success' });
       navigate('/dashboard', { replace: true });
@@ -451,6 +451,24 @@ export default function Onboarding() {
 
   const handleWizardLaunch = () => {
     saveOnboardingAndLaunch(false);
+  };
+
+  const handleFinishLater = async () => {
+    // 1. Persist to Supabase (best-effort — don't block navigation on failure)
+    if (user) {
+      // fire-and-forget: Supabase builder returns PromiseLike, wrap for .catch()
+      Promise.resolve(
+        supabase.from('profiles').update({ onboarding_completed: true }).eq('id', user.id)
+      ).catch(() => {/* silent — user still proceeds to dashboard */});
+    }
+
+    // 2. Synchronously patch React state BEFORE navigate so ProtectedRoute
+    //    sees isOnboardingComplete = true on its next render and does NOT
+    //    redirect back to /onboarding (which caused the fake page-refresh bug)
+    markOnboardingComplete();
+
+    // 3. Navigate to dashboard
+    navigate('/dashboard', { replace: true });
   };
 
   // Convert AI configurations
@@ -888,7 +906,7 @@ export default function Onboarding() {
                     Get started <ArrowRight size={16} />
                   </button>
                   <button 
-                    onClick={() => navigate('/dashboard')} 
+                    onClick={handleFinishLater} 
                     className="text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
                   >
                     Finish this later
@@ -962,7 +980,7 @@ export default function Onboarding() {
                 {/* Steps indicator */}
                 <div className="mb-6 flex items-center justify-between">
                   <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider">{currentStep + 1} of 5 · {['Brand', 'Ideal client', 'Platforms', 'Set Up Your AI', 'Review'][currentStep]}</p>
-                  <button onClick={() => navigate('/dashboard')} className="text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors">Finish this later</button>
+                  <button onClick={handleFinishLater} className="text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors">Finish this later</button>
                 </div>
                 
                 <div className="flex gap-1.5 mb-6">
