@@ -13,11 +13,17 @@ app = FastAPI(title="Wagora API", version="1.0.0")
 
 # Setup CORS Origins
 origins = [
-    # Production custom domains — the ONLY origins allowed in production
+    # Local development
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:5175",
+    # Production — custom domains
+    "https://app.getwagora.com",
     "https://getwagora.com",
     "https://www.getwagora.com",
-    "https://app.getwagora.com",
-    "https://api.getwagora.com",
+    # Production — Vercel preview URLs (keep for PR previews)
+    "https://wagora-app.vercel.app",
+    "https://wagora.vercel.app",
 ]
 if settings.FRONTEND_URL and settings.FRONTEND_URL not in origins:
     origins.append(settings.FRONTEND_URL)
@@ -32,7 +38,7 @@ app.add_middleware(
 )
 
 # Import and include all route routers
-from routes import ai, campaigns, prospects, outreach, conversations, invoices, webhooks, documents, agents, platforms
+from routes import ai, campaigns, prospects, outreach, conversations, invoices, webhooks, documents, agents, platforms, onboarding
 
 app.include_router(ai.router, prefix="/api")
 app.include_router(campaigns.router, prefix="/api")
@@ -44,6 +50,7 @@ app.include_router(webhooks.router, prefix="/api")
 app.include_router(documents.router, prefix="/api")
 app.include_router(agents.router, prefix="/api")
 app.include_router(platforms.router, prefix="/api")
+app.include_router(onboarding.router, prefix="/api")
 
 # Base Health Check Route
 @app.get("/")

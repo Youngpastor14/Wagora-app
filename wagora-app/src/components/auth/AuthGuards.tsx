@@ -22,7 +22,7 @@ interface ProtectedRouteProps {
  * on the FIRST render before any session is resolved.
  */
 export function ProtectedRoute({ children }: ProtectedRouteProps) {
-  const { user, loading, isOnboardingComplete } = useAuth();
+  const { user, profile, loading, isOnboardingComplete } = useAuth();
   const location = useLocation();
 
   // Show spinner only for the very first resolution (no cached session yet)
@@ -42,10 +42,14 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
   }
 
   // Redirect to onboarding if profile is loaded and onboarding is not done.
-  // If profile hasn't loaded yet (null), don't redirect — wait silently.
-  // This prevents flashing the onboarding screen for users who are already done.
+  // IMPORTANT: if profile is null (still fetching), do NOT redirect — wait silently.
+  // This prevents two race conditions:
+  //   a) Flashing onboarding screen for users who already completed it
+  //   b) Cancelling a navigate('/dashboard') triggered by markOnboardingComplete()
+  //      when profile hasn't arrived from Supabase yet
   if (
     !loading &&
+    profile !== null &&
     !isOnboardingComplete &&
     location.pathname !== '/onboarding'
   ) {

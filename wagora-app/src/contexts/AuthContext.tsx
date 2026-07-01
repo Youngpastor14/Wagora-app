@@ -80,9 +80,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
    * Synchronously patches the in-memory profile to mark onboarding complete.
    * Must be called BEFORE navigate() so ProtectedRoute sees the updated value
    * on its next render and does not redirect back to /onboarding.
+   *
+   * NOTE: Works even when profile is null (i.e. still loading). Spreads over
+   * an empty object so `onboarding_completed: true` is always set.
    */
   const markOnboardingComplete = useCallback(() => {
-    setProfile((prev) => prev ? { ...prev, onboarding_completed: true } : prev);
+    setProfile((prev) => ({ ...(prev ?? {}), onboarding_completed: true } as Profile));
   }, []);
 
   useEffect(() => {

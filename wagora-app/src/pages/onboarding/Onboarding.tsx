@@ -369,71 +369,52 @@ export default function Onboarding() {
 
     setSaving(true);
     try {
-      const brandName = isAI ? (aiConfig?.campaign_name || 'AI Onboarded Brand') : (brandData.name || 'My Brand');
-      const brandIndustry = isAI ? (aiConfig?.target_industries?.[0] || 'Fintech') : (brandData.industry || 'B2B');
-      const sellText = isAI ? (aiConfig?.offer_description || 'Fintech sales and optimization services') : brandData.whatYouSell;
-      const icpText = isAI 
+      // Get the current session JWT to pass to the backend
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token;
+      if (!token) throw new Error("Session expired. Please sign in again.");
+
+      // Build the payload for the backend
+      const brandName     = isAI ? (aiConfig?.campaign_name || 'AI Onboarded Brand')  : (brandData.name     || 'My Brand');
+      const brandIndustry = isAI ? (aiConfig?.target_industries?.[0] || 'B2B')        : (brandData.industry || 'B2B');
+      const sellText      = isAI ? (aiConfig?.offer_description || 'Services')         : brandData.whatYouSell;
+      const icpText       = isAI
         ? `Industries: ${aiConfig?.target_industries?.join(', ') || 'Any'}. Geography: ${aiConfig?.geography?.join(', ') || 'Any'}. Roles: ${aiConfig?.target_roles?.join(', ') || 'Any'}`
         : `Industries: ${icpData.industries || 'Any'}. Geography: ${icpData.geography || 'Any'}. Pain points: ${icpData.painPoints || 'None'}`;
 
-      // 1. Update profiles table
-      const { error: profileError } = await supabase
-        .from('profiles')
-        .update({
-          business_name: brandName,
-          industry: brandIndustry,
-          onboarding_completed: true
-        })
-        .eq('id', user.id);
-
-      if (profileError) throw new Error(profileError.message);
-
-      // 2. Update workspace_settings table
-      const { error: settingsError } = await supabase
-        .from('workspace_settings')
-        .update({
-          what_you_sell: sellText,
-          target_client_description: icpText,
-          connected_platforms: platforms
-        })
-        .eq('user_id', user.id);
-
-      if (settingsError) throw new Error(settingsError.message);
-
-      // 3. Create initial campaign
       const selectedPlatform = Object.keys(platforms).find(k => platforms[k as keyof typeof platforms]) || 'email';
-      const cPlatform = selectedPlatform.toLowerCase() === 'linkedin' 
-        ? 'LinkedIn' 
-        : selectedPlatform.toLowerCase() === 'instagram' 
-        ? 'Instagram' 
+      const cPlatform = selectedPlatform.toLowerCase() === 'linkedin'
+        ? 'LinkedIn'
+        : selectedPlatform.toLowerCase() === 'instagram'
+        ? 'Instagram'
         : 'Email';
-      
-      const { data: campaign, error: campaignError } = await supabase
-        .from('campaigns')
-        .insert({
-          user_id: user.id,
-          name: isAI ? (aiConfig?.campaign_name || 'AI Onboarded Campaign') : (campaignName || `${brandName} Launch Campaign`),
-          platform: cPlatform,
-          description: `Outreach targeting: ${icpText}`,
-          // BUG-06 FIX: launch as Draft — user must connect Gmail and add prospects first
-          status: 'Draft'
-        })
-        .select()
-        .single();
 
-      if (campaignError) throw new Error(campaignError.message);
+      // Single backend call — uses service role key to bypass RLS on profiles table
+      const res = await fetch(`${API_URL}/api/onboarding/complete`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          business_name:              brandName,
+          industry:                   brandIndustry,
+          what_you_sell:              sellText,
+          target_client_description:  icpText,
+          connected_platforms:        platforms,
+          campaign_name:              isAI ? (aiConfig?.campaign_name || 'AI Onboarded Campaign') : (campaignName || `${brandName} Launch Campaign`),
+          campaign_platform:          cPlatform,
+          campaign_description:       `Outreach targeting: ${icpText}`,
+        }),
+      });
 
-      // 4. Create initial activity
-      await supabase
-        .from('activities')
-        .insert({
-          user_id: user.id,
-          type: 'campaign_status',
-          message: `Campaign "${campaign.name}" has been launched successfully via autonomous setup.`,
-          meta: 'Live'
-        });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err?.detail || `Server error ${res.status}`);
+      }
 
-      // 5. Mark onboarding complete in React state so route guards let the user in
+      // Mark onboarding done in React state (synchronous) so ProtectedRoute
+      // lets us through before the profile refetch arrives from Supabase
       markOnboardingComplete();
 
       toast("Setup complete! Connect Gmail in Settings → Platforms to activate your campaign.", { type: 'success' });
@@ -444,6 +425,7 @@ export default function Onboarding() {
       setSaving(false);
     }
   };
+
 
   const handleLaunch = () => {
     saveOnboardingAndLaunch(true);
