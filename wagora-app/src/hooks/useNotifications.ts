@@ -91,8 +91,8 @@ export function useNotifications() {
       setNotifications((prev) =>
         prev.map((n) => (n.id === id ? { ...n, read: true } : n))
       );
-    } catch {
-      // Silent fail — notification read state is non-critical
+    } catch (err) {
+      console.error('Failed to mark notification as read:', err);
     }
   };
 
@@ -109,8 +109,8 @@ export function useNotifications() {
         throw new Error(updateError.message);
       }
       setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
-    } catch {
-      // Silent fail
+    } catch (err) {
+      console.error('Failed to mark all notifications as read:', err);
     }
   };
 
@@ -126,8 +126,8 @@ export function useNotifications() {
         throw new Error(deleteError.message);
       }
       setNotifications((prev) => prev.filter((n) => n.id !== id));
-    } catch {
-      // Silent fail
+    } catch (err) {
+      console.error('Failed to delete notification:', err);
     }
   };
 

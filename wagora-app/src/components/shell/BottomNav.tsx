@@ -11,7 +11,7 @@ const mobileNavItems = [
 
 export default function BottomNav() {
   return (
-    <nav className="sm:hidden fixed bottom-0 left-0 w-full h-16 bg-[color-mix(in_srgb,var(--surface-card)_90%,transparent)] backdrop-blur-md border-t border-[var(--border-default)] z-50 flex items-center justify-around px-2 pb-safe">
+    <nav className="sm:hidden fixed bottom-0 left-0 w-full bg-[color-mix(in_srgb,var(--surface-card)_92%,transparent)] backdrop-blur-md border-t border-[var(--border-default)] z-50 flex items-start justify-around px-2 pt-2 pb-safe-nav" style={{ minHeight: '4rem' }}>
       {mobileNavItems.map((item) => (
         <NavLink
           key={item.name}

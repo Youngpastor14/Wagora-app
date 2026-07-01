@@ -106,7 +106,7 @@ export default function SignUp() {
   return (
     <div className="w-full flex flex-col items-center gap-6">
       {/* Auth Card — same max-w and padding as SignIn */}
-      <main className="w-full max-w-[400px] bg-[var(--surface-card)] border border-[var(--border-subtle)] rounded-xl p-8 shadow-sm relative z-10">
+      <main className="w-full max-w-[400px] bg-[var(--surface-card)] border border-[var(--border-subtle)] rounded-xl p-6 sm:p-8 shadow-sm relative z-10">
         {/* Header — identical structure to SignIn */}
         <header className="mb-8 relative">
           <a

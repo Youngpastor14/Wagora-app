@@ -8,7 +8,6 @@ import Modal from '@/components/ui/Modal';
 import type { Database } from '@/lib/supabase/types';
 import { supabase } from '@/lib/supabase/client';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://api.getwagora.com';
 
 interface LineItem {
   id: string;
@@ -52,8 +51,9 @@ export default function Invoices() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
       
-      const response = await fetch(`${API_URL}/api/invoices/generate-pdf`, {
+      const response = await fetch(`${apiUrl}/api/invoices/generate-pdf`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -96,6 +96,7 @@ export default function Invoices() {
         setDownloadSuccessId(null);
       }, 2000);
     } catch (err: any) {
+      console.error(err);
       setDownloadErrorId(invoiceId);
       toast('PDF generation failed. Try again.', { type: 'error' });
     } finally {
@@ -264,8 +265,8 @@ export default function Invoices() {
         ))}
       </div>
 
-      {/* Invoices List Grid */}
-      <div className="bg-[var(--surface-card)] rounded-[var(--radius-lg)] border border-[var(--border-default)] shadow-[var(--shadow-card)] overflow-hidden">
+      {/* Invoices List — Desktop Table */}
+      <div className="hidden sm:block bg-[var(--surface-card)] rounded-[var(--radius-lg)] border border-[var(--border-default)] shadow-[var(--shadow-card)] overflow-hidden">
         <div className="p-4 border-b border-[var(--border-subtle)] bg-[var(--surface-elevated)]/30">
           <h3 className="font-clash text-sm font-bold text-[var(--text-primary)]">Billing History</h3>
         </div>
@@ -319,10 +320,51 @@ export default function Invoices() {
         </div>
       </div>
 
+      {/* Invoices List — Mobile Cards */}
+      <div className="sm:hidden">
+        {invoices.length === 0 ? (
+          <div className="bg-[var(--surface-card)] rounded-[var(--radius-lg)] border border-[var(--border-default)] p-8 text-center">
+            <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider font-semibold">No Invoices Drafted Yet</p>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {invoices.map(inv => (
+              <div key={inv.id} className="bg-[var(--surface-card)] p-4 rounded-[var(--radius-lg)] border border-[var(--border-default)] shadow-[var(--shadow-card)]">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <p className="text-xs font-mono font-bold text-[var(--text-muted)]">{inv.invoice_number}</p>
+                    <p className="text-sm font-semibold text-[var(--text-primary)] mt-0.5">{inv.client_name}</p>
+                    <p className="text-xs text-[var(--text-secondary)]">{inv.client_company || 'N/A'}</p>
+                  </div>
+                  <StatusBadge status={inv.status} />
+                </div>
+                <div className="flex items-center justify-between mt-3 pt-3 border-t border-[var(--border-subtle)]">
+                  <span className="font-bold font-mono text-[var(--text-primary)]">{formatCurrency(Number(inv.total || 0), inv.currency)}</span>
+                  <div className="flex items-center gap-2">
+                    <button 
+                      onClick={() => setShowPreviewId(inv.id)}
+                      className="p-1.5 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
+                    >
+                      <Eye size={16} />
+                    </button>
+                    <button 
+                      onClick={() => handleDeleteInvoice(inv.id)}
+                      className="p-1.5 text-[var(--text-muted)] hover:text-[var(--destructive)] transition-colors cursor-pointer"
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       {/* Invoice Creator Drawer (Slide-Over panel) */}
       {showBuilder && (
         <div className="fixed inset-0 z-50 flex justify-end bg-black/40 backdrop-blur-xs animate-fade-in">
-          <div className="w-full max-w-2xl bg-[var(--background-primary)] h-full overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between border-l border-[var(--border-default)] animate-slide-in-right">
+          <div className="w-full sm:max-w-2xl bg-[var(--background-primary)] h-full overflow-y-auto scroll-touch shadow-2xl p-5 sm:p-8 space-y-6 flex flex-col justify-between border-l border-[var(--border-default)] animate-slide-in-right">
             {/* Drawer Header */}
             <div className="flex items-center justify-between border-b border-[var(--border-default)] pb-4">
               <div className="flex items-center gap-2">
@@ -339,7 +381,7 @@ export default function Invoices() {
 
             {/* Form Fields */}
             <div className="flex-1 space-y-5 overflow-y-auto pr-1 py-1 custom-scrollbar">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-1">Client Name</label>
                   <input 
@@ -362,7 +404,7 @@ export default function Invoices() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-1">Client Email</label>
                   <input 
@@ -385,7 +427,7 @@ export default function Invoices() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 border-t border-[var(--border-subtle)] pt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[var(--border-subtle)] pt-4">
                 <div>
                   <label className="block text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-1">Currency</label>
                   <select 
@@ -437,32 +479,32 @@ export default function Invoices() {
 
                 <div className="space-y-2">
                   {lineItems.map((item, idx) => (
-                    <div key={item.id} className="flex gap-2 items-center animate-fade-in">
+                    <div key={item.id} className="flex gap-2 items-start animate-fade-in">
                       <input 
                         type="text" 
                         value={item.description} 
                         onChange={e => updateLineItem(item.id, 'description', e.target.value)}
                         placeholder="Description of deliverables..." 
-                        className="flex-1 px-3 py-1.5 bg-[var(--surface-elevated)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-xs text-[var(--text-primary)]"
+                        className="flex-1 min-w-0 px-3 py-1.5 bg-[var(--surface-elevated)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-xs text-[var(--text-primary)]"
                       />
                       <input 
                         type="number" 
                         value={item.quantity} 
                         onChange={e => updateLineItem(item.id, 'quantity', parseInt(e.target.value) || 0)}
                         placeholder="Qty" 
-                        className="w-16 px-2 py-1.5 bg-[var(--surface-elevated)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-xs text-[var(--text-primary)] font-mono text-center"
+                        className="w-14 px-2 py-1.5 bg-[var(--surface-elevated)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-xs text-[var(--text-primary)] font-mono text-center"
                       />
                       <input 
                         type="number" 
                         value={item.rate} 
                         onChange={e => updateLineItem(item.id, 'rate', parseFloat(e.target.value) || 0)}
                         placeholder="Rate" 
-                        className="w-24 px-2 py-1.5 bg-[var(--surface-elevated)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-xs text-[var(--text-primary)] font-mono text-right"
+                        className="w-20 sm:w-24 px-2 py-1.5 bg-[var(--surface-elevated)] border border-[var(--border-default)] rounded-[var(--radius-md)] text-xs text-[var(--text-primary)] font-mono text-right"
                       />
                       <button 
                         onClick={() => removeLineItem(item.id)}
                         disabled={lineItems.length === 1}
-                        className="p-1 text-[var(--text-muted)] hover:text-[var(--destructive)] disabled:opacity-30 disabled:hover:text-[var(--text-muted)] transition-colors cursor-pointer"
+                        className="p-1.5 text-[var(--text-muted)] hover:text-[var(--destructive)] disabled:opacity-30 disabled:hover:text-[var(--text-muted)] transition-colors cursor-pointer shrink-0"
                       >
                         <Trash2 size={13} />
                       </button>
@@ -512,7 +554,7 @@ export default function Invoices() {
             </div>
 
             {/* Mock PDF Document */}
-            <div className="p-6 bg-white text-black border border-[var(--border-default)] rounded-[var(--radius-sm)] shadow-xs space-y-6 font-sans">
+            <div className="p-4 sm:p-6 bg-white text-black border border-[var(--border-default)] rounded-[var(--radius-sm)] shadow-xs space-y-4 sm:space-y-6 font-sans max-h-[50vh] sm:max-h-none overflow-y-auto">
               <div className="flex justify-between items-start">
                 <div>
                   <h1 className="font-bold text-lg tracking-tight uppercase">WAGORA INC</h1>

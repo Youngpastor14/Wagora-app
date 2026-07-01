@@ -96,7 +96,7 @@ export default function TopBar() {
 
           {/* Notification Dropdown */}
           {showNotifications && (
-            <div className="absolute right-0 top-full mt-2 w-80 bg-[var(--surface-card)] border border-[var(--border-default)] rounded-[var(--radius-lg)] shadow-[var(--shadow-modal)] overflow-hidden animate-scale-in z-50">
+            <div className="absolute right-0 top-full mt-2 w-[min(320px,calc(100vw-2rem))] bg-[var(--surface-card)] border border-[var(--border-default)] rounded-[var(--radius-lg)] shadow-[var(--shadow-modal)] overflow-hidden animate-scale-in z-50">
               <div className="p-3 border-b border-[var(--border-subtle)] flex items-center justify-between">
                 <h3 className="text-sm font-bold text-[var(--text-primary)]">Notifications</h3>
                 <button

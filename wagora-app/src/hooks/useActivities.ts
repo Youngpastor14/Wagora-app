@@ -61,7 +61,7 @@ export function useActivities(limit = 20) {
       setActivities((prev) => [data, ...prev].slice(0, limit));
       return data;
     } catch (err: any) {
-      // Non-critical — activity write failure is silent
+      console.error('Failed to add activity:', err);
       throw err;
     }
   };

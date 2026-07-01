@@ -144,8 +144,8 @@ export default function CallsManager() {
         ))}
       </div>
 
-      {/* Calls Log Table */}
-      <div className="bg-[var(--surface-card)] rounded-[var(--radius-lg)] border border-[var(--border-default)] shadow-[var(--shadow-card)] overflow-hidden">
+      {/* Calls Log — Desktop Table */}
+      <div className="hidden sm:block bg-[var(--surface-card)] rounded-[var(--radius-lg)] border border-[var(--border-default)] shadow-[var(--shadow-card)] overflow-hidden">
         <div className="p-4 border-b border-[var(--border-subtle)] bg-[var(--surface-elevated)]/30">
           <h3 className="font-clash text-sm font-bold text-[var(--text-primary)]">Call History</h3>
         </div>
@@ -199,10 +199,34 @@ export default function CallsManager() {
         </div>
       </div>
 
+      {/* Calls Log — Mobile Cards */}
+      <div className="sm:hidden space-y-3">
+        {callLogs.map(call => (
+          <div
+            key={call.id}
+            onClick={() => setSelectedCallId(call.id)}
+            className="bg-[var(--surface-card)] p-4 rounded-[var(--radius-lg)] border border-[var(--border-default)] shadow-[var(--shadow-card)] cursor-pointer hover:shadow-[var(--shadow-elevated)] transition-shadow"
+          >
+            <div className="flex items-start justify-between mb-2">
+              <div>
+                <p className="text-sm font-semibold text-[var(--text-primary)]">{call.clientName}</p>
+                <p className="text-xs text-[var(--text-muted)]">{call.clientCompany}</p>
+              </div>
+              <StatusBadge status={call.status === 'completed' ? 'Complete' : call.status === 'scheduled' ? 'Call booked' : 'Paused'} />
+            </div>
+            <div className="flex items-center gap-3 mt-3 pt-3 border-t border-[var(--border-subtle)]">
+              <span className="text-[10px] font-mono text-[var(--text-muted)]">{call.scheduledAt}</span>
+              {call.duration && <span className="text-[10px] text-[var(--text-muted)]">· {call.duration}</span>}
+              {call.outcome && <span className="ml-auto">{getOutcomeBadge(call.outcome)}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* Call Details / AI Transcripts Slider Drawer */}
       {selectedCallId && activeCall && (
         <div className="fixed inset-0 z-50 flex justify-end bg-black/40 backdrop-blur-xs animate-fade-in">
-          <div className="w-full max-w-2xl bg-[var(--background-primary)] h-full overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between border-l border-[var(--border-default)] animate-slide-in-right">
+        <div className="w-full sm:max-w-2xl bg-[var(--background-primary)] h-full overflow-y-auto scroll-touch shadow-2xl p-5 sm:p-8 space-y-6 flex flex-col justify-between border-l border-[var(--border-default)] animate-slide-in-right">
             
             {/* Header */}
             <div className="flex items-center justify-between border-b border-[var(--border-default)] pb-4">

@@ -3,9 +3,6 @@ import { Loader2, ShieldAlert, Sparkles, User, Info } from 'lucide-react';
 import { useToast } from '@/components/ui/Toast';
 import { supabase } from '@/lib/supabase/client';
 
-// Domain fix: single source of truth
-const API_URL = import.meta.env.VITE_API_URL || 'https://api.getwagora.com';
-
 export default function SalesAgent() {
   const { toast } = useToast();
   const [loading, setLoading] = useState(true);
@@ -28,7 +25,9 @@ export default function SalesAgent() {
         // Get user profile first for business name
         const { data: { session } } = await supabase.auth.getSession();
         const token = session?.access_token;
-        const profileRes = await fetch(`${API_URL}/api/prospects/`, {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
+        const profileRes = await fetch(`${apiUrl}/api/prospects/`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }); // Standard api call to verify connection and get data if needed, or query supabase auth
         const user = session?.user;
@@ -40,7 +39,7 @@ export default function SalesAgent() {
         }
 
         // Fetch active agent settings
-        const agentRes = await fetch(`${API_URL}/api/agents/active`, {
+        const agentRes = await fetch(`${apiUrl}/api/agents/active`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (agentRes.ok) {
@@ -55,8 +54,8 @@ export default function SalesAgent() {
             setDisclosureMode(ag.disclosure_mode);
           }
         }
-      } catch {
-        // Non-critical — settings load failure handled gracefully by form defaults
+      } catch (err) {
+        console.error('Failed to load agent settings:', err);
       } finally {
         setLoading(false);
       }
@@ -73,7 +72,9 @@ export default function SalesAgent() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const response = await fetch(`${API_URL}/api/agents/`, {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
+      const response = await fetch(`${apiUrl}/api/agents/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -11,8 +11,7 @@ import { supabase } from './supabase/client';
 
 /** The deployed backend URL. Set VITE_API_URL in Vercel's env vars. */
 export const API_BASE_URL =
-  import.meta.env.VITE_API_URL || 'https://api.getwagora.com';
-
+  import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 /**
  * Get the current user's Bearer token from Supabase session.

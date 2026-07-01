@@ -21,7 +21,7 @@ FROM public.plan_limits
 ORDER BY email_per_day ASC;
 -- Expected order:
 --   free    | 20
---   starter | 100
+--   starter | 50
 --   pro     | 100
 --   growth  | 300
 --   agency  | 1000

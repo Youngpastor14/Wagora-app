@@ -187,7 +187,7 @@ export default function Analytics() {
         /* Metric Charts View (Normal State) */
         <div className="space-y-6 flex-1">
           {/* Metric Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
             {metrics.map((m, i) => (
               <div key={i} className="bg-[var(--surface-card)] p-4 rounded-[var(--radius-lg)] border border-[var(--border-default)] shadow-[var(--shadow-card)]">
                 <div className="flex items-center gap-2 mb-2">

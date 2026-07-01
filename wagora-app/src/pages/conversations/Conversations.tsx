@@ -7,8 +7,6 @@ import { useToast } from '@/components/ui/Toast';
 import type { Database } from '@/lib/supabase/types';
 import { supabase } from '@/lib/supabase/client';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://api.getwagora.com';
-
 type Conversation = Database['public']['Tables']['conversations']['Row'];
 type Message = Database['public']['Tables']['messages']['Row'];
 
@@ -273,8 +271,9 @@ export default function Conversations() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      
-      const response = await fetch(`${API_URL}/api/conversations/reply/${activeConversationId}`, {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
+      const response = await fetch(`${apiUrl}/api/conversations/reply/${activeConversationId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -300,7 +299,7 @@ export default function Conversations() {
 
   if (loadingConversations) {
     return (
-      <div className="h-[calc(100vh-64px)] flex items-center justify-center">
+      <div className="h-[calc(100vh-64px-4.5rem)] sm:h-[calc(100vh-64px)] flex items-center justify-center">
         <Loader2 className="animate-spin text-[var(--accent-primary)]" size={32} />
       </div>
     );
@@ -316,7 +315,7 @@ export default function Conversations() {
   }
 
   return (
-    <div className="h-[calc(100vh-64px)] flex flex-col p-4 sm:p-6 lg:p-8">
+    <div className="flex flex-col p-4 sm:p-6 lg:p-8" style={{ height: 'calc(100vh - 64px - env(safe-area-inset-bottom, 0px))' }}>
       {/* Mobile: Show thread or list */}
       <div className="sm:hidden flex-1 flex flex-col">
         {mobileShowThread && selectedConv ? (

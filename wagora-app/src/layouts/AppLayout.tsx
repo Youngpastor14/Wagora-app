@@ -11,14 +11,14 @@ export default function AppLayout() {
       <SideNav />
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col min-h-screen pb-16 sm:pb-0 sm:ml-20 lg:ml-64 transition-all duration-300">
+      <main className="flex-1 flex flex-col min-h-screen mobile-content-safe sm:pb-0 sm:ml-20 lg:ml-64 transition-all duration-300">
         <TopBar />
         
         {/* Verification Banner (shown if email is unverified) */}
         <VerificationBanner />
         
         {/* Scrollable Content Canvas */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto scroll-touch">
           <Outlet />
         </div>
       </main>

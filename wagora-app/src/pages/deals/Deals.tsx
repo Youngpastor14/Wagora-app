@@ -20,7 +20,7 @@ const columns: { label: Deal['status']; title: string; color: string }[] = [
 export default function Deals() {
   const { toast } = useToast();
   const { deals, loading, error, updateDeal } = useDeals();
-  const [viewMode, setViewMode] = useState<'list' | 'pipeline'>('pipeline');
+  const [viewMode, setViewMode] = useState<'list' | 'pipeline'>('list');
   const [selectedDealId, setSelectedDealId] = useState<string | null>(null);
   const [dragOverCol, setDragOverCol] = useState<string | null>(null);
   const [actionLoading, setActionLoading] = useState(false);
@@ -214,7 +214,10 @@ export default function Deals() {
         </>
       ) : (
         /* Kanban Pipeline View */
-        <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-thin">
+        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+          {/* Mobile notice */}
+          <p className="sm:hidden text-xs text-[var(--text-muted)] mb-3 italic">Tip: Scroll horizontally to view all columns. Switch to List view for easier mobile browsing.</p>
+          <div className="flex gap-4 pb-4 min-w-max sm:min-w-0">
           {columns.map(col => {
             const colDeals = deals.filter(d => d.status === col.label);
             const isDraggingOver = dragOverCol === col.label;
@@ -297,6 +300,7 @@ export default function Deals() {
               </div>
             );
           })}
+          </div>
         </div>
       )}
 

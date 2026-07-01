@@ -104,33 +104,35 @@ export default function PlatformSettings() {
         <h2 className="font-clash font-bold text-[var(--text-primary)] mb-4">Platforms</h2>
         <div className="space-y-4 font-sans">
           {platforms.map(p => (
-            <div key={p.id} className="flex items-center gap-4 p-4 rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--surface-elevated)]">
-              <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--surface-card)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
-                <p.icon size={20} className="text-[var(--text-secondary)]" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-semibold text-[var(--text-primary)]">{p.name}</h3>
-                  {p.connected ? (
-                    <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--success)]">
-                      <Check size={10} /> Connected
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--text-muted)]">
-                      <WifiOff size={10} /> Not connected
-                    </span>
+            <div key={p.id} className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-4 rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--surface-elevated)]">
+              <div className="flex items-center gap-3 flex-1 min-w-0">
+                <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--surface-card)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
+                  <p.icon size={20} className="text-[var(--text-secondary)]" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-sm font-semibold text-[var(--text-primary)]">{p.name}</h3>
+                    {p.connected ? (
+                      <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--success)]">
+                        <Check size={10} /> Connected
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--text-muted)]">
+                        <WifiOff size={10} /> Not connected
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs text-[var(--text-muted)] mt-0.5">{p.description}</p>
+                  {p.connected && p.account && (
+                    <p className="text-xs text-[var(--text-secondary)] mt-1">Connected as {p.account}</p>
                   )}
                 </div>
-                <p className="text-xs text-[var(--text-muted)] mt-0.5">{p.description}</p>
-                {p.connected && p.account && (
-                  <p className="text-xs text-[var(--text-secondary)] mt-1">Connected as {p.account}</p>
-                )}
               </div>
               {p.connected ? (
                 <button
                   onClick={() => setDisconnectId(p.id)}
                   disabled={saving}
-                  className="px-3 py-1.5 text-xs font-bold rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--surface-card)] text-[var(--text-secondary)] hover:text-[var(--destructive)] hover:border-[var(--destructive)] transition-colors cursor-pointer disabled:opacity-50"
+                  className="w-full sm:w-auto px-3 py-2 sm:py-1.5 text-xs font-bold rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--surface-card)] text-[var(--text-secondary)] hover:text-[var(--destructive)] hover:border-[var(--destructive)] transition-colors cursor-pointer disabled:opacity-50"
                 >
                   Disconnect
                 </button>
@@ -138,13 +140,14 @@ export default function PlatformSettings() {
                 <button 
                   onClick={() => { setConnectId(p.id); setAccountInput(''); }}
                   disabled={saving}
-                  className="px-3 py-1.5 text-xs font-bold rounded-[var(--radius-md)] bg-[var(--accent-primary)] text-white hover:bg-[var(--accent-primary-hover)] transition-colors cursor-pointer disabled:opacity-50"
+                  className="w-full sm:w-auto px-3 py-2 sm:py-1.5 text-xs font-bold rounded-[var(--radius-md)] bg-[var(--accent-primary)] text-white hover:bg-[var(--accent-primary-hover)] transition-colors cursor-pointer disabled:opacity-50"
                 >
                   Connect account
                 </button>
               )}
             </div>
           ))}
+
         </div>
       </div>
 

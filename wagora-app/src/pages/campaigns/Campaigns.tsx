@@ -11,7 +11,6 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase/client';
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://api.getwagora.com';
 const statusFilters = ['All', 'Live', 'Paused', 'Draft', 'Complete', 'Needs attention'];
 
 export default function Campaigns() {
@@ -59,7 +58,7 @@ export default function Campaigns() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = API_URL;
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
       const response = await fetch(`${apiUrl}/api/documents/?campaign_id=${campId}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -68,7 +67,7 @@ export default function Campaigns() {
         setCampaignDocs(data);
       }
     } catch (err) {
-      // Silently fail
+      console.error('Failed to fetch campaign documents:', err);
     }
   };
 
@@ -79,7 +78,7 @@ export default function Campaigns() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = API_URL;
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
       const res = await fetch(`${apiUrl}/api/platforms/gmail/status`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -152,7 +151,7 @@ export default function Campaigns() {
 
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = API_URL;
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
       const createRes = await fetch(`${apiUrl}/api/documents/`, {
         method: 'POST',
@@ -183,11 +182,12 @@ export default function Campaigns() {
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ document_id: newDoc.id })
-      }).catch(() => { /* fire-and-forget */ });
+      }).catch(err => console.error('Document parsing trigger failed:', err));
 
       await fetchCampaignDocs(tempCampaignId);
       toast('Document uploaded.', { type: 'success' });
     } catch (err: any) {
+      console.error(err);
       setDocErrors(prev => ({ ...prev, [docType]: err.message || 'Upload failed.' }));
     } finally {
       setUploadingDocType(null);
@@ -202,7 +202,7 @@ export default function Campaigns() {
 
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = API_URL;
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
       const deleteRes = await fetch(`${apiUrl}/api/documents/${docId}`, {
         method: 'DELETE',
@@ -218,6 +218,7 @@ export default function Campaigns() {
       await fetchCampaignDocs(tempCampaignId);
       toast('Document deleted.', { type: 'success' });
     } catch (err: any) {
+      console.error(err);
       toast(`Deletion failed: ${err.message}`, { type: 'error' });
     }
   };
@@ -230,7 +231,7 @@ export default function Campaigns() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = API_URL;
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
       const response = await fetch(`${apiUrl}/api/outreach/status/${campaignId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -241,7 +242,7 @@ export default function Campaigns() {
         setOutreachStatus(data);
       }
     } catch (err) {
-      // Silently fail
+      console.error('Failed to fetch outreach status:', err);
     }
   };
 
@@ -267,7 +268,7 @@ export default function Campaigns() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
-      const apiUrl = API_URL;
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
       const response = await fetch(`${apiUrl}/api/outreach/launch/${campaignId}`, {
         method: 'POST',
@@ -309,7 +310,8 @@ export default function Campaigns() {
         setLaunchError(String(msg));
       }
     } catch (err: any) {
-      toast(err?.message || 'An error occurred.', { type: 'error' });
+      console.error(err);
+      toast(err.message || 'Network error occurred.', { type: 'error' });
     } finally {
       setActionLoading(false);
     }

@@ -85,7 +85,7 @@ export default function SignIn() {
   return (
     <div className="w-full flex flex-col items-center gap-6">
       {/* Auth Card */}
-      <main className="w-full max-w-[400px] bg-[var(--surface-card)] border border-[var(--border-subtle)] rounded-xl p-8 shadow-sm relative z-10">
+      <main className="w-full max-w-[400px] bg-[var(--surface-card)] border border-[var(--border-subtle)] rounded-xl p-6 sm:p-8 shadow-sm relative z-10">
         <header className="mb-8 relative">
           <a 
             href={marketingUrl}
